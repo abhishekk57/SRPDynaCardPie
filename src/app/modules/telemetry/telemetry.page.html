@@ -1,0 +1,83 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar class="header">
+    <ion-row slot="start">
+      <ion-icon name="cloud" style="font-size: 25px; margin-top: 5%"></ion-icon>
+      <ion-list>
+        <ion-item class="header">
+          <ion-select aria-label="Favorite Fruit" value="test">
+            <ion-select-option value="test">App1</ion-select-option>
+            <ion-select-option value="banana">App2</ion-select-option>
+            <ion-select-option value="orange">App3</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-label style="align-self: center">App Name</ion-label>
+    </ion-row>
+
+    <ion-row slot="end" class="header-icon">
+      <ion-icon name="help-circle-outline" style="font-size: 25px"></ion-icon>
+      <ion-icon name="notifications-outline" style="font-size: 25px"></ion-icon>
+    </ion-row>
+  </ion-toolbar>
+</ion-header> -->
+
+
+<app-common-header [title]="CurrenPageTitle"></app-common-header>
+
+<ion-content>
+  <ion-header collapse="fill">
+    <ion-item class="headerTitle">
+      <ion-label style ="font-size: 16px">Well List</ion-label>
+      <ion-row style="display: flex; justify-content: end">
+        <ion-button shape="round">Create Gateway</ion-button>
+        <ion-icon
+          name="chatbox-outline"
+          style="font-size: 25px; margin-top: 5%"
+        ></ion-icon>
+      </ion-row>
+    </ion-item>
+
+    <ion-item class="headerTitle">
+      <ion-select style ="font-size: 16px"
+        label="Telemetry & Control"
+        label-placement="fill"
+        placeholder="Telemetry"
+      >
+        <ion-select-option value="1">Telemetry 1</ion-select-option>
+        <ion-select-option value="2">Telemetry 2</ion-select-option>
+        <ion-select-option value="3">Telemetry 3</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-header>
+
+  <ion-content>
+    <ion-card
+      style="
+        background: #131629;
+        box-shadow: 0.2px 0px 1px 2px #8b90ad, 0 1px 0px 0 #8b90ad;
+      "
+      *ngFor="let item of [1,2,3,4,5]; let index"
+    >
+      <ion-card-content>
+        <ion-card-subtitle style="color: #fff;font-size: 18px"
+          >Chord_SRP_Test7-1H2</ion-card-subtitle
+        >
+        <!-- <ion-label style="color: #fff; font-size: 18px !important"
+            >Chord_SRP_Test7-1H2</ion-label
+          > -->
+        <ion-label
+          [routerLink]="['/telemetry/telemetry-details']"
+          style="color: #fff;font-size: 18px"
+          >Naveen_801</ion-label
+        >
+        <ion-row style ="margin-top: 2%;">
+          <ion-icon name="logo-ionic" color="primary"></ion-icon>
+          <ion-label style="color: #fff; font-size: 12px"
+            >Operational</ion-label
+          >
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-content>

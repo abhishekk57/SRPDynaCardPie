@@ -1,0 +1,76 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-row slot="start">
+      <ion-icon name="cloud" style="font-size: 25px; margin-top: 5%"></ion-icon>
+      <ion-list>
+        <ion-item color="primary">
+          <ion-select aria-label="Favorite Fruit" value="test">
+            <ion-select-option value="test">App1</ion-select-option>
+            <ion-select-option value="banana">App2</ion-select-option>
+            <ion-select-option value="orange">App3</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-label style="align-self: center">App Name</ion-label>
+    </ion-row>
+
+    <ion-row slot="end" class="header-icon">
+      <ion-icon name="help-circle-outline" style="font-size: 25px"></ion-icon>
+      <ion-icon name="notifications-outline" style="font-size: 25px"></ion-icon>
+    </ion-row>
+  </ion-toolbar>
+</ion-header> -->
+
+<app-common-header [title]="CurrenPageTitle"></app-common-header>
+
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <app-sub-header [textTitle]="titleData"></app-sub-header>
+  </div>
+  <!-- <ion-header collapse="fill">
+    <ion-item color="primary">
+      <ion-label>Notification</ion-label>
+      <ion-row style="display: flex; justify-content: end">
+        <ion-icon name="search-outline" style="font-size: 25px"></ion-icon>
+        <ion-icon
+          name="options-outline"
+          style="font-size: 25px"
+        ></ion-icon>
+        <ion-icon name="chatbox-outline" style="font-size: 25px"></ion-icon>
+      </ion-row>
+    </ion-item>
+  </ion-header> -->
+
+  <ion-content>
+    <ion-card
+      style="
+        background: #131629;
+        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+      "
+      *ngFor="let item of [1,2,3,4,5]; let index"
+    >
+      <ion-card-content>
+        <ion-label style="color: #fff; font-size: 18px !important"
+            >Wells Name 001</ion-label
+          >
+        <ion-card-subtitle
+          style="color: #fff; font-size: 10px !important"
+          >2023-07-26 5:31:30</ion-card-subtitle
+        >
+        <ion-label
+          text-wrap 
+          class = "cardInfo"
+          >Flatlining - Description will be seen here with details content like well looks good some measures
+        </ion-label>
+
+        <ion-row>
+          <ion-icon name="logo-ionic" color="danger"></ion-icon>
+          <ion-label style="color: #fff; font-size: 12px !important"
+            >High</ion-label
+          >
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-content>

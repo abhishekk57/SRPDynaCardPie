@@ -1,0 +1,146 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-row slot="start">
+    </ion-row>
+
+    <ion-row slot="end" class="header-icon">
+      <ion-icon name="help-circle-outline" style="font-size: 25px"></ion-icon>
+      <ion-icon name="notifications-outline" style="font-size: 25px"></ion-icon>
+    </ion-row>
+  </ion-toolbar>
+</ion-header> -->
+
+<app-common-header [title]="CurrenPageTitle"></app-common-header>
+
+<ion-content>
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="fill">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-item color="#06062b">
+        <ion-label style="color: #fff">Telemetry & Control</ion-label>
+        <ion-row style="display: flex; justify-content: end">
+          <!-- <ion-button  color="primary" [routerLink]="['/telemetry-filters']" color="#06062b " style="color: #fff" s
+            >Create Gateway</ion-button
+          > telemetry-filter-->
+
+          <ion-segment-button [routerLink]="['/telemetry-filter']"
+            style="
+              color: #fff;
+              box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+              height: 100%;
+            "
+            value="gateway"
+          >
+            <ion-label  style="color: #fff">Create Gateway</ion-label>
+          </ion-segment-button>
+          <ion-icon
+            color="primary"
+            name="chatbox-outline"
+            style="font-size: 25px; margin-top: 5%"
+          ></ion-icon>
+        </ion-row>
+      </ion-item>
+    </ion-header>
+
+    <ion-content>
+      <ion-card>
+        <ion-card-content
+          style="
+            background: #131629;
+            box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+          "
+        >
+          <ion-card-subtitle style="color: #fff"
+            >Chord_SRP_Test7-1H2 Naveen_801</ion-card-subtitle
+          >
+          <ion-row>
+            <ion-icon name="logo-ionic" color="primary"></ion-icon>
+            <ion-label style="color: #fff">Ready To Provision</ion-label>
+          </ion-row>
+          <ion-label style="color: #fff">Device</ion-label>
+          <ion-row>
+            <ion-col>
+              <ion-list style="background: #06062b !important">
+                <ion-item color="#06062b" style="color: #fff">
+                  <ion-select aria-label="Favorite Fruit" value="apple">
+                    <ion-select-option
+                      color="#fff"
+                      *ngFor="let item of [1,2,3,4,5]; let index"
+                      value="apple"
+                      >Anderson_718</ion-select-option
+                    >
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+            <ion-col>
+              <ion-segment-button
+                style="
+                  color: #fff;
+                  box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+                  height: 100%;
+                "
+                value="gateway"
+              >
+                <ion-label style="color: #fff" s>Demand Poll All</ion-label>
+              </ion-segment-button>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <ion-card
+        style="
+          background: #131629;
+          box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+        "
+        *ngFor="let item of [1,2,3,4,5]; let index"
+      >
+        <ion-card-content [routerLink]="['/telemetry-filter']">
+          <ion-card-subtitle style="color: #fff"
+            >Modem Logitude</ion-card-subtitle
+          >
+          <ion-row>
+            <ion-icon name="logo-ionic" color="primary"></ion-icon>
+            <ion-label style="color: #fff">Operational</ion-label>
+          </ion-row>
+          <ion-grid>
+            <ion-row>
+              <ion-col style="color: #fff">Previous Value</ion-col>
+              <ion-col style="color: #fff">Current Value</ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col style="color: #fff">1</ion-col>
+              <ion-col style="color: #fff">3</ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col style="color: #fff">Unit</ion-col>
+              <ion-col style="color: #fff">Demand Poll</ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col
+                ><ion-icon
+                  style="color: #fff"
+                  name="calendar-outline"
+                ></ion-icon
+                ><ion-label style="margin-left: 2%"
+                  >2023-07-26 9:05</ion-label
+                ></ion-col
+              >
+              <ion-col>
+                <ion-icon style="color: #fff" name="pencil-outline"></ion-icon
+              ></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-content> </ion-content
+></ion-content>

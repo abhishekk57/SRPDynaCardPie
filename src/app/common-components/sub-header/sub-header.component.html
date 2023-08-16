@@ -1,0 +1,30 @@
+<div class="div1">
+  <div class="div2">
+    <p (click)="toggle()" >
+      {{textTitle}}
+    </p>
+  </div>
+  <div *ngIf="!show"class="div3">
+    <ion-icon  name="search"></ion-icon>
+    <ion-icon name="options-outline"></ion-icon>
+    <!-- <ion-icon name="chatbox-outline" style="font-size: 25px"></ion-icon> (ionChange)="getItems($event)" -->
+    <ion-img class="comments-icon"
+  src="../../../assets/icon/comments.png"
+  alt=""
+></ion-img>
+<ion-icon name="add-circle-outline"></ion-icon>
+</div>
+<div>
+</div>
+
+<ion-searchbar (ionChange)="searchTxt($event)"  style="
+padding-inline-start: 10px !important;
+background: #fff;
+border-radius: 25px;
+border: 2px solid #73ad21;
+margin: 3%;
+height: 10%;
+width: 65%;
+color: #000;
+" *ngIf="show" placeholder="Enter text to search" type="text" ></ion-searchbar>
+</div>

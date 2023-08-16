@@ -1,0 +1,25 @@
+ion-col {
+    background-color: #135d54;
+    border: solid 1px #fff;
+    color: #fff;
+    text-align: center;
+  }
+  ion-content {
+    --background: #fff;
+    --color: #fff;
+  }
+  .header {   
+  background: #06062b;
+  }
+
+  .item-background-color{
+    --ion-item-background:#06062b;
+}
+
+.cardInfo{
+  color: #fff;
+   text-overflow: ellipsis; 
+   max-lines: 1 !important;
+   word-wrap: break-word;
+}
+

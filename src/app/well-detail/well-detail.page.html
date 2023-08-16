@@ -1,0 +1,77 @@
+<ion-content [fullscreen]="true">
+  <ion-content>
+    <select
+      style="
+        background-color: #0c0c6d;
+        border-color: #0c0c6d;
+        margin-top: 15%;
+        align-items: center;
+        justify-self: center;
+        justify-content: center;
+        align-self: center;
+      "
+      (change)="onChange($event)"
+    >
+      <option style="background-color: #535353" value="Well Info">
+        Well Info
+      </option>
+      <option style="background-color: #535353" value="Dynacard">
+        Dynacard
+      </option>
+      <option
+        (click)="dyancard($event)"
+        style="background-color: #535353"
+        value="Algorithms"
+      >
+        Algorithms & Mitigations
+      </option>
+      <option style="background-color: #535353" value="Charting">
+        Charting
+      </option>
+      <option style="background-color: #535353" value="Alerts">Alerts</option>
+      <option style="background-color: #535353" value="Event">Event Log</option>
+      <option style="background-color: #535353" value="Telmetry">
+        Telmetry & Control
+      </option>
+    </select>
+
+    <ion-content>
+      <!-- <app-well-info></app-well-info> -->
+     <app-charting></app-charting>
+     <!-- <app-dyna-card></app-dyna-card> -->
+     <!-- <app-pie-chart></app-pie-chart> -->
+    </ion-content>
+    <!-- <ion-card
+      style="
+        background: #171a2e;
+        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+      "
+      *ngFor="let item of [1, 2, 3, 4, 5]; let index"
+    >
+      <ion-card-content>
+        <ion-label
+          text-wrap
+          style="color: #fff; text-overflow: ellipsis; max-lines: 1"
+          >AVG SPM 2.2spm
+        </ion-label>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card
+      style="
+        background: #171a2e;
+        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+      "
+    >
+      <ion-card-content>
+        <ion-card-content>
+          <ion-label>Graph will be displayed here</ion-label>
+          <ion-img
+            src="https://docs-demo.ionic.io/assets/madison.jpg"
+            alt="The Wisconsin State Capitol building in Madison, WI at night"
+          ></ion-img>
+        </ion-card-content>
+      </ion-card-content>
+    </ion-card> -->
+  </ion-content>
+</ion-content>

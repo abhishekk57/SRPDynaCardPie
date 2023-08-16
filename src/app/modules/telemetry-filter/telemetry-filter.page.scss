@@ -1,0 +1,44 @@
+.backgroundBox {
+  background: #131629;
+}
+.lableColor {
+  color: #fff;
+}
+.filterButton {
+  --background-hover: #6ba7ff;
+  --background-activated: #6ba7ff;
+  --background-focused: #6ba7ff;
+  --background: #080912;
+  --border-color: #8b90ad;
+  border-width: 15%;
+  align-items: center;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.header {
+  --background: #131629;
+  --color: #fff;
+}
+
+ion-content {
+  --background: #131629;
+  --color: #fff;
+}
+
+ion-modal {
+  --height: 90%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: #6E728D;
+  --color: white;
+}

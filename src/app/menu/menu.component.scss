@@ -1,0 +1,36 @@
+.topbar{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 5px;
+    background: #4c8dff;
+}
+
+ion-content {
+    --background: #22263d;
+    --color: #fff;
+    
+  }
+
+  .popUpMenu{    
+    --background: #223ccf;
+    --color: #fff;
+  }
+
+  .ion-color-newcolor {
+    --ion-color-base: #224068;
+    --ion-color-contrast: #56b4d3;
+  }
+
+  .item-content {
+    background-color:#224068;
+  }
+  ion-tab-bar {
+    overflow: auto;
+  }
+
+  .dashboard-icon{
+    margin-top: 10%;
+    color: #fff;
+  }

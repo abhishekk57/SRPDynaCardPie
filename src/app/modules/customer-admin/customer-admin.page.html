@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>admin</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="background: #06062b">
+    <!-- <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title style="background: #06062b; color: #fff; font-size: 20px"
+          >Customer admin</ion-title
+        >
+      </ion-toolbar>
+    </ion-header> -->
+
+    <ion-card
+      style="
+        background: #06062b;
+        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+      "
+      *ngFor="let item of [1,2,3,4,5]; let index"
+    >
+      <ion-card-content>
+        <ion-grid>
+          <ion-label style="color: #fff">Add remove users</ion-label>
+          <ion-row>
+            <ion-toggle></ion-toggle><br /><br />
+            <ion-col style="color: #fff">SLB</ion-col>
+            <ion-toggle></ion-toggle><br /><br />
+            <ion-col style="color: #fff">Customer</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
