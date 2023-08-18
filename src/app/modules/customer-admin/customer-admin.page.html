@@ -1,11 +1,21 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>admin</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
+
+<app-common-header [title]="CurrenPageTitle"></app-common-header>
+<!-- <ion-content [fullscreen]="true">
+  <div class="header">
+    <app-sub-header
+      [textTitle]="titleData"
+      [arrayList]="data"
+      (searchText)="getInputValue($event) "
+    ></app-sub-header>
+  </div> -->
 
 <ion-content>
   <div style="background: #06062b">

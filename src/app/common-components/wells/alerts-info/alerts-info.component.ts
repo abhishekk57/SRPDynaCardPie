@@ -6,11 +6,11 @@ import { DataService } from 'src/app/api/data.service';
 import { RestApiService } from 'src/app/api/restApi.service';
 
 @Component({
-  selector: 'app-wells',
-  templateUrl: './wells.page.html',
-  styleUrls: ['./wells.page.scss'],
+  selector: 'app-alerts-info',
+  templateUrl: './alerts-info.component.html',
+  styleUrls: ['./alerts-info.component.scss'],
 })
-export class WellsPage implements OnInit {
+export class AlertsInfoComponent implements OnInit {
   titleData: any = 'Well List';
   data: any = [];
   CurrenPageTitle: string = 'Wells';

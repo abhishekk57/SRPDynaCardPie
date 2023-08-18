@@ -84,11 +84,16 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/more/more.module').then((m) => m.MorePageModule),
       },
+      {
+        path: 'customer-admin',
+        loadChildren: () => import('./modules/customer-admin/customer-admin.module').then( m => m.CustomerAdminPageModule)
+      },
     ],
-  },  {
-    path: 'customer-admin',
-    loadChildren: () => import('./modules/customer-admin/customer-admin.module').then( m => m.CustomerAdminPageModule)
   },
+  // {
+  //   path: 'customer-admin',
+  //   loadChildren: () => import('./modules/customer-admin/customer-admin.module').then( m => m.CustomerAdminPageModule)
+  // },
   {
     path: 'telemetry-filter',
     loadChildren: () => import('./modules/telemetry-filter/telemetry-filter.module').then( m => m.TelemetryFilterPageModule)

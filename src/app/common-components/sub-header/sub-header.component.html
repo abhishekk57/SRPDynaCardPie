@@ -17,7 +17,7 @@
 <div>
 </div>
 
-<ion-searchbar (ionChange)="searchTxt($event)"  style="
+<ion-searchbar (ionInput)="searchTxt($event)"  style="
 padding-inline-start: 10px !important;
 background: #fff;
 border-radius: 25px;
@@ -26,5 +26,5 @@ margin: 3%;
 height: 10%;
 width: 65%;
 color: #000;
-" *ngIf="show" placeholder="Enter text to search" type="text" ></ion-searchbar>
+" *ngIf="show" placeholder="Search" [animated]="true" [debounce]="1000" ></ion-searchbar>
 </div>

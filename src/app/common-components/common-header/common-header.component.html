@@ -13,7 +13,7 @@
       <!-- Delfi -->
       <!-- <ion-icon name="chevron-down-outline"></ion-icon> -->
       <!-- <ion-label > Delfi</ion-label> -->
-      <select style ="background-color: #0c0c6d; border-color: #0c0c6d;"name="cars" id="cars">
+      <select (change)="onChange($event)" style ="background-color: #0c0c6d; border-color: #0c0c6d;"name="cars" id="cars">
         <option style ="background-color: #535353;"value="volvo">Delfi</option>
         <option style ="background-color: #535353;" value="saab">App1</option>
         <option style ="background-color: #535353;"value="opel">App2</option>

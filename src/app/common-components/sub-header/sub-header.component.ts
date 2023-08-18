@@ -62,12 +62,16 @@ export class SubHeaderComponent implements OnInit {
   }
 
   searchTxt(ev: any){
-    const val = ev.target.value;
-    this.searchText.emit({searchValue:val});
+    debugger;
+    console.log("search ---");
+    const val = ev.target.value;    
+    debugger;
     console.log("child search value --",val);
+    this.searchText.emit(ev.target.value.toLowerCase());
   }
 
   getItems(ev: any) {
+    console.log("search ---")
     // Reset items back to all of the items
     this.generateItems();
     // this.initializeItems();
@@ -86,4 +90,14 @@ export class SubHeaderComponent implements OnInit {
         this.isItemAvailable = false;
     }
 }
+
+// handleInput(event:any) {
+//   const query = event.target.value.toLowerCase();
+//   this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
+// }
+
+// handleInput(event: any) {
+//   this.searchText.emit(event.target.value.toLowerCase());
+// }
+
 }

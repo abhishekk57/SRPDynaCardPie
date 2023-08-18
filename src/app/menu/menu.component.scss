@@ -34,3 +34,105 @@ ion-content {
     margin-top: 10%;
     color: #fff;
   }
+
+  /* Dropup Button */
+.dropbtn {
+  margin-right: 90%;
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropup content */
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropup content (Hidden by Default) */
+.dropup-content {
+  margin-right: 90%;
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  background-color: #3498DB;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropup */
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropup links on hover */
+.dropup-content a:hover {background-color: #ddd}
+
+/* Show the dropup menu on hover */
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+/* Change the background color of the dropup button when the dropup content is shown */
+.dropup:hover .dropbtn {
+  background-color: #2980B9;
+}
+
+
+
+
+
+
+
+
+
+.ion-content {
+  background-color: aqua;
+  margin: 50%;
+}
+
+ion-menu {
+  --ion-background-color: #051464;
+  --ion-text-color: #fff;
+  ion-toolbar {
+    --background: #051464;
+  }
+
+  ion-list {
+    /* optional, but it needs when you use gradient as a background color.*/
+    background: #536405;
+  }
+}
+
+.menu-content-item {
+  padding-left: 10%;
+  height: 7%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-content-item:hover {
+  background-color: #020a36;
+}
+
+.delfi-icon {
+  margin-bottom: 30%;
+  height: 80px;
+  width: 80px;
+  margin-right: 5px;
+}
+
+.bottomItem {
+  padding-left: 10%;
+  height: 7%;
+  align-items: center;
+  height: 5%;
+  justify-content: flex-start;
+  position: absolute;
+}

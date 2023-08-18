@@ -8,7 +8,12 @@ import { Router } from '@angular/router';
 })
 export class WellDetailPage implements OnInit {
   state = [];
+  
+  titleData: any = 'Well Info';
+  data: any = [];
+  CurrenPageTitle: string = 'Wells';
   constructor(private router: Router) {}
+  selectedOption :any ="Well Info";
 
   ngOnInit() {
     this.state = history.state;
@@ -18,6 +23,7 @@ export class WellDetailPage implements OnInit {
 
   onChange(ev:any){
     console.log("well info ---",ev.target.value);
+  this.selectedOption = ev.target.value
   }
   dyancard(ev:any){
     console.log("dynacard info ---",ev.target.value);

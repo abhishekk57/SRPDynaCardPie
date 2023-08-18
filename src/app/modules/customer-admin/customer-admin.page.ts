@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerAdminPage implements OnInit {
 
+  CurrenPageTitle: string = 'Wells';
   constructor() { }
 
   ngOnInit() {

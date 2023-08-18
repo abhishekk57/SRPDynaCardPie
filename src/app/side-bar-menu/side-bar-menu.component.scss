@@ -1,0 +1,45 @@
+.ion-content {
+    background-color: aqua;
+    margin: 50%;
+  }
+  
+  ion-menu {
+    --ion-background-color: #051464;
+    --ion-text-color: #fff;
+    ion-toolbar {
+      --background: #051464;
+    }
+  
+    ion-list {
+      /* optional, but it needs when you use gradient as a background color.*/
+      background: #536405;
+    }
+  }
+  
+  .menu-content-item {
+    padding-left: 10%;
+    height: 7%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .menu-content-item:hover {
+    background-color: #020a36;
+  }
+  
+  .delfi-icon {
+    margin-bottom: 30%;
+    height: 80px;
+    width: 80px;
+    margin-right: 5px;
+  }
+  
+  .bottomItem {
+    padding-left: 10%;
+    height: 7%;
+    align-items: center;
+    height: 5%;
+    justify-content: flex-start;
+    position: absolute;
+  }
+  

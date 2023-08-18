@@ -1,15 +1,14 @@
+<app-common-header [title]="CurrenPageTitle"></app-common-header>
 <ion-content [fullscreen]="true">
+  <div class="header">
+    <app-sub-header [textTitle]="titleData"></app-sub-header>
+  </div>
   <ion-content>
-    <!-- <div style ="
-    margin-top: 25%;
-    width: 80%;
-    height: 5%;"> -->
-
     <select
       style="
         background-color: #0b0c18;
         border-color: #0b0c18;
-        margin-top: 15%;
+        margin-top: 5%;
         margin-bottom: 5%;
         margin-right: 5%;
         margin-left: 2%;
@@ -44,13 +43,32 @@
         Telmetry & Control
       </option>
     </select>
-    <!-- </div> -->
-    <ion-content>
-      <app-well-info></app-well-info>
-      <!-- <app-charting></app-charting> -->
-      <!-- <app-dyna-card></app-dyna-card> -->
-      <!-- <app-pie-chart></app-pie-chart> -->
+
+    <ion-content >
+      <!-- <div class="dropup">
+        <button class="dropbtn">Dropup</button>
+        <div class="dropup-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div> -->
+
+      <app-well-info *ngIf="selectedOption == 'Well Info'"></app-well-info>
+      <app-charting *ngIf="selectedOption == 'Charting'"></app-charting>
+      <app-dyna-card *ngIf="selectedOption == 'Dynacard'"></app-dyna-card>
+      <app-pie-chart *ngIf="selectedOption == 'Charting'"></app-pie-chart>
+      <app-events-log *ngIf="selectedOption == 'Event'"></app-events-log>
+      <app-alerts-info *ngIf="selectedOption == 'Alerts'"></app-alerts-info>
+      <app-telemetry-control *ngIf="selectedOption == 'Telmetry'" ></app-telemetry-control>
+   
+      <!-- <app-well-info ></app-well-info> -->
+
+      <!-- <app-dyna-card  ></app-dyna-card> 
+      <app-charting  ></app-charting> -->
+    
     </ion-content>
+
     <!-- <ion-card
       style="
         background: #171a2e;
