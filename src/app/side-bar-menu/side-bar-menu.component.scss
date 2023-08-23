@@ -2,8 +2,15 @@
     background-color: aqua;
     margin: 50%;
   }
+
+  .menubackground {
+    background-color: aqua;
+    margin: 50%;
+  }
   
   ion-menu {
+    margin-top: 15%;
+    background-color: #051464;
     --ion-background-color: #051464;
     --ion-text-color: #fff;
     ion-toolbar {
@@ -42,4 +49,5 @@
     justify-content: flex-start;
     position: absolute;
   }
+  
   

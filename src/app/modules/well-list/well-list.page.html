@@ -1,0 +1,432 @@
+<app-common-header [title]="CurrenPageTitle"></app-common-header>
+
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <app-sub-header
+      [textTitle]="titleData"
+      [arrayList]="data"
+      (searchText)="getInputValue($event) "
+    ></app-sub-header>
+  </div>
+  <ion-toggle [(ngModel)]="themeToggle" (ionChange)="toggleChange($event)" justify="space-between"
+        >Dark Mode</ion-toggle
+      >
+  <ion-content>;
+    <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
+      <ion-accordion
+      [ngClass]="themeToggle ? 'pageBackground_dark':'pageBackground_light'"
+        *ngFor="let item of results; let i= index"
+      >
+        <ion-item
+          slot="header"
+          [ngClass]=" themeToggle ? 'item-background-color_dark':'item-background-color_light' || i == 0 ? 'expleft_under_pump':( i==1 ?'expleft_overpump':'expleft_optimum_pump')"
+        >
+          <div>
+            <p
+              [ngClass]="i == 0 ? 'under_pump_label_color':( i==1 ?'over_pump_label_color':'optimum_pump_label_color')"
+            >
+              {{item?.wellName}}
+            </p>
+            <p style="color: #7f8590; font-size: 12px;
+            font-family: SLB Sans;
+            font-weight: 500;">{{item?.dateTime}}</p>
+          </div>
+          <div style="margin: 5%; margin-top: 9%">
+            <p
+              [ngClass]="i == 0 ? 'under_pump':( i==1 ?'over_pump':'optimum_pump')"
+            ></p>
+            <!-- <p class="over_pump"></p> -->
+            <ion-img
+              class="wifi-icon"
+              src="../../../assets/icon/wifi.png"
+              alt=""
+            ></ion-img>
+          </div>
+          <div>
+            <p
+              [ngClass]="i == 0 ? 'under_pump_label_status':( i==1 ?'over_pump_label_status':'optimum_pump_label_status')"
+              class="listText"
+            >
+              Over Pumping (PF 90%)
+            </p>
+            <!-- <p>image well</p> -->
+            <ion-img
+              [ngClass]="i == 0 ? 'under_pump_well-icon':( i==1 ?'over_pump_well-icon':'optimum_pump_well-icon')"
+              class="well-icon"
+              src="../../../assets/icon/well.png"
+              alt=""
+            ></ion-img>
+          </div>
+        </ion-item>
+        <div slot="content">
+          <div
+            style="
+              background-color: #16192d;
+              color: #50546a !important;
+              box-shadow: #50546a;
+              border-radius: 25px;
+              border-style: solid;
+              margin: 2%;
+            "
+          >
+            <div
+              style="
+                width: 100%;
+                display: inline-flex;
+                flex: 1;
+                flex-direction: row;
+                border-radius: 10px;
+                margin-left: 5%;
+                margin-top: -2%;
+              "
+            >
+              <div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    height: auto;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 80px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      margin-top: 15%;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    SPM
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    height: auto;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 80px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    Effective Runtime(%)
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    height: auto;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 80px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    Min/Max load(%)
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 80px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      height: 50%;
+                      margin-left: 5%;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    Pumping Fillage
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 80px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      margin-left: 5%;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    Cycles Today
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 80px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      margin-left: 5%;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    Gearbox Load(%)
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 70px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      margin-left: 5%;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    Inferred Production(bpd)
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 70px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      margin-left: 5%;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    Structural Load
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                    margin-bottom: -20%;
+                  "
+                >
+                  <p
+                    style="
+                      width: 70px;
+                      overflow: hidden;
+                      max-height: 3.6em;
+                      line-height: 1.8em;
+                      text-overflow: ellipsis;
+                      margin-left: 5%;
+                      font-size: 14px;
+                      color: #fff;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                    "
+                  >
+                    Rod Stress(%)
+                  </p>
+                  <p
+                    style="
+                      margin-top: 30%;
+                      color: #7f8590;
+                      font-family: SLB Sans;
+                      font-weight: 500;
+                      font-size: 14px;
+                      margin-right: 7%;
+                    "
+                  >
+                    50%
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-content>
+</ion-content>

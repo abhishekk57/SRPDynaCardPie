@@ -28,12 +28,17 @@ const routes: Routes = [
       {
         path: 'wells',
         children: [
+          // {
+          //   path: '',
+          //   loadChildren: () =>
+          //     import('./modules/wells/wells.module').then(
+          //       (m) => m.WellsPageModule
+          //     ),
+          // },
+
           {
             path: '',
-            loadChildren: () =>
-              import('./modules/wells/wells.module').then(
-                (m) => m.WellsPageModule
-              ),
+            loadChildren: () => import('./modules/well-list/well-list.module').then( m => m.WellListPageModule)
           },
           {
             path: 'well-detail',
@@ -80,6 +85,12 @@ const routes: Routes = [
       },
 
       {
+        path: 'events',
+        // loadChildren: () => import('./modules/customer-admin/customer-admin.module').then( m => m.CustomerAdminPageModule)
+        loadChildren: () => import('./modules/events/events.module').then( m => m.EventsPageModule)
+      },
+      
+      {
         path: 'more',
         loadChildren: () =>
           import('./modules/more/more.module').then((m) => m.MorePageModule),
@@ -98,6 +109,11 @@ const routes: Routes = [
     path: 'telemetry-filter',
     loadChildren: () => import('./modules/telemetry-filter/telemetry-filter.module').then( m => m.TelemetryFilterPageModule)
   },
+  {
+    path: 'well-list',
+    loadChildren: () => import('./modules/well-list/well-list.module').then( m => m.WellListPageModule)
+  },
+
 
 ];
 

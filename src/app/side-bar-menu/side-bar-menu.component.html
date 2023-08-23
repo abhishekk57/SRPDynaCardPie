@@ -1,25 +1,21 @@
 
 <ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
+  
+  <ion-content class="menubackground">
     <ion-row class="menu-content-item" size="12">
-      <ion-label >DashBoard</ion-label>
+      <ion-label (click)="navigateToHome()" >DashBoard</ion-label>
     </ion-row>
     <ion-row class="menu-content-item" size="12">
-      <ion-label >Well List</ion-label>
+      <ion-label (click)="navigateToWells()">Well List</ion-label>
     </ion-row>
     <ion-row class="menu-content-item" size="12">
-      <ion-label >Alerts</ion-label>
+      <ion-label (click)="navigateToAlerts()">Alerts</ion-label>
     </ion-row>
     <ion-row class="menu-content-item" size="12">
-      <ion-label >Notification</ion-label>
+      <ion-label (click)="navigateToNotification()">Notification</ion-label>
     </ion-row>
     <ion-row class="menu-content-item" size="12">
-      <ion-label>Events</ion-label>
+      <ion-label (click)="navigateToNotification()">Events</ion-label>
     </ion-row>
     <ion-row class="menu-content-item" size="12">
       <ion-label  id="nested-trigger1">Reports</ion-label>
@@ -27,14 +23,14 @@
     </ion-row>
 
     <ion-row class="menu-content-item" size="12">
-      <ion-label >Custom Admin</ion-label>
+      <ion-label (click)="navigateToCustomAdmin()">Custom Admin</ion-label>
     </ion-row>
 
     <ion-row class="menu-content-item" size="12">
       <ion-label >SLB Admin</ion-label>
     </ion-row>
     <ion-row class="menu-content-item" size="12">
-      <ion-label  >Logout</ion-label>
+      <ion-label (click)="exitAPP()" >Logout</ion-label>
     </ion-row>
 
     <ion-popover
@@ -82,8 +78,198 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>DashBoard</ion-title>
+      <!-- <ion-title>DashBoard</ion-title>
+       -->
+       <app-common-header [title]="CurrenPageTitle"></app-common-header>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> DashBoard Wells Charts </ion-content>
+  <!-- <ion-content class="ion-padding"> DashBoard Wells Charts </ion-content> -->
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="getSelectedTab('home')" tab="home">
+        <div *ngIf="activeTabName == 'home'" class="topbar"></div>
+        <ion-img
+          class="dashboard-icon"
+          src="../../assets/icon/dashboardtab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button (click)="getSelectedTab('wells')" tab="wells">
+        <div *ngIf="activeTabName == 'wells'" class="topbar"></div>
+        <ion-img
+          class="comments-icon"
+          src="../../assets/icon/wellstab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button (click)="getSelectedTab('alerts')" tab="alerts">
+        <div *ngIf="activeTabName == 'alerts'" class="topbar"></div>
+        <ion-img
+          class="comments-icon"
+          src="../../assets/icon/alertstab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
+
+      <ion-tab-button
+        (click)="getSelectedTab('notification')"
+        tab="notification"
+      >
+        <div *ngIf="activeTabName == 'notification'" class="topbar"></div>
+        <ion-img
+          class="comments-icon"
+          src="../../assets/icon/eventstab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
+
+      <ion-tab-button
+        style="color: rgb(189, 178, 178)"
+        (click)="getSelectedTab('telemetry')"
+        tab="telemetry"
+      >
+        <div *ngIf="activeTabName == 'telemetry'" class="topbar"></div>
+        <ion-icon name="telescope-outline"></ion-icon>
+        Telemetry
+      </ion-tab-button>
+
+      <ion-tab-button (click)="getSelectedTab('more')" tab="telemetry">
+        <div *ngIf="activeTabName == 'more'" class="topbar"></div>
+        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+        <ion-label style="color: rgb(189, 178, 178)" id="click-trigger"
+          >More</ion-label
+        >
+      </ion-tab-button>
+
+      <ion-popover
+        [dismissOnSelect]="true"
+        trigger="click-trigger"
+        triggerAction="click"
+      >
+        <ng-template>
+          <ion-content style="margin-bottom: 45%; color: #fff">
+            <ion-list>
+              <ion-item
+                color="dark"
+                style="color: #fff"
+                [button]="true"
+                id="nested-trigger1"
+                >Reports</ion-item
+              >
+
+              <ion-popover
+                trigger="nested-trigger1"
+                [dismissOnSelect]="true"
+                side="top"
+              >
+                <ng-template>
+                  <ion-content style="margin-bottom: 37%">
+                    <ion-list>
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >Reports 1</ion-item
+                      >
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >Reports 2</ion-item
+                      >
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >Reports 3</ion-item
+                      >
+                    </ion-list>
+                  </ion-content>
+                </ng-template>
+              </ion-popover>
+              <ion-item
+                (click)="navigateToCustomAdmin()"
+                color="dark"
+                style="color: #fff"
+                [button]="true"
+                [detail]="false"
+                >Customer Admin</ion-item
+              >
+              <ion-item
+                color="dark"
+                style="color: #fff"
+                [button]="true"
+                [detail]="false"
+                >SLB Admin</ion-item
+              >
+              <ion-item
+                color="dark"
+                style="color: #fff"
+                [button]="true"
+                id="nested-trigger"
+                >User Profile</ion-item
+              >
+
+              <ion-popover
+                trigger="nested-trigger"
+                [dismissOnSelect]="true"
+                side="top"
+              >
+                <ng-template>
+                  <ion-content style="margin-bottom: 100%">
+                    <ion-list>
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >User Profile 1</ion-item
+                      >
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >User Profile 2</ion-item
+                      >
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >User Profile 3</ion-item
+                      >
+                    </ion-list>
+                  </ion-content>
+                </ng-template>
+              </ion-popover>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+      <ion-popover
+        trigger="hover-trigger"
+        [dismissOnSelect]="true"
+        style="background-color: #fff"
+      >
+        <ng-template>
+          <ion-content style="margin-bottom: 45%">
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Reports</ion-item>
+              <ion-item [button]="true" [detail]="false"
+                >Customer Admin</ion-item
+              >
+              <ion-item [button]="true" [detail]="false">SLB Admin</ion-item>
+              <ion-item [button]="true" id="nested-trigger"
+                >User Profile</ion-item
+              >
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </ion-tab-bar>
+  </ion-tabs>
 </div>

@@ -4,6 +4,7 @@
     <app-sub-header [textTitle]="titleData"></app-sub-header>
   </div>
   <ion-content>
+    <!-- <div class="custom-select" > -->
     <select
       style="
         background-color: #0b0c18;
@@ -11,16 +12,16 @@
         margin-top: 5%;
         margin-bottom: 5%;
         margin-right: 5%;
-        margin-left: 2%;
-        height: 5%;
-        width: 75%;
+        margin-left: 4%;
+        height: 7%;
+        width: 90%;
       "
       (change)="onChange($event)"
     >
-      <option style="background-color: #535353; height: 55%" value="Well Info">
+      <option style="background-color: #535353; " value="Well Info">
         Well Info
       </option>
-      <option style="background-color: #535353; width: 55%" value="Dynacard">
+      <option style="background-color: #535353; max-width: fit-content" value="Dynacard">
         Dynacard
       </option>
       <option
@@ -43,8 +44,8 @@
         Telmetry & Control
       </option>
     </select>
-
-    <ion-content >
+<!-- </div> -->
+    <ion-content>
       <!-- <div class="dropup">
         <button class="dropbtn">Dropup</button>
         <div class="dropup-content">
@@ -60,13 +61,14 @@
       <app-pie-chart *ngIf="selectedOption == 'Charting'"></app-pie-chart>
       <app-events-log *ngIf="selectedOption == 'Event'"></app-events-log>
       <app-alerts-info *ngIf="selectedOption == 'Alerts'"></app-alerts-info>
-      <app-telemetry-control *ngIf="selectedOption == 'Telmetry'" ></app-telemetry-control>
-   
+      <app-telemetry-control
+        *ngIf="selectedOption == 'Telmetry'"
+      ></app-telemetry-control>
+
       <!-- <app-well-info ></app-well-info> -->
 
       <!-- <app-dyna-card  ></app-dyna-card> 
       <app-charting  ></app-charting> -->
-    
     </ion-content>
 
     <!-- <ion-card

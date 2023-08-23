@@ -1,209 +1,191 @@
-
 <ion-content>
+  <!-- <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="getSelectedTab('home')" tab="home">
+        <div *ngIf="activeTabName == 'home'" class="topbar"></div>
+        <ion-img
+          class="dashboard-icon"
+          src="../../assets/icon/dashboardtab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button (click)="getSelectedTab('wells')" tab="wells">
+        <div *ngIf="activeTabName == 'wells'" class="topbar"></div>
+        <ion-img
+          class="comments-icon"
+          src="../../assets/icon/wellstab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
+      <ion-tab-button (click)="getSelectedTab('alerts')" tab="alerts">
+        <div *ngIf="activeTabName == 'alerts'" class="topbar"></div>
+        <ion-img
+          class="comments-icon"
+          src="../../assets/icon/alertstab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
 
-<!-- <app-side-bar-menu></app-side-bar-menu> -->
-<p>testtetet</p>
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button (click)="getSelectedTab('home')" tab="home">
-      <div *ngIf="activeTabName == 'home'" class="topbar"></div>
-      <ion-img
-        class="dashboard-icon"
-        src="../../assets/icon/dashboardtab.png"
-        alt=""
-      ></ion-img>
-    </ion-tab-button>
-    <ion-tab-button (click)="getSelectedTab('wells')" tab="wells">
-      <div *ngIf="activeTabName == 'wells'" class="topbar"></div>
-      <ion-img
-        class="comments-icon"
-        src="../../assets/icon/wellstab.png"
-        alt=""
-      ></ion-img>
-    </ion-tab-button>
-    <ion-tab-button (click)="getSelectedTab('alerts')" tab="alerts">
-      <div *ngIf="activeTabName == 'alerts'" class="topbar"></div>
-      <ion-img
-        class="comments-icon"
-        src="../../assets/icon/alertstab.png"
-        alt=""
-      ></ion-img>
-    </ion-tab-button>
-
-    <ion-tab-button (click)="getSelectedTab('notification')" tab="notification">
-      <div *ngIf="activeTabName == 'notification'" class="topbar"></div>
-      <ion-img
-        class="comments-icon"
-        src="../../assets/icon/eventstab.png"
-        alt=""
-      ></ion-img>
-    </ion-tab-button>
-
-    <ion-tab-button
-      style="color: rgb(189, 178, 178)"
-      (click)="getSelectedTab('telemetry')"
-      tab="telemetry"
-    >
-      <div *ngIf="activeTabName == 'telemetry'" class="topbar"></div>
-      <ion-icon name="telescope-outline"></ion-icon>
-      Telemetry
-    </ion-tab-button>
-
-    <ion-tab-button (click)="getSelectedTab('more')" tab="telemetry">
-      <div *ngIf="activeTabName == 'more'" class="topbar"></div>
-      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
-      <ion-label style="color: rgb(189, 178, 178)" id="click-trigger"
-        >More</ion-label
+      <ion-tab-button
+        (click)="getSelectedTab('notification')"
+        tab="notification"
       >
+        <div *ngIf="activeTabName == 'notification'" class="topbar"></div>
+        <ion-img
+          class="comments-icon"
+          src="../../assets/icon/eventstab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
 
-      <!-- <div *ngIf="activeTabName == 'more'" class="dropup">
-        <button class="dropbtn">Dropup</button>
-        <div class="dropup-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> -->
+      <ion-tab-button
+        style="color: rgb(189, 178, 178)"
+        (click)="getSelectedTab('telemetry')"
+        tab="telemetry"
+      >
+        <div *ngIf="activeTabName == 'telemetry'" class="topbar"></div>
+        <ion-icon name="telescope-outline"></ion-icon>
+        Telemetry
+      </ion-tab-button>
 
-      <!-- <div class="dropup">
-        <button class="dropbtn">Dropup</button>
-        <div class="dropup-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> -->
-    </ion-tab-button>
+      <ion-tab-button (click)="getSelectedTab('more')" tab="telemetry">
+        <div *ngIf="activeTabName == 'more'" class="topbar"></div>
+        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+        <ion-label style="color: rgb(189, 178, 178)" id="click-trigger"
+          >More</ion-label
+        >
+      </ion-tab-button>
 
-    <ion-popover [dismissOnSelect]="true" trigger="click-trigger" triggerAction="click">
-      <ng-template>
-        <ion-content style="margin-bottom: 45%; color: #fff">
-          <ion-list>
-            <ion-item
-              color="dark"
-              style="color: #fff"
-              [button]="true"
-              id="nested-trigger1"
-              >Reports</ion-item
-            >
+      <ion-popover
+        [dismissOnSelect]="true"
+        trigger="click-trigger"
+        triggerAction="click"
+      >
+        <ng-template>
+          <ion-content style="margin-bottom: 45%; color: #fff">
+            <ion-list>
+              <ion-item
+                color="dark"
+                style="color: #fff"
+                [button]="true"
+                id="nested-trigger1"
+                >Reports</ion-item
+              >
 
-            <ion-popover
-              trigger="nested-trigger1"
-              [dismissOnSelect]="true"
-              side="top"
-            >
-              <ng-template>
-                <ion-content style="margin-bottom: 37%">
-                  <ion-list>
-                    <ion-item
-                      color="dark"
-                      style="color: #fff"
-                      [button]="true"
-                      [detail]="false"
-                      >Reports 1</ion-item
-                    >
-                    <ion-item
-                      color="dark"
-                      style="color: #fff"
-                      [button]="true"
-                      [detail]="false"
-                      >Reports 2</ion-item
-                    >
-                    <ion-item
-                      color="dark"
-                      style="color: #fff"
-                      [button]="true"
-                      [detail]="false"
-                      >Reports 3</ion-item
-                    >
-                  </ion-list>
-                </ion-content>
-              </ng-template>
-            </ion-popover>
-            <ion-item
-            (click)="navigateTo()"
-              color="dark"
-              style="color: #fff"
-              [button]="true"
-              [detail]="false"
-              >Customer Admin</ion-item
-            >
-            <ion-item
-              color="dark"
-              style="color: #fff"
-              [button]="true"
-              [detail]="false"
-              >SLB Admin</ion-item
-            >
-            <ion-item
-              color="dark"
-              style="color: #fff"
-              [button]="true"
-              id="nested-trigger"
-              >User Profile</ion-item
-            >
+              <ion-popover
+                trigger="nested-trigger1"
+                [dismissOnSelect]="true"
+                side="top"
+              >
+                <ng-template>
+                  <ion-content style="margin-bottom: 37%">
+                    <ion-list>
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >Reports 1</ion-item
+                      >
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >Reports 2</ion-item
+                      >
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >Reports 3</ion-item
+                      >
+                    </ion-list>
+                  </ion-content>
+                </ng-template>
+              </ion-popover>
+              <ion-item
+                (click)="navigateTo()"
+                color="dark"
+                style="color: #fff"
+                [button]="true"
+                [detail]="false"
+                >Customer Admin</ion-item
+              >
+              <ion-item
+                color="dark"
+                style="color: #fff"
+                [button]="true"
+                [detail]="false"
+                >SLB Admin</ion-item
+              >
+              <ion-item
+                color="dark"
+                style="color: #fff"
+                [button]="true"
+                id="nested-trigger"
+                >User Profile</ion-item
+              >
 
-            <ion-popover
-              trigger="nested-trigger"
-              [dismissOnSelect]="true"
-              side="top"
-            >
-              <ng-template>
-                <ion-content style="margin-bottom: 100%">
-                  <ion-list>
-                    <ion-item
-                      color="dark"
-                      style="color: #fff"
-                      [button]="true"
-                      [detail]="false"
-                      >User Profile 1</ion-item
-                    >
-                    <ion-item
-                      color="dark"
-                      style="color: #fff"
-                      [button]="true"
-                      [detail]="false"
-                      >User Profile 2</ion-item
-                    >
-                    <ion-item
-                      color="dark"
-                      style="color: #fff"
-                      [button]="true"
-                      [detail]="false"
-                      >User Profile 3</ion-item
-                    >
-                  </ion-list>
-                </ion-content>
-              </ng-template>
-            </ion-popover>
-          </ion-list>
-        </ion-content>
-      </ng-template>
-    </ion-popover>
-    <ion-popover
-      trigger="hover-trigger"
-      [dismissOnSelect]="true"
-      style="background-color: #fff"
-    >
-      <ng-template>
-        <ion-content style="margin-bottom: 45%">
-          <ion-list>
-            <ion-item [button]="true" [detail]="false">Reports</ion-item>
-            <ion-item [button]="true" [detail]="false">Customer Admin</ion-item>
-            <ion-item [button]="true" [detail]="false">SLB Admin</ion-item>
-            <ion-item [button]="true" id="nested-trigger"
-              >User Profile</ion-item
-            >
-          </ion-list>
-        </ion-content>
-      </ng-template>
-    </ion-popover>
-  </ion-tab-bar>
-</ion-tabs>
-
-<!-- <app-side-bar-menu></app-side-bar-menu> -->
+              <ion-popover
+                trigger="nested-trigger"
+                [dismissOnSelect]="true"
+                side="top"
+              >
+                <ng-template>
+                  <ion-content style="margin-bottom: 100%">
+                    <ion-list>
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >User Profile 1</ion-item
+                      >
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >User Profile 2</ion-item
+                      >
+                      <ion-item
+                        color="dark"
+                        style="color: #fff"
+                        [button]="true"
+                        [detail]="false"
+                        >User Profile 3</ion-item
+                      >
+                    </ion-list>
+                  </ion-content>
+                </ng-template>
+              </ion-popover>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+      <ion-popover
+        trigger="hover-trigger"
+        [dismissOnSelect]="true"
+        style="background-color: #fff"
+      >
+        <ng-template>
+          <ion-content style="margin-bottom: 45%">
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Reports</ion-item>
+              <ion-item [button]="true" [detail]="false"
+                >Customer Admin</ion-item
+              >
+              <ion-item [button]="true" [detail]="false">SLB Admin</ion-item>
+              <ion-item [button]="true" id="nested-trigger"
+                >User Profile</ion-item
+              >
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </ion-tab-bar>
+  </ion-tabs> -->
+  <app-side-bar-menu></app-side-bar-menu>
 </ion-content>
-
-
-
-

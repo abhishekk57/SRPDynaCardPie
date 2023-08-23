@@ -233,4 +233,14 @@
 
     --ion-card-background: #1e1e1e;
   }
+
+  @font-face {
+    font-family: "slbBold";
+    src: url("../assets/fonts/slbFonts/SLBSans-Bold.otf")format("opentype")
+  }
+
+  *{
+    font-family: "slbBold";
+  }
 }
+
