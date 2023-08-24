@@ -1,9 +1,7 @@
-
 <ion-menu contentId="main-content">
-  
-  <ion-content class="menubackground">
+  <ion-content>
     <ion-row class="menu-content-item" size="12">
-      <ion-label (click)="navigateToHome()" >DashBoard</ion-label>
+      <ion-label (click)="navigateToHome()">DashBoard</ion-label>
     </ion-row>
     <ion-row class="menu-content-item" size="12">
       <ion-label (click)="navigateToWells()">Well List</ion-label>
@@ -17,9 +15,11 @@
     <ion-row class="menu-content-item" size="12">
       <ion-label (click)="navigateToNotification()">Events</ion-label>
     </ion-row>
-    <ion-row class="menu-content-item" size="12">
-      <ion-label  id="nested-trigger1">Reports</ion-label>
-      <ion-icon style ="color: #fff;padding-left: 90%;"name="caret-forward-outline"></ion-icon>
+    <ion-row class="menu-content-item">
+      <ion-label id="nested-trigger1">Reports</ion-label>
+      <ion-icon style="color: #fff" name="caret-forward-outline"
+        >Reports</ion-icon
+      >
     </ion-row>
 
     <ion-row class="menu-content-item" size="12">
@@ -27,50 +27,68 @@
     </ion-row>
 
     <ion-row class="menu-content-item" size="12">
-      <ion-label >SLB Admin</ion-label>
+      <ion-label>SLB Admin</ion-label>
     </ion-row>
     <ion-row class="menu-content-item" size="12">
-      <ion-label (click)="exitAPP()" >Logout</ion-label>
+      <ion-label (click)="exitAPP()">Logout</ion-label>
     </ion-row>
 
     <ion-popover
-        trigger="nested-trigger1"
-        [dismissOnSelect]="true"
-        side="right"
-      >
-        <ng-template>
-          <ion-content style="margin-bottom: 37%">
-            <ion-list>
-              <ion-item  color="dark" style ="color: #fff;"  [button]="true" [detail]="false"
-                >Reports 1</ion-item
-              >
-              <ion-item color="dark" style ="color: #fff;" [button]="true" [detail]="false"
-                >Reports 2</ion-item
-              >
-              <ion-item color="dark" style ="color: #fff;" [button]="true" [detail]="false"
-                >Reports 3</ion-item
-              >
-            </ion-list>
-          </ion-content>
-        </ng-template>
-      </ion-popover>
+      trigger="nested-trigger1"
+      [dismissOnSelect]="true"
+      side="right"
+    >
+      <ng-template>
+        <ion-content style="margin-bottom: 37%">
+          <ion-list>
+            <ion-item
+              color="dark"
+              style="color: #fff"
+              [button]="true"
+              [detail]="false"
+              >Reports 1</ion-item
+            >
+            <ion-item
+              color="dark"
+              style="color: #fff"
+              [button]="true"
+              [detail]="false"
+              >Reports 2</ion-item
+            >
+            <ion-item
+              color="dark"
+              style="color: #fff"
+              [button]="true"
+              [detail]="false"
+              >Reports 3</ion-item
+            >
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
 
-    <ion-content>
+    <div style="background-color: #051464; padding-left: 10%; padding-top: 10%">
       <ion-img
         class="delfi-icon"
         src="../../assets/icon/sidemenuslblogo.png"
         alt=""
       ></ion-img>
+    </div>
 
-      <ion-row class="bottomItem" size="12">
-        <ion-label
-          >Go Back to Delfi Portal</ion-label
-        >
-      </ion-row>
-    </ion-content>
+    <div style="background-color: #fff; height: 1px"></div>
+    <div
+      style="
+        background-color: #051464;
+        padding-bottom: 25%;
+        padding-left: 10%;
+        padding-top: 1%;
+      "
+    >
+      <p>Settings</p>
+      <p>Go Back to Delfi Portal</p>
+    </div>
   </ion-content>
 </ion-menu>
-
 
 <div class="ion-page" id="main-content">
   <ion-header>
@@ -80,7 +98,7 @@
       </ion-buttons>
       <!-- <ion-title>DashBoard</ion-title>
        -->
-       <app-common-header [title]="CurrenPageTitle"></app-common-header>
+      <app-common-header [title]="CurrenPageTitle"></app-common-header>
     </ion-toolbar>
   </ion-header>
   <!-- <ion-content class="ion-padding"> DashBoard Wells Charts </ion-content> -->

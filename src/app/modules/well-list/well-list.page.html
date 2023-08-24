@@ -8,18 +8,23 @@
       (searchText)="getInputValue($event) "
     ></app-sub-header>
   </div>
-  <ion-toggle [(ngModel)]="themeToggle" (ionChange)="toggleChange($event)" justify="space-between"
-        >Dark Mode</ion-toggle
-      >
-  <ion-content>;
+  <ion-toggle
+    [(ngModel)]="themeToggle"
+    (ionChange)="toggleChange($event)"
+    justify="space-between"
+    >Dark Mode</ion-toggle
+  >
+  <app-text-input></app-text-input>
+  <ion-content
+    >;
     <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
       <ion-accordion
-      [ngClass]="themeToggle ? 'pageBackground_dark':'pageBackground_light'"
+        [ngClass]=" themeToggle ? 'item-background-color_dark':'item-background-color_light' "
         *ngFor="let item of results; let i= index"
       >
         <ion-item
           slot="header"
-          [ngClass]=" themeToggle ? 'item-background-color_dark':'item-background-color_light' || i == 0 ? 'expleft_under_pump':( i==1 ?'expleft_overpump':'expleft_optimum_pump')"
+          [ngClass]="  i == 0 ? 'expleft_under_pump':( i==1 ?'expleft_overpump':'expleft_optimum_pump')"
         >
           <div>
             <p
@@ -27,17 +32,23 @@
             >
               {{item?.wellName}}
             </p>
-            <p style="color: #7f8590; font-size: 12px;
-            font-family: SLB Sans;
-            font-weight: 500;">{{item?.dateTime}}</p>
+            <p
+              style="
+                color: #7f8590;
+                font-size: 12px;
+                font-family: SLB Sans;
+                font-weight: 500;
+              "
+            >
+              {{item?.dateTime}}
+            </p>
           </div>
           <div style="margin: 5%; margin-top: 9%">
             <p
               [ngClass]="i == 0 ? 'under_pump':( i==1 ?'over_pump':'optimum_pump')"
             ></p>
-            <!-- <p class="over_pump"></p> -->
             <ion-img
-              class="wifi-icon"
+              [ngClass]=" themeToggle ? 'wifi-icon_dark':'wifi-icon'"
               src="../../../assets/icon/wifi.png"
               alt=""
             ></ion-img>
@@ -49,7 +60,6 @@
             >
               Over Pumping (PF 90%)
             </p>
-            <!-- <p>image well</p> -->
             <ion-img
               [ngClass]="i == 0 ? 'under_pump_well-icon':( i==1 ?'over_pump_well-icon':'optimum_pump_well-icon')"
               class="well-icon"
@@ -60,14 +70,7 @@
         </ion-item>
         <div slot="content">
           <div
-            style="
-              background-color: #16192d;
-              color: #50546a !important;
-              box-shadow: #50546a;
-              border-radius: 25px;
-              border-style: solid;
-              margin: 2%;
-            "
+            [ngClass]=" themeToggle ? 'dropdownitem_dark':'dropdownitem_light' "
           >
             <div
               style="
@@ -91,18 +94,7 @@
                   "
                 >
                   <p
-                    style="
-                      width: 80px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      margin-top: 15%;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
+                    [ngClass]=" themeToggle ? 'spmLabel_dark':'spmLabel_light' "
                   >
                     SPM
                   </p>
@@ -129,17 +121,7 @@
                   "
                 >
                   <p
-                    style="
-                      width: 80px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
+                    [ngClass]=" themeToggle ? 'effectiveRunTime_dark':'effectiveRunTime_light' "
                   >
                     Effective Runtime(%)
                   </p>
@@ -165,19 +147,7 @@
                     margin-bottom: -20%;
                   "
                 >
-                  <p
-                    style="
-                      width: 80px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
-                  >
+                  <p [ngClass]=" themeToggle ? 'minMax_dark':'minMax_light' ">
                     Min/Max load(%)
                   </p>
                   <p
@@ -205,19 +175,7 @@
                   "
                 >
                   <p
-                    style="
-                      width: 80px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      height: 50%;
-                      margin-left: 5%;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
+                    [ngClass]=" themeToggle ? 'pumpfilling_dark':'pumpfilling_light' "
                   >
                     Pumping Fillage
                   </p>
@@ -243,18 +201,7 @@
                   "
                 >
                   <p
-                    style="
-                      width: 80px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      margin-left: 5%;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
+                    [ngClass]=" themeToggle ? 'cyclesToday_dark':'cyclesToday_light' "
                   >
                     Cycles Today
                   </p>
@@ -279,20 +226,7 @@
                     margin-bottom: -20%;
                   "
                 >
-                  <p
-                    style="
-                      width: 80px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      margin-left: 5%;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
-                  >
+                  <p [ngClass]=" themeToggle ? 'gearbox_dark':'gearbox_light' ">
                     Gearbox Load(%)
                   </p>
                   <p
@@ -320,18 +254,7 @@
                   "
                 >
                   <p
-                    style="
-                      width: 70px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      margin-left: 5%;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
+                    [ngClass]=" themeToggle ? 'inferredproduction_dark':'inferredproduction_light' "
                   >
                     Inferred Production(bpd)
                   </p>
@@ -357,18 +280,7 @@
                   "
                 >
                   <p
-                    style="
-                      width: 70px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      margin-left: 5%;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
+                    [ngClass]=" themeToggle ? 'structuralLoad_dark':'structuralLoad_light' "
                   >
                     Structural Load
                   </p>
@@ -394,18 +306,7 @@
                   "
                 >
                   <p
-                    style="
-                      width: 70px;
-                      overflow: hidden;
-                      max-height: 3.6em;
-                      line-height: 1.8em;
-                      text-overflow: ellipsis;
-                      margin-left: 5%;
-                      font-size: 14px;
-                      color: #fff;
-                      font-family: SLB Sans;
-                      font-weight: 500;
-                    "
+                    [ngClass]=" themeToggle ? 'rodStress_dark':'rodStress_light' "
                   >
                     Rod Stress(%)
                   </p>

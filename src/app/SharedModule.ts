@@ -15,6 +15,8 @@ import { EventsLogComponent } from './common-components/wells/events-log/events-
 import { AlertsInfoComponent } from './common-components/wells/alerts-info/alerts-info.component';
 import { TelemetryControlComponent } from './common-components/wells/telemetry-control/telemetry-control.component';
 import { SideBarMenuComponent } from './side-bar-menu/side-bar-menu.component';
+import { TextInputComponent } from './common-components/text-input/text-input.component';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { SideBarMenuComponent } from './side-bar-menu/side-bar-menu.component';
     EventsLogComponent,
     AlertsInfoComponent,
     TelemetryControlComponent,
-    SideBarMenuComponent
+    SideBarMenuComponent,
+    TextInputComponent
   ],
   exports: [
     MenuComponent,
@@ -51,7 +54,8 @@ import { SideBarMenuComponent } from './side-bar-menu/side-bar-menu.component';
     EventsLogComponent,
     AlertsInfoComponent,
     TelemetryControlComponent,
-    SideBarMenuComponent
+    SideBarMenuComponent,
+    TextInputComponent
   ],
 })
 export class SharedModule {}

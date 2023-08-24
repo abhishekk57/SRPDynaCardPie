@@ -1,3 +1,7 @@
+ion-content {
+  background-color: #fff;
+}
+
 ion-col {
   background-color: #135d54;
   border: solid 1px #fff;
@@ -195,14 +199,22 @@ ion-col {
   border-style: solid;
   border-left-color: #ffa220;
   border-left-width: 5px;
+  margin-right: 2%;
+  border-top-color: #051464;
+  border-bottom-color: #051464;
+  border-right-color:#051464 ;
 }
 
 .expleft_overpump {
-  border-radius: 5%;
+  border-radius: 3%;
   margin: 1%;
   border-style: solid;
   border-left-color: #ff6b6b;
   border-left-width: 5px;
+  margin-right: 2%;
+  border-top-color: #051464;
+  border-bottom-color: #051464;
+  border-right-color:#051464 ;
 }
 
 .expleft_optimum_pump {
@@ -211,6 +223,10 @@ ion-col {
   border-style: solid;
   border-left-color: #24a159;
   border-left-width: 5px;
+  margin-right: 2%;
+  border-top-color: #051464;
+  border-bottom-color: #051464;
+  border-right-color:#051464 ;
 }
 
 .under_pump_label_color {
@@ -283,15 +299,17 @@ ion-col {
 }
 
 .item-background-color_dark {
-    --ion-item-background: #16192d;
-    margin-left: 2%;
-    margin-right: 2%;
-  }
-  .item-background-color_light {
-    --ion-item-background: #fff;
-    margin-left: 2%;
-    margin-right: 2%;
-  }
+  --ion-item-background: #16192d;
+  margin-right: 2%;
+  background-color: #16192d;
+  padding-right: 1%;
+}
+.item-background-color_light {
+  --ion-item-background: #ebecf2;
+  margin-right: 2%;
+  background-color: #fff;
+  padding-right: 1%;
+}
 
 .optimum_pump_well-icon {
   height: 20px;
@@ -314,6 +332,12 @@ ion-col {
 .wifi-icon {
   height: 20px;
   width: 20px;
+  background-color: #000;
+}
+
+.wifi-icon_dark {
+  height: 20px;
+  width: 20px;
 }
 
 ion-accordion-group ion-accordion .ion-accordion-toggle-icon {
@@ -321,9 +345,258 @@ ion-accordion-group ion-accordion .ion-accordion-toggle-icon {
   color: red;
 }
 
-.pageBackground_dark{    
+.pageBackground_dark {
   background: #22263d;
 }
-.pageBackground_light{    
-    background: #fff;
-  }
+.pageBackground_light {
+  background: #fff;
+}
+
+.dropdownitem_dark{    
+    background-color: #16192d;
+    color: #50546a !important;
+    box-shadow: #50546a;
+    border-radius: 25px;
+    border-style: solid;
+    margin: 2%;
+}
+
+.dropdownitem_light{    
+    background-color: #fff;
+    color: #50546a !important;
+    box-shadow: #50546a;
+    border-radius: 25px;
+    border-style: solid;
+    margin: 2%;
+}
+.spmLabel_dark{
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-top: 15%;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.spmLabel_light{
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-top: 15%;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.effectiveRunTime_dark{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;  
+}
+
+.effectiveRunTime_light{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;  
+}
+
+.minMax_dark{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.minMax_light{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.pumpfilling_dark{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    height: 50%;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.pumpfilling_light{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    height: 50%;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.cyclesToday_dark{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.cyclesToday_light{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.gearbox_dark{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.gearbox_light{    
+    width: 80px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.inferredproduction_dark{    
+    width: 70px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.inferredproduction_light{    
+    width: 70px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.structuralLoad_dark{    
+    width: 70px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.structuralLoad_light{    
+    width: 70px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.rodStress_dark{    
+    width: 70px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 500;
+}
+
+.rodStress_light{    
+    width: 70px;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    text-overflow: ellipsis;
+    margin-left: 5%;
+    font-size: 14px;
+    color: #000;
+    font-family: SLB Sans;
+    font-weight: 500;
+}

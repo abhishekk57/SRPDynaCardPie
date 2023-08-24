@@ -1,33 +1,43 @@
-.ion-content {
-    background-color: aqua;
-    margin: 50%;
-  }
+// ion-content {
+//     background: #051464;
+//     margin: 50%;
+//   }
 
-  .menubackground {
-    background-color: aqua;
-    margin: 50%;
-  }
   
-  ion-menu {
-    margin-top: 15%;
-    background-color: #051464;
-    --ion-background-color: #051464;
-    --ion-text-color: #fff;
-    ion-toolbar {
-      --background: #051464;
-    }
+  // ion-menu {
+  //   margin-top: 15%;
+  //   background-color: #051464;
+  //   ion-toolbar {
+  //     --background: #051464;
+  //   }
   
-    ion-list {
-      /* optional, but it needs when you use gradient as a background color.*/
-      background: #536405;
-    }
-  }
+  //   ion-list {
+  //     /* optional, but it needs when you use gradient as a background color.*/
+  //     background: #536405;
+  //   }
+  // }
   
+  
+// ion-menu {
+//   --ion-background-color: #fff;
+//   --ion-text-color: #fff;
+//   ion-toolbar {
+//     --background: #fff;
+//   }
+
+//   ion-list {
+//     /* optional, but it needs when you use gradient as a background color.*/
+//     background: #536405;
+//   }
+// }
+
+
   .menu-content-item {
     padding-left: 10%;
     height: 7%;
     justify-content: flex-start;
     align-items: center;
+    background-color: #051464;
   }
   
   .menu-content-item:hover {
@@ -35,7 +45,6 @@
   }
   
   .delfi-icon {
-    margin-bottom: 30%;
     height: 80px;
     width: 80px;
     margin-right: 5px;
@@ -47,7 +56,28 @@
     align-items: center;
     height: 5%;
     justify-content: flex-start;
-    position: absolute;
+    position: absolute;    
+    background-color: #051464;
+  }
+
+  ion-menu {
+    margin-top: 15%;
+    --ion-background-color:#051464;
+    --ion-text-color: #000
+    
+  
+    ion-toolbar {
+      --background: #000;
+    }
+  
+    ion-list {/* optional, but it needs when you use gradient as a background color.*/
+      background: #fff;
+    }
+  }
+
+  
+  .menubackground {
+    background-color: aqua;    
   }
   
   
