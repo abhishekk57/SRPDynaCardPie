@@ -28,18 +28,18 @@ const routes: Routes = [
       {
         path: 'wells',
         children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('./modules/wells/wells.module').then(
-                (m) => m.WellsPageModule
-              ),
-          },
-
           // {
           //   path: '',
-          //   loadChildren: () => import('./modules/well-list/well-list.module').then( m => m.WellListPageModule)
+          //   loadChildren: () =>
+          //     import('./modules/wells/wells.module').then(
+          //       (m) => m.WellsPageModule
+          //     ),
           // },
+
+          {
+            path: '',
+            loadChildren: () => import('./modules/well-list/well-list.module').then( m => m.WellListPageModule)
+          },
           {
             path: 'well-detail',
             loadChildren: () =>
@@ -113,6 +113,11 @@ const routes: Routes = [
     path: 'well-list',
     loadChildren: () => import('./modules/well-list/well-list.module').then( m => m.WellListPageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./modules/login/login.module').then( m => m.LoginPageModule)
+  },
+
 
 
 ];

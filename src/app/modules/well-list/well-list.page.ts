@@ -16,7 +16,7 @@ import { RestApiService } from 'src/app/api/restApi.service';
 
 export class WellListPage implements OnInit {
   
-  themeToggle = false;
+  themeToggle = true;
   titleData: any = 'Well List';
   data: any = [];
   CurrenPageTitle: string = 'Wells';

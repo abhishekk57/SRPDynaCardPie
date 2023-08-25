@@ -16,6 +16,9 @@ import { AlertsInfoComponent } from './common-components/wells/alerts-info/alert
 import { TelemetryControlComponent } from './common-components/wells/telemetry-control/telemetry-control.component';
 import { SideBarMenuComponent } from './side-bar-menu/side-bar-menu.component';
 import { TextInputComponent } from './common-components/text-input/text-input.component';
+import { LoaderComponent } from './common-components/loader/loader.component';
+import { CustomButtonComponent } from './common-components/custom-button/custom-button.component';
+import { AlertDialogComponent } from './common-components/alert-dialog/alert-dialog.component';
 
 
 
@@ -40,7 +43,10 @@ import { TextInputComponent } from './common-components/text-input/text-input.co
     AlertsInfoComponent,
     TelemetryControlComponent,
     SideBarMenuComponent,
-    TextInputComponent
+    TextInputComponent,
+    LoaderComponent,
+    CustomButtonComponent,
+    AlertDialogComponent
   ],
   exports: [
     MenuComponent,
@@ -55,7 +61,10 @@ import { TextInputComponent } from './common-components/text-input/text-input.co
     AlertsInfoComponent,
     TelemetryControlComponent,
     SideBarMenuComponent,
-    TextInputComponent
+    TextInputComponent,
+    LoaderComponent,
+    CustomButtonComponent,
+    AlertDialogComponent
   ],
 })
 export class SharedModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input,Output} from '@angular/core';
 
 @Component({
   selector: 'app-text-input',
@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextInputComponent  implements OnInit {
 
-  label: string ="Email" ;
-  type:string = "email"
+  @Input()  label: string ="" ;
+  @Input() type:string = ""
   value: string= "";
   username:string ="";
-
+  @Input() placeholder:string=""
   constructor() { }
 
   ngOnInit() {

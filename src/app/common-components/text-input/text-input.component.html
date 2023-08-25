@@ -1,20 +1,17 @@
-
-<ion-item>
-  <ion-label style="color: #fff; margin-bottom: 1%" position="fill"
-    >{{label}}</ion-label
-  >
+<div>
+  <ion-label>{{ label }}</ion-label>
   <ion-input
-    type="{{type}}"
+    type="{{ type }}"
+    placeholder="{{ placeholder }}"
     style="
       padding-inline-start: 10px !important;
       background: #fff;
       border-radius: 25px;
       border: 2px solid #73ad21;
-      padding: 20px;
-      margin: 3%;
-      width: 90%;
-      color: #000;"
-      text-right id="input"
-      (input)="onChange($event)"
+      color: #000;
+    "
+    text-right
+    id="input"
+    (input)="onChange($event)"
   ></ion-input>
-</ion-item>
+</div>

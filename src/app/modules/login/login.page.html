@@ -1,0 +1,47 @@
+<!-- <app-common-header [title]="CurrenPageTitle"></app-common-header> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sucker Rod Pump</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" ref="pageContent">
+  <div style="margin-top: 10%; margin-left: 10%; margin-right: 10%">
+    <ion-img
+      style="margin-left: 25%; width: 35%; height: 30%"
+      src="../../../assets/icon/sidemenuslblogo.png"
+      alt="The Wisconsin State Capitol building in Madison, WI at night"
+    ></ion-img>
+
+    <ion-img
+      style="margin-bottom: 10%"
+      src="../../../assets/icon/wellbackground.jpg"
+      alt="The Wisconsin State Capitol building in Madison, WI at night"
+    ></ion-img>
+
+    <!-- https://docs-demo.ionic.io/assets/madison.jpg <app-text-input
+      [placeholder]="placeholder_email"
+      [type]="email_type"
+    ></app-text-input> -->
+
+    <!-- <app-text-input
+      [placeholder]="placeholder_password"
+      [type]="password_type"
+    ></app-text-input> -->
+
+    <!-- <app-alert-dialog [header] ="alertHeader"  [subheader] ="alertSubHeader" [message]="alertMsg"></app-alert-dialog> -->
+    <input class="input-text_email" type="email" placeholder="Email" />
+
+    <input class="input-text_password" type="password" placeholder="Password" />
+
+    <ion-row>
+      <!-- <app-custom-button [label] ="login_button" ></app-custom-button>    
+    <app-custom-button [label] ="close_button"  ></app-custom-button> -->
+      <button [routerLink]="['/home']" type="submit" class="login-button">
+        Login
+      </button>
+      <button onclick="loginClick()" type="submit" class="close-button">
+        Close
+      </button>
+    </ion-row>
+  </div>
+</ion-content>
