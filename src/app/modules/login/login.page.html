@@ -1,21 +1,25 @@
 <!-- <app-common-header [title]="CurrenPageTitle"></app-common-header> -->
 <ion-header>
   <ion-toolbar>
-    <ion-title>Sucker Rod Pump</ion-title>
+    <ion-title style ="
+    font-size: 22px;
+    color: #fff;
+    font-family: SLB Sans;
+    font-weight: 700;">Sucker Rod Pump</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" ref="pageContent">
-  <div style="margin-top: 10%; margin-left: 10%; margin-right: 10%">
+  <div style="margin-top: 10%; margin-left: 10%; margin-right: 10%;">
     <ion-img
-      style="margin-left: 25%; width: 35%; height: 30%"
+      style="margin-left: 25%; width: 35%; height: 30%; margin-bottom: 3%;"
       src="../../../assets/icon/sidemenuslblogo.png"
-      alt="The Wisconsin State Capitol building in Madison, WI at night"
+      alt="slb logo"
     ></ion-img>
 
     <ion-img
       style="margin-bottom: 10%"
       src="../../../assets/icon/wellbackground.jpg"
-      alt="The Wisconsin State Capitol building in Madison, WI at night"
+      alt="well background"
     ></ion-img>
 
     <!-- https://docs-demo.ionic.io/assets/madison.jpg <app-text-input
@@ -36,11 +40,11 @@
     <ion-row>
       <!-- <app-custom-button [label] ="login_button" ></app-custom-button>    
     <app-custom-button [label] ="close_button"  ></app-custom-button> -->
-      <button [routerLink]="['/home']" type="submit" class="login-button">
-        Login
+      <button type="submit" class="login-button">
+         Close
       </button>
-      <button onclick="loginClick()" type="submit" class="close-button">
-        Close
+      <button  [routerLink]="['/home']" onclick="loginClick()" type="submit" class="close-button">
+         Login
       </button>
     </ion-row>
   </div>
