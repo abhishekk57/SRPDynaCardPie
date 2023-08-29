@@ -8,12 +8,13 @@
       (searchText)="getInputValue($event) "
     ></app-sub-header>
   </div>
-  <!-- <ion-toggle
+  <ion-toggle
     [(ngModel)]="themeToggle"
     (ionChange)="toggleChange($event)"
     justify="space-between"
-    >Dark Mode</ion-toggle >-->
-  
+    >Dark Mode</ion-toggle
+  >
+
   <!-- <app-text-input></app-text-input> -->
   <!-- <app-loader></app-loader> -->
 
@@ -56,12 +57,32 @@
             <p
               [ngClass]="i == 0 ? 'under_pump':( i==1 ?'over_pump':'optimum_pump')"
             ></p>
-            <ion-img
+            <!-- <ion-img
               [ngClass]=" themeToggle ? 'wifi-icon_dark':'wifi-icon'"
               src="../../../assets/icon/wifi.png"
               alt=""
+            ></ion-img> -->
+            <ion-img
+            *ngIf=" i == 1; else wifired "
+            src="../../../assets/icon/wifi_red.png"
+            alt=""
+          ></ion-img>
+          <ng-template #wifired>
+            <ion-img
+              *ngIf="themeToggle == true"
+              src="../../../assets/icon/wifi.png"
+              alt=""
             ></ion-img>
+
+            <ion-img
+              *ngIf="themeToggle == false"
+              src="../../../assets/icon/wifi_light.png"
+              alt=""
+            ></ion-img>
+          </ng-template>
           </div>
+
+
           <div>
             <p
               [ngClass]="i == 0 ? 'under_pump_label_status':( i==1 ?'over_pump_label_status':'optimum_pump_label_status')"
@@ -69,12 +90,35 @@
             >
               Over Pumping (PF 90%)
             </p>
-            <ion-img
+            <!-- <ion-img
               [ngClass]="i == 0 ? 'under_pump_well-icon':( i==1 ?'over_pump_well-icon':'optimum_pump_well-icon')"
               class="well-icon"
               src="../../../assets/icon/well.png"
               alt=""
+            ></ion-img> -->
+
+            <ion-img
+            *ngIf=" i == 1; else welloverflow "
+              style="height: 20px; width: 20px"
+              src="../../../assets/icon/well_red.png"
+              alt=""
             ></ion-img>
+            
+
+            <ng-template #welloverflow>
+            <ion-img
+            *ngIf="themeToggle == true"
+              style="height: 20px; width: 20px; "
+              src="../../../assets/icon/well.png"
+              alt=""
+            ></ion-img>
+            <ion-img
+            *ngIf="themeToggle == false"
+              style="height: 20px; width: 20px;background-color: #000;"
+              src="../../../assets/icon/well.png"
+              alt=""
+            ></ion-img>
+          </ng-template>
           </div>
         </ion-item>
         <div slot="content">

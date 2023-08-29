@@ -62,10 +62,10 @@ export class SubHeaderComponent implements OnInit {
   }
 
   searchTxt(ev: any){
-    debugger;
+    // debugger;
     console.log("search ---");
     const val = ev.target.value;    
-    debugger;
+    // debugger;
     console.log("child search value --",val);
     this.searchText.emit(ev.target.value.toLowerCase());
   }
