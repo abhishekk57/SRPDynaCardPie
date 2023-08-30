@@ -34,11 +34,11 @@
       >
         <ion-item
           slot="header"
-          [ngClass]="  i == 0 ? 'expleft_under_pump':( i==1 ?'expleft_overpump':'expleft_optimum_pump')"
+          [ngClass]="  i == 0 ? 'expleft_optimum_pump':( i==1 ?'expleft_overpump':'expleft_under_pump ')"
         >
           <div>
             <p
-              [ngClass]="i == 0 ? 'under_pump_label_color':( i==1 ?'over_pump_label_color':'optimum_pump_label_color')"
+              [ngClass]="i == 0 ? 'optimum_pump_label_color':( i==1 ?'over_pump_label_color': themeToggle ?'under_pump_label_color_dark':'under_pump_label_color')"
             >
               {{item?.wellName}}
             </p>
@@ -55,7 +55,7 @@
           </div>
           <div style="margin: 5%; margin-top: 9%">
             <p
-              [ngClass]="i == 0 ? 'under_pump':( i==1 ?'over_pump':'optimum_pump')"
+              [ngClass]="i == 0 ? 'optimum_pump':( i==1 ?'over_pump':'under_pump')"
             ></p>
             <!-- <ion-img
               [ngClass]=" themeToggle ? 'wifi-icon_dark':'wifi-icon'"
@@ -84,18 +84,29 @@
 
 
           <div>
-            <p
-              [ngClass]="i == 0 ? 'under_pump_label_status':( i==1 ?'over_pump_label_status':'optimum_pump_label_status')"
-              class="listText"
+            <div
+              [ngClass]="i == 0 ? 'optimum_pump_label_status':( i==1 ?'over_pump_label_status':'under_pump_label_status')"
+              
             >
-              Over Pumping (PF 90%)
-            </p>
+             <p *ngIf = "i == 0">Optimum Pump(PF 90%)</p>
+             
+             <p *ngIf = "i == 1">Over Pumping (PF 70%)</p>
+             
+             <p *ngIf = "i != 1 && i != 0"> Under Pumping(PF 30%)</p>
+          </div>
             <!-- <ion-img
               [ngClass]="i == 0 ? 'under_pump_well-icon':( i==1 ?'over_pump_well-icon':'optimum_pump_well-icon')"
               class="well-icon"
               src="../../../assets/icon/well.png"
               alt=""
             ></ion-img> -->
+            
+            <ion-img
+            *ngIf=" i == 0; "
+              style="height: 20px; width: 20px"
+              src="../../../assets/icon/well_green.png"
+              alt=""
+            ></ion-img>
 
             <ion-img
             *ngIf=" i == 1; else welloverflow "
@@ -103,17 +114,24 @@
               src="../../../assets/icon/well_red.png"
               alt=""
             ></ion-img>
+
+            <!-- <ion-img
+            *ngIf=" i == 0; else welloverflow "
+              style="height: 20px; width: 20px"
+              src="../../../assets/icon/well_green.png"
+              alt=""
+            ></ion-img> -->
             
 
             <ng-template #welloverflow>
             <ion-img
-            *ngIf="themeToggle == true"
+            *ngIf="i != 0 && themeToggle == true"
               style="height: 20px; width: 20px; "
               src="../../../assets/icon/well.png"
               alt=""
             ></ion-img>
             <ion-img
-            *ngIf="themeToggle == false"
+            *ngIf=" i != 0 &&  themeToggle == false"
               style="height: 20px; width: 20px;;"
               src="../../../assets/icon/well_black.png"
               alt=""

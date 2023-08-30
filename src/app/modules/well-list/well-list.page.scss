@@ -194,43 +194,54 @@ ion-col {
 // }
 
 .expleft_under_pump {
+  // margin-bottom: 20px;
   border-radius: 5%;
   margin: 1%;
   border-style: solid;
   border-left-color: #ffa220;
   border-left-width: 5px;
-  margin-right: 2%;
+  // margin-right: 2%;
   border-top-color: transparent !important;
   border-bottom-color: transparent !important;
   border-right-color:transparent !important ;
 }
 
 .expleft_overpump {
+  // margin-bottom: 20px;
   border-radius: 5%;
   margin: 1%;
   border-style: solid;
-  border-left-color: #ff6b6b;
+  border-left-color: #d11f1f;
   border-left-width: 5px;
-  margin-right: 2%;
+  // margin-right: 2%;
   border-top-color: transparent !important;
   border-bottom-color: transparent !important;
   border-right-color:transparent !important ;
 }
 
 .expleft_optimum_pump {
+  // margin-bottom: 20px;
   border-radius: 5%;
   margin: 1%;
   border-style: solid;
   border-left-color: #24a159;
   border-left-width: 5px;
-  margin-right: 2%;
+  // margin-right: 2%;
   border-top-color: transparent !important;
   border-bottom-color: transparent !important;
   border-right-color:transparent !important ;
 }
 
 .under_pump_label_color {
-  color: #ffa220;
+  color: #373536;
+  font-size: 14px;
+  font-family: "SLB Sans";
+  font-weight: 700;
+  padding-top: 10%;
+}
+
+.under_pump_label_color_dark {
+  color: #fff;
   font-size: 14px;
   font-family: "SLB Sans";
   font-weight: 700;
@@ -274,7 +285,7 @@ ion-col {
 .under_pump_label_status {
   color: #ffa220;
   font-size: 12px;
-  margin-top: 10%;
+  margin-top: 0%;
   font-family: "SLB Sans";
   font-weight: 500;
 }
@@ -282,7 +293,7 @@ ion-col {
 .over_pump_label_status {
   color: #d11f1f;
   font-size: 12px;
-  margin-top: 10%;
+  margin-top: 0%;
   font-family: "SLB Sans";
   font-weight: 500;
 }
@@ -290,7 +301,7 @@ ion-col {
 .optimum_pump_label_status {
   color: #24a159;
   font-size: 12px;
-  margin-top: 10%;
+  margin-top: 0%;
   font-family: "SLB Sans";
   font-weight: 500;
 }
