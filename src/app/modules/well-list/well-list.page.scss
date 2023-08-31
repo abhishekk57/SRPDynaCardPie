@@ -184,14 +184,15 @@ ion-col {
   margin-top: 0.3%;
 }
 
-// ion-accordion-group {
-//   ion-accordion {
-//     .ion-accordion-toggle-icon {
-//       font-size: 50px;
-//       color: red;
-//     }
-//   }
-// }
+ion-accordion-group {
+  ion-accordion {
+    .ion-accordion-toggle-icon {
+      font-size: 50px;
+      color: red;
+      background-color: darkred;
+    }
+  }
+}
 
 .expleft_under_pump {
   // margin-bottom: 20px;
@@ -213,7 +214,7 @@ ion-col {
   border-style: solid;
   border-left-color: #d11f1f;
   border-left-width: 5px;
-  // margin-right: 2%;
+  // margin-right: 2%; transparent !important #EBECF2
   border-top-color: transparent !important;
   border-bottom-color: transparent !important;
   border-right-color:transparent !important ;
@@ -364,10 +365,10 @@ ion-col {
   width: 20px;
 }
 
-ion-accordion-group ion-accordion .ion-accordion-toggle-icon {
-  font-size: 50px;
-  color: red;
-}
+// ion-accordion-group ion-accordion .ion-accordion-toggle-icon {
+//   font-size: 50px;
+//   color: red;
+// }
 
 .pageBackground_dark {
   background: #22263d;
@@ -625,4 +626,14 @@ ion-accordion-group ion-accordion .ion-accordion-toggle-icon {
     color: #000;
     font-family: SLB Sans;
     font-weight: 500;
+}
+
+ion-accordion.accordion-collapsing ion-item[slot='header'],
+ion-accordion.accordion-collapsed ion-item[slot='header'] {
+  border-radius: 10%;
+}
+
+ion-accordion.accordion-expanding ion-item[slot='header'],
+ion-accordion.accordion-expanded ion-item[slot='header'] {
+  border-radius: 10%;
 }

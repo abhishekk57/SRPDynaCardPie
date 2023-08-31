@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { DataService } from 'src/app/api/data.service';
 import { RestApiService } from 'src/app/api/restApi.service';
+import { PluginsService } from 'src/app/pluginServices/plugins.service';
 
 
 @Component({
@@ -35,10 +36,14 @@ export class WellListPage implements OnInit {
   searchText: any;
   tempData: any = [];
   public results: any;
+  typeValue = "";
+  statusValue = "";
+
+
   constructor(
     private router: Router,
     private httpService: RestApiService,
-    public dataService: DataService
+    public dataService: DataService,public pluginService:PluginsService
   ) {}
 
   ngOnInit() {
@@ -51,6 +56,12 @@ export class WellListPage implements OnInit {
     //     console.log(error);
     //   }
     // );
+
+// console.log("well list ",this.pluginService.setPrefStorage('name',"naveeen jenukal"));
+// console.log("get well list ",this.pluginService.getPrefStorage('name'));
+// console.log("well list battery status ---",this.pluginService.getBatteryStatus());
+// console.log("well list network status ---",this.pluginService.getNetworkStatus());
+// console.log("well list device info status ---",this.pluginService.getDeviceInfo());
 
     this.generateItems();
     console.log('data length --', this.data.length, this.data[0].well_name);
@@ -140,7 +151,7 @@ export class WellListPage implements OnInit {
   // }
 
   handleInput(event: any) {
-    debugger;
+    // debugger;
     console.log('handleInput =======');
     const query = event.target.value;
     this.results = this.tempData.filter(
@@ -150,19 +161,19 @@ export class WellListPage implements OnInit {
 
   getInputValue(event: any) {
     console.log('getInputValue --------');
-    debugger;
+    // debugger;
 
     // const query = event.target.value.toLowerCase();
     // if(query.length > 0)
     // this.results = this.tempData.filter((d:any) => d.toLowerCase().indexOf(query) > -1);
 
     if (event.length > 0) {
-      debugger;
+      // debugger;
       this.results = this.tempData.filter((item: any) =>
         item?.wellName?.toLowerCase().includes(event)
       );
     } else {
-      debugger;
+      // debugger;
       this.results = this.tempData;
       console.log('filter length else --- ', this.results.length);
     }
@@ -183,4 +194,49 @@ export class WellListPage implements OnInit {
   toggleDarkTheme(shouldAdd:any) {
     document.body.classList.toggle('dark', shouldAdd);
   }
+
+
+  getTypeValue(event: any) {
+    this.typeValue = event    
+    console.log('getTypeValue --------',this.typeValue);
+    // if (event.length > 0) {
+    //   this.results = this.tempData.filter((item: any) =>
+    //     item?.wellName?.toLowerCase().includes(event)
+    //   );
+    // } else {
+    //   this.results = this.tempData;
+    //   console.log('filter length else --- ', this.results.length);
+    // }
+
+
+  }
+
+  getStatusValue(event: any) {
+    this.statusValue = event    
+    console.log('getStatusValue --------',event);
+    
+    // if (event.length > 0) {
+    //   this.results = this.tempData.filter((item: any) =>
+    //     item?.wellName?.toLowerCase().includes(event)
+    //   );
+    // } else {
+    //   this.results = this.tempData;
+    //   console.log('filter length else --- ', this.results.length);
+    // }
+  }
+
+  getFilteredValue(ev:any) {
+    console.log('getFilteredValue --------',ev);
+
+    if (this.statusValue.length > 0) {
+      this.results = this.tempData.filter((item: any) =>
+        item?.wellName?.toLowerCase().includes(this.statusValue)
+      );
+    } else {
+      this.results = this.tempData;
+      console.log('filter length else --- ', this.results.length);
+    }
+  }
+
+  // Optimum Pumping
 }

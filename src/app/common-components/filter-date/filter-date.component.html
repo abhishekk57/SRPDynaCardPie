@@ -1,0 +1,42 @@
+<ion-content>
+  
+
+  <ion-modal #modal trigger="open-modal-date">
+    <ng-template>
+      <ion-content style = "background-color: #404352 ;">
+        <ion-toolbar>
+          <ion-title style ="color: #fff;">Select</ion-title>
+          <ion-buttons slot="end">
+            <ion-icon size="default" style ="color: #fff;" name="close" (click)="modal.dismiss()"></ion-icon>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <div style ="margin-left: 10%;background: #404352 ;">
+          <ion-button shape="round" class="daybutton" size="small"
+            >1 Day</ion-button
+          >
+          <ion-button shape="round" class="daybutton" size="small"
+            >1 Week</ion-button
+          >
+          <ion-button shape="round" class="daybutton" size="small"
+            >1 Month</ion-button
+          >
+        </div>
+
+        <div style ="background-color: #404352 ;">
+          <ion-datetime  #datetime  (ionChange) = "getSelectedDate($event)"style ="background-color: #404352 ; color: #fff;--title-color:#fff"
+            presentation="date"
+            [multiple]="true"
+          >
+            <span style ="color: #fff;" slot="title">Select Date Range</span>
+          </ion-datetime>
+        </div>
+
+        <div style="position: absolute; right: 10px">
+          <ion-button (click)="datetime.reset()" shape="round" class="daybutton">Reset</ion-button>
+          <ion-button (click)="modal.dismiss()" shape="round" class="daybutton">Apply</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

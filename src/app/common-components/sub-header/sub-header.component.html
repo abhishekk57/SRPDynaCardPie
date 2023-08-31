@@ -1,30 +1,135 @@
 <div class="div1">
   <div class="div2">
-    <p (click)="toggle()" >
-      {{textTitle}}
+    <p (click)="toggle()">
+      {{ textTitle }}
     </p>
   </div>
-  <div *ngIf="!show"class="div3">
-    <ion-icon  name="search"></ion-icon>
-    <ion-icon name="options-outline"></ion-icon>
-    <!-- <ion-icon name="chatbox-outline" style="font-size: 25px"></ion-icon> (ionChange)="getItems($event)" -->
-    <ion-img class="comments-icon"
-  src="../../../assets/icon/comments.png"
-  alt=""
-></ion-img>
-<ion-icon name="add-circle-outline"></ion-icon>
-</div>
-<div>
+  <div *ngIf="!show" class="div3">
+    <ion-icon name="search"></ion-icon>
+    <ion-icon
+      id="open-modal"
+      (click)="filterToggle()"
+      name="options-outline"
+    ></ion-icon>
+    <!--id="open-modal-date" <ion-icon name="chatbox-outline" style="font-size: 25px"></ion-icon> (ionChange)="getItems($event)" -->
+    <ion-img      
+      class="comments-icon"
+      src="../../../assets/icon/comments.png"
+      alt=""
+    ></ion-img>
+    <app-filter-date></app-filter-date>
+
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </div>
+  <div></div>
+  <!-- <app-filter-type-status [trigger]="openModel" *ngIf = "filterStatus == true"></app-filter-type-status> -->
+  <ion-searchbar
+    (ionInput)="searchTxt($event)"
+    style="
+      padding-inline-start: 10px !important;
+      background: #fff;
+      border-radius: 25px;
+      border: 2px solid #73ad21;
+      margin: 3%;
+      height: 10%;
+      width: 65%;
+      color: #000;
+    "
+    *ngIf="show"
+    placeholder="Search"
+    [animated]="true"
+    [debounce]="1000"
+  ></ion-searchbar>
 </div>
 
-<ion-searchbar (ionInput)="searchTxt($event)"  style="
-padding-inline-start: 10px !important;
-background: #fff;
-border-radius: 25px;
-border: 2px solid #73ad21;
-margin: 3%;
-height: 10%;
-width: 65%;
-color: #000;
-" *ngIf="show" placeholder="Search" [animated]="true" [debounce]="1000" ></ion-searchbar>
-</div>
+<ion-content>
+  <!-- <ion-button id="open-modal" expand="block">Open Modal</ion-button> -->
+
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Filter by</ion-title>
+          <ion-buttons slot="end">
+            <!-- <ion-button color="light" (click)="modal.dismiss()"
+              >Close</ion-button
+            > -->
+            <ion-icon name="close" (click)="modal.dismiss()"></ion-icon>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <div style="margin-left: 10%">
+          <p style="color: #fff">Alert Type</p>
+          <select
+            (change)="onChangeType($event)"
+            style="
+              background-color: #080912;
+              border-color: #0c0c6d;
+              color: #fff;
+            "
+            name="cars"
+            id="cars"
+          >
+            <option
+              style="background-color: #535353; width: 90px"
+              value="volvo"
+            >
+              Select Event Type
+            </option>
+            <option style="background-color: #535353" value="jones">
+              type 1
+            </option>
+            <option style="background-color: #535353" value="Apache">
+              type 2
+            </option>
+            <option style="background-color: #535353" value="jones">
+              type 3
+            </option>
+          </select>
+
+          <div style="margin-top: 15%"></div>
+          <p style="color: #fff">Status</p>
+          <select
+            (change)="onChangeStatus($event)"
+            style="
+              background-color: #080912;
+              border-color: #0c0c6d;
+              color: #fff;
+            "
+            name="cars"
+            id="cars"
+          >
+            <option
+              style="background-color: #535353; width: 90px"
+              value="volvo"
+            >
+              Select Status Type
+            </option>
+            <option
+              style="background-color: #535353; max-width: 50%"
+              value="jones"
+            >
+              status 1
+            </option>
+            <option style="background-color: #535353" value="Apache">
+              status 2
+            </option>
+            <option style="background-color: #535353" value="Apache">
+              status 3
+            </option>
+          </select>
+          <div style="align-self: flex-end; margin-left: 50%; margin-top: 10%">
+            <ion-button
+              shape="round"
+              size="small"
+              slot="end"
+              >Apply</ion-button
+            >
+            
+            <!-- (click)="filterBy($event)" -->
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

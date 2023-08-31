@@ -120,7 +120,7 @@ export class WellsPage implements OnInit {
   // }
 
   handleInput(event: any) {
-    debugger;
+    // debugger;
     console.log('handleInput =======');
     const query = event.target.value;
     this.results = this.tempData.filter(
@@ -130,19 +130,19 @@ export class WellsPage implements OnInit {
 
   getInputValue(event: any) {
     console.log('getInputValue --------');
-    debugger;
+    // debugger;
 
     // const query = event.target.value.toLowerCase();
     // if(query.length > 0)
     // this.results = this.tempData.filter((d:any) => d.toLowerCase().indexOf(query) > -1);
 
     if (event.length > 0) {
-      debugger;
+      // debugger;
       this.results = this.tempData.filter((item: any) =>
         item?.wellName?.toLowerCase().includes(event)
       );
     } else {
-      debugger;
+      // debugger;
       this.results = this.tempData;
       console.log('filter length else --- ', this.results.length);
     }

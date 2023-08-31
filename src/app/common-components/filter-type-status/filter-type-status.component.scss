@@ -1,0 +1,19 @@
+
+ion-modal {
+    --height: 50%;
+    --width:70%;
+    --border-radius: 16px;
+    --box-shadow: #6E728D;
+    --background:#6E728D;
+    
+  }
+  
+  ion-modal::part(backdrop) {
+    background: #6E728D;
+    opacity: 1;
+  }
+  
+  ion-modal ion-toolbar {
+    --background: #6E728D;
+    --color: 6E728D;
+  }

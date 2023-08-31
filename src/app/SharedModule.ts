@@ -19,7 +19,8 @@ import { TextInputComponent } from './common-components/text-input/text-input.co
 import { LoaderComponent } from './common-components/loader/loader.component';
 import { CustomButtonComponent } from './common-components/custom-button/custom-button.component';
 import { AlertDialogComponent } from './common-components/alert-dialog/alert-dialog.component';
-
+import { FilterTypeStatusComponent } from './common-components/filter-type-status/filter-type-status.component';
+import { FilterDateComponent } from './common-components/filter-date/filter-date.component';
 
 
 @NgModule({
@@ -46,7 +47,9 @@ import { AlertDialogComponent } from './common-components/alert-dialog/alert-dia
     TextInputComponent,
     LoaderComponent,
     CustomButtonComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
+    FilterTypeStatusComponent,
+    FilterDateComponent
   ],
   exports: [
     MenuComponent,
@@ -64,7 +67,9 @@ import { AlertDialogComponent } from './common-components/alert-dialog/alert-dia
     TextInputComponent,
     LoaderComponent,
     CustomButtonComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
+    FilterTypeStatusComponent,
+    FilterDateComponent
   ],
 })
 export class SharedModule {}

@@ -6,6 +6,12 @@
       [textTitle]="titleData"
       [arrayList]="data"
       (searchText)="getInputValue($event) "
+      
+      (type)="getTypeValue($event) "
+      (status)="getStatusValue($event) "
+      (filterButton) ="getFilteredValue($event)"
+
+
     ></app-sub-header>
   </div>
   <ion-toggle
@@ -45,7 +51,7 @@
             <p
               style="
                 color: #7f8590;
-                font-size: 12px;
+                font-size: 3.2vw;
                 font-family: SLB Sans;
                 font-weight: 500;
               "

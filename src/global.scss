@@ -69,3 +69,11 @@ ion-content {
    color: #FFF;
    fill: #FFF;
 }
+
+ion-accordion-group{
+   ion-accordion {
+       .ion-accordion-toggle-icon {
+           color: grey;
+       }
+   }
+}

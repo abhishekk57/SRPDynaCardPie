@@ -108,6 +108,7 @@ export class PieChartComponent implements OnInit {
   }
 }
 
+
 const data = [
   {
     SurfaceCard: 'surface dynacard',

@@ -16,9 +16,9 @@ export class CommonHeaderComponent  implements OnInit {
   // }
 
   onChange(event:any): void {  // event will give you full breif of action
-    debugger;
+    // debugger;
     const newVal = event.target.value;
-    debugger;
+    // debugger;
     console.log("onchange event --",newVal);
   }
   
