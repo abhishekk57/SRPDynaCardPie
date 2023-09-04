@@ -234,13 +234,20 @@
     --ion-card-background: #1e1e1e;
   }
 
-  @font-face {
-    font-family: "slbBold";
-    src: url("../assets/fonts/slbFonts/SLBSans-Bold.otf")format("opentype")
-  }
+  
+  // @font-face {
+  //   font-family: "SLB Sans";
+  //   src: url("../assets/fonts/slbFonts/SLBSans-Regular.ttf")
+  //   }
 
-  *{
-    font-family: "slbBold";
-  }
+  // *{
+  //   font-family: "SLB Sans";
+  // }
 }
 
+// @font-face {
+//   font-family: "SLBSans";
+//   font-weight: normal;
+//   font-style: normal;
+//   src: url("../assets/fonts/SLBSans-Regular.ttf");
+// }

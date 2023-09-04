@@ -6,12 +6,9 @@
       [textTitle]="titleData"
       [arrayList]="data"
       (searchText)="getInputValue($event) "
-      
       (type)="getTypeValue($event) "
       (status)="getStatusValue($event) "
-      (filterButton) ="getFilteredValue($event)"
-
-
+      (filterButton)="getFilteredValue($event)"
     ></app-sub-header>
   </div>
   <ion-toggle
@@ -33,7 +30,7 @@
 ></ion-loading>  -->
 
   <ion-content>
-    <ion-accordion-group [multiple]="true" >
+    <ion-accordion-group [multiple]="true">
       <ion-accordion
         [ngClass]=" themeToggle ? 'item-background-color_dark':'item-background-color_light' "
         *ngFor="let item of results; let i= index"
@@ -42,7 +39,112 @@
           slot="header"
           [ngClass]="  i == 0 ? 'expleft_optimum_pump':( i==1 ?'expleft_overpump':'expleft_under_pump ')"
         >
+        <!-- <div>
+          <div style="flex : 1;flex-direction: row; display: flex;">
+            <p>well name</p>
+            <p>dot</p>
+            <p>status</p>
+          </div>
+          <div style="flex : 1;flex-direction: row;  display: flex;">
+            <p>date</p>
+            <p>wifi</p>
+            <p>well img</p>
+          </div>
+        </div> -->
+
+        <!-- <div>
+          <div style="flex : 1;flex-direction: row; display: flex;">
+            <div style ="width: 40%;">
+            <p
+              [ngClass]="i == 0 ? 'optimum_pump_label_color':( i==1 ?'over_pump_label_color': themeToggle ?'under_pump_label_color_dark':'under_pump_label_color')"
+            >
+              {{item?.wellName}}
+            </p>
+          </div>
+          <div style ="width: 5%;">
+            <p
+            [ngClass]="i == 0 ? 'optimum_pump':( i==1 ?'over_pump':'under_pump')"
+          ></p>
+          </div>
+
+          <div
+          [ngClass]="i == 0 ? 'optimum_pump_label_status':( i==1 ?'over_pump_label_status':'under_pump_label_status')"
+        >
+          <p *ngIf="i == 0">Optimum Pumping(PF 90%)</p>
+
+          <p *ngIf="i == 1">Over Pumping (PF 70%)</p>
+
+          <p *ngIf="i != 1 && i != 0">Under Pumping(PF 30%)</p>
+        </div>
+          </div>
+          
+
+          <div style="flex : 1;flex-direction: row;  display: flex;">
+            <p
+            style="
+              color: #7f8590;
+              font-size: 12px;
+              font-weight: 500;
+              font-family: 'SLBSans' !important;
+            "
+          >
+            {{item?.dateTime}}
+          </p>
+          <div style="padding-left: 3%; padding-right: 3%">
+           
+            <ion-img
+              *ngIf=" i == 1; else wifired "
+              src="../../../assets/icon/wifi_red.png"
+              alt=""
+            ></ion-img>
+            <ng-template #wifired>
+              <ion-img
+                *ngIf="themeToggle == true"
+                src="../../../assets/icon/wifi.png"
+                alt=""
+              ></ion-img>
+
+              <ion-img
+                *ngIf="themeToggle == false"
+                src="../../../assets/icon/wifi_light.png"
+                alt=""
+              ></ion-img>
+            </ng-template>
+          </div>
           <div>
+          <ion-img
+          *ngIf=" i == 0; "
+          style="height: 20px; width: 20px"
+          src="../../../assets/icon/well_green.png"
+          alt=""
+        ></ion-img>
+
+        <ion-img
+          *ngIf=" i == 1; else welloverflow "
+          style="height: 20px; width: 20px"
+          src="../../../assets/icon/well_red.png"
+          alt=""
+        ></ion-img>
+
+        <ng-template #welloverflow>
+          <ion-img
+            *ngIf="i != 0 && themeToggle == true"
+            style="height: 20px; width: 20px"
+            src="../../../assets/icon/well.png"
+            alt=""
+          ></ion-img>
+          <ion-img
+            *ngIf=" i != 0 &&  themeToggle == false"
+            style="height: 20px; width: 20px"
+            src="../../../assets/icon/well_black.png"
+            alt=""
+          ></ion-img>
+        </ng-template>
+      </div>
+          </div>
+        </div> -->
+
+          <div >
             <p
               [ngClass]="i == 0 ? 'optimum_pump_label_color':( i==1 ?'over_pump_label_color': themeToggle ?'under_pump_label_color_dark':'under_pump_label_color')"
             >
@@ -51,98 +153,78 @@
             <p
               style="
                 color: #7f8590;
-                font-size: 3.2vw;
-                font-family: SLB Sans;
+                font-size: 11px;
                 font-weight: 500;
+                font-family: 'SLBSans' !important;
               "
             >
               {{item?.dateTime}}
             </p>
           </div>
-          <div style="margin: 5%; margin-top: 9%">
+
+          <div style="padding-left: 3%; padding-right: 3%">
             <p
               [ngClass]="i == 0 ? 'optimum_pump':( i==1 ?'over_pump':'under_pump')"
             ></p>
-            <!-- <ion-img
-              [ngClass]=" themeToggle ? 'wifi-icon_dark':'wifi-icon'"
-              src="../../../assets/icon/wifi.png"
-              alt=""
-            ></ion-img> -->
             <ion-img
-            *ngIf=" i == 1; else wifired "
-            src="../../../assets/icon/wifi_red.png"
-            alt=""
-          ></ion-img>
-          <ng-template #wifired>
-            <ion-img
-              *ngIf="themeToggle == true"
-              src="../../../assets/icon/wifi.png"
+              *ngIf=" i == 1; else wifired "
+              src="../../../assets/icon/wifi_red.png"
               alt=""
             ></ion-img>
+            <ng-template #wifired>
+              <ion-img
+                *ngIf="themeToggle == true"
+                src="../../../assets/icon/wifi.png"
+                alt=""
+              ></ion-img>
 
-            <ion-img
-              *ngIf="themeToggle == false"
-              src="../../../assets/icon/wifi_light.png"
-              alt=""
-            ></ion-img>
-          </ng-template>
+              <ion-img
+                *ngIf="themeToggle == false"
+                src="../../../assets/icon/wifi_light.png"
+                alt=""
+              ></ion-img>
+            </ng-template>
           </div>
-
 
           <div>
             <div
               [ngClass]="i == 0 ? 'optimum_pump_label_status':( i==1 ?'over_pump_label_status':'under_pump_label_status')"
-              
             >
-             <p *ngIf = "i == 0">Optimum Pump(PF 90%)</p>
-             
-             <p *ngIf = "i == 1">Over Pumping (PF 70%)</p>
-             
-             <p *ngIf = "i != 1 && i != 0"> Under Pumping(PF 30%)</p>
-          </div>
-            <!-- <ion-img
-              [ngClass]="i == 0 ? 'under_pump_well-icon':( i==1 ?'over_pump_well-icon':'optimum_pump_well-icon')"
-              class="well-icon"
-              src="../../../assets/icon/well.png"
-              alt=""
-            ></ion-img> -->
-            
+              <p *ngIf="i == 0">Optimum Pumping(PF 90%)</p>
+
+              <p *ngIf="i == 1">Over Pumping (PF 70%)</p>
+
+              <p *ngIf="i != 1 && i != 0">Under Pumping(PF 30%)</p>
+            </div>
+
             <ion-img
-            *ngIf=" i == 0; "
+              *ngIf=" i == 0; "
               style="height: 20px; width: 20px"
               src="../../../assets/icon/well_green.png"
               alt=""
             ></ion-img>
 
             <ion-img
-            *ngIf=" i == 1; else welloverflow "
+              *ngIf=" i == 1; else welloverflow "
               style="height: 20px; width: 20px"
               src="../../../assets/icon/well_red.png"
               alt=""
             ></ion-img>
 
-            <!-- <ion-img
-            *ngIf=" i == 0; else welloverflow "
-              style="height: 20px; width: 20px"
-              src="../../../assets/icon/well_green.png"
-              alt=""
-            ></ion-img> -->
-            
-
             <ng-template #welloverflow>
-            <ion-img
-            *ngIf="i != 0 && themeToggle == true"
-              style="height: 20px; width: 20px; "
-              src="../../../assets/icon/well.png"
-              alt=""
-            ></ion-img>
-            <ion-img
-            *ngIf=" i != 0 &&  themeToggle == false"
-              style="height: 20px; width: 20px;;"
-              src="../../../assets/icon/well_black.png"
-              alt=""
-            ></ion-img>
-          </ng-template>
+              <ion-img
+                *ngIf="i != 0 && themeToggle == true"
+                style="height: 20px; width: 20px"
+                src="../../../assets/icon/well.png"
+                alt=""
+              ></ion-img>
+              <ion-img
+                *ngIf=" i != 0 &&  themeToggle == false"
+                style="height: 20px; width: 20px"
+                src="../../../assets/icon/well_black.png"
+                alt=""
+              ></ion-img>
+            </ng-template>
           </div>
         </ion-item>
         <div slot="content">
@@ -179,7 +261,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;
@@ -206,7 +288,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;
@@ -231,7 +313,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;
@@ -260,7 +342,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;
@@ -286,7 +368,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;
@@ -310,7 +392,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;
@@ -339,7 +421,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;
@@ -365,7 +447,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;
@@ -391,7 +473,7 @@
                     style="
                       margin-top: 30%;
                       color: #7f8590;
-                      font-family: SLB Sans;
+                      font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
                       margin-right: 7%;

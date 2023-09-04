@@ -1,48 +1,40 @@
 <div class="div1">
   <div class="div2">
-    <p (click)="toggle()">
-      {{ textTitle }}
+    <p (click)="toggle()" >
+      {{textTitle}}
     </p>
   </div>
-  <div *ngIf="!show" class="div3">
-    <ion-icon name="search"></ion-icon>
-    <ion-icon
-      id="open-modal"
-      (click)="filterToggle()"
-      name="options-outline"
-    ></ion-icon>
-    <!--id="open-modal-date" <ion-icon name="chatbox-outline" style="font-size: 25px"></ion-icon> (ionChange)="getItems($event)" -->
-    <ion-img      
-      class="comments-icon"
-      src="../../../assets/icon/comments.png"
-      alt=""
-    ></ion-img>
-    <app-filter-date></app-filter-date>
+  <div *ngIf="!show"class="div3">
+    <ion-icon  name="search"></ion-icon>
+    <ion-icon  id="open-modal" (click)="filterToggle()"name="options-outline"></ion-icon>
+    <!-- <ion-icon name="chatbox-outline" style="font-size: 25px"></ion-icon> (ionChange)="getItems($event)" -->
+    <ion-img id="open-modal-date" class="comments-icon"
+  src="../../../assets/icon/comments.png"
+  alt=""
+></ion-img>
+<app-filter-date></app-filter-date>
 
-    <ion-icon name="add-circle-outline"></ion-icon>
-  </div>
-  <div></div>
-  <!-- <app-filter-type-status [trigger]="openModel" *ngIf = "filterStatus == true"></app-filter-type-status> -->
-  <ion-searchbar
-    (ionInput)="searchTxt($event)"
-    style="
-      padding-inline-start: 10px !important;
-      background: #fff;
-      border-radius: 25px;
-      border: 2px solid #73ad21;
-      margin: 3%;
-      height: 10%;
-      width: 65%;
-      color: #000;
-    "
-    *ngIf="show"
-    placeholder="Search"
-    [animated]="true"
-    [debounce]="1000"
-  ></ion-searchbar>
+<ion-icon name="add-circle-outline"></ion-icon>
+</div>
+<div>
+</div>
+<!-- <app-filter-type-status [trigger]="openModel" *ngIf = "filterStatus == true"></app-filter-type-status> -->
+<ion-searchbar (ionInput)="searchTxt($event)"  style="
+padding-inline-start: 10px !important;
+background: #fff;
+border-radius: 25px;
+border: 2px solid #73ad21;
+margin: 3%;
+height: 10%;
+width: 65%;
+color: #000;
+" *ngIf="show" placeholder="Search" [animated]="true" [debounce]="1000" ></ion-searchbar>
+
+
 </div>
 
-<ion-content>
+
+<ion-content >
   <!-- <ion-button id="open-modal" expand="block">Open Modal</ion-button> -->
 
   <ion-modal #modal trigger="open-modal">
@@ -59,7 +51,7 @@
         </ion-toolbar>
 
         <div style="margin-left: 10%">
-          <p style="color: #fff">Alert Type</p>
+          <p style ="color: #fff;">Alert Type</p>
           <select
             (change)="onChangeType($event)"
             style="
@@ -88,7 +80,7 @@
           </select>
 
           <div style="margin-top: 15%"></div>
-          <p style="color: #fff">Status</p>
+          <p style ="color: #fff;" >Status</p>
           <select
             (change)="onChangeStatus($event)"
             style="
@@ -106,7 +98,7 @@
               Select Status Type
             </option>
             <option
-              style="background-color: #535353; max-width: 50%"
+              style="background-color: #535353; max-width: 50%;"
               value="jones"
             >
               status 1
@@ -119,14 +111,7 @@
             </option>
           </select>
           <div style="align-self: flex-end; margin-left: 50%; margin-top: 10%">
-            <ion-button
-              shape="round"
-              size="small"
-              slot="end"
-              >Apply</ion-button
-            >
-            
-            <!-- (click)="filterBy($event)" -->
+            <ion-button shape ="round"(click)="filterBy($event)"size="small" slot="end">Apply</ion-button>
           </div>
         </div>
       </ion-content>

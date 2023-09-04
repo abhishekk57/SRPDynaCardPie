@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">suckerRodPump</string>
+    <string name="title_activity_main">suckerRodPump</string>
+    <string name="package_name">com.slb.srp</string>
+    <string name="custom_url_scheme">com.slb.srp</string>
+</resources>

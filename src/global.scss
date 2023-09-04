@@ -16,7 +16,7 @@
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
-@import '@ionic/angular/css/display.css';
+@import "@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
@@ -25,13 +25,25 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+// @font-face {
+//   font-family: "SLB Sans";
+//   src: url("../assets/fonts/slbFonts/SLBSans-Regular.ttf");
+// }
+
+@font-face {
+  font-family: "SLBSans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("./assets/fonts/SLBSans-Regular.ttf");
+}
+
 ion-content {
-   background: #FFF !important;
-   --background: #FFF !important;
+  background: #fff !important;
+  --background: #fff !important;
 }
 
 ion-toolbar {
-   --background: #0c0c6d;
+  --background: #0c0c6d;
 }
 
 //#06062b // dark
@@ -39,41 +51,42 @@ ion-toolbar {
 //#474776 // light
 
 //#eb445a over pump
-// #2dd36f 
+// #2dd36f
 // #e0a41c under pump
 ion-tab-bar {
-   --background: #0c0c6d;
-   background: #0c0c6d;
-   height: 68px;
+  --background: #0c0c6d;
+  background: #0c0c6d;
+  height: 68px;
 
-   ion-tab-button {
-      color: #FFF;
-   }
+  ion-tab-button {
+    color: #fff;
+  }
 
-   ion-icon {
-      color: #FFF;
-   }
+  ion-icon {
+    color: #fff;
+  }
 }
 ion-toolbar {
-   color: #FFF;
+  color: #fff;
 }
 ion-content {
-   --background: #272745 !important;
-   margin-top: 58px !important;
+  --background: #272745 !important;
+  margin-top: 58px !important;
 }
 
 .highcharts-background {
-   fill: #272745 !important;
+  fill: #272745 !important;
 }
 .highcharts-axis-title {
-   color: #FFF;
-   fill: #FFF;
+  color: #fff;
+  fill: #fff;
 }
 
-ion-accordion-group{
-   ion-accordion {
-       .ion-accordion-toggle-icon {
-           color: grey;
-       }
-   }
+ion-accordion-group {
+  ion-accordion {
+    .ion-accordion-toggle-icon {
+      color: grey;
+      
+    }
+  }
 }
