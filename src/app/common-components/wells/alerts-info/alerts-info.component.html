@@ -9,22 +9,55 @@
   >
     <ion-card-content (click)="navigateTo(item)">
       <ion-row>
-        <ion-label style="color: #fff; font-size: 18px !important">{{
-          item?.wellName
-        }}</ion-label>
+        <ion-label
+          style="
+            font-family: 'SLBSans';
+            font-weight: 700;
+            color: #fff;
+            font-size: 18px;
+          "
+          >{{ item?.wellName }}</ion-label
+        >
       </ion-row>
-      <ion-card-subtitle style="color: #adb1c7; font-size: 12px !important">{{
-        item?.dateTime
-      }}</ion-card-subtitle>
-      <p style="color: #fff; font-size: 16px !important">
+      <ion-card-subtitle
+        style="
+          color: #adb1c7;
+          font-size: 12px;
+          font-weight: 500;
+          font-family: 'SLBSans';
+        "
+        >{{ item?.dateTime }}</ion-card-subtitle
+      >
+      <p
+        style="
+          color: #fff;
+          font-size: 16px;
+          font-weight: 500;
+          font-family: 'SLBSans';
+        "
+      >
         Comms Status:{{ item?.commsStatus }}
       </p>
 
-      <p style="color: #fff; font-size: 16px !important">
+      <p
+        style="
+          color: #fff;
+          font-size: 16px;
+          font-weight: 500;
+          font-family: 'SLBSans';
+        "
+      >
         Controller Status:{{ item?.controllerStatus }}
       </p>
 
-      <p style="color: #fff; font-size: 16px !important">
+      <p
+        style="
+          color: #fff;
+          font-size: 16px;
+          font-weight: 500;
+          font-family: 'SLBSans';
+        "
+      >
         SPM(dimensionless):{{ item?.spm }}
       </p>
 
@@ -36,7 +69,12 @@
         ></div>
         <ion-label
           *ngIf="item?.wellStatus == 'Under Pumping'"
-          style="color: #adb1c7; font-size: 12px !important"
+          style="
+            color: #adb1c7;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'SLBSans';
+          "
           >Medium</ion-label
         >
 
@@ -47,15 +85,25 @@
         ></div>
         <ion-label
           *ngIf="item?.wellStatus == 'Optimum Pumping'"
-          style="color: #adb1c7; font-size: 12px !important"
-          >High</ion-label
+          style="
+            color: #adb1c7;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: 'SLBSans';
+          "
+          >Low</ion-label
         >
 
         <div *ngIf="item?.wellStatus == 'Over Pumping'" class="over_pump"></div>
         <ion-label
           *ngIf="item?.wellStatus == 'Over Pumping'"
-          style="color: #adb1c7; font-size: 12px !important"
-          >Low</ion-label
+          style="
+            color: #adb1c7;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: 'SLBSans';
+          "
+          >High</ion-label
         >
       </ion-row>
     </ion-card-content>

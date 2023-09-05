@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/api/data.service';
+import { RestApiService } from 'src/app/api/restApi.service';
 
 @Component({
   selector: 'app-telemetry-control',
@@ -10,9 +12,20 @@ export class TelemetryControlComponent implements OnInit {
   titleData: any = 'Telemetry';
   data: any = [];
   CurrenPageTitle: string = 'Telemetry';
-  constructor(private router: Router) {}
+  
+  tempData: any = [];
+  public results: any;
 
-  ngOnInit() {}
+  
+  constructor(private router: Router,
+    private httpService: RestApiService,
+    public dataService: DataService,) {}
+
+  ngOnInit() {
+    
+    this.tempData = this.dataService.well_list;
+    this.results = [...this.tempData];
+  }
 
   navigateTo(item: any) {
     console.log(' telemetry page---', item);

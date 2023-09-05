@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { DataService } from 'src/app/api/data.service';
+import { RestApiService } from 'src/app/api/restApi.service';
 
 @Component({
   selector: 'app-events-log',
@@ -9,13 +11,22 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
   styleUrls: ['./events-log.component.scss'],
 })
 export class EventsLogComponent implements OnInit {
-  titleData: any = "Alerts";
+  titleData: any = "Events";
   data: any = []
-  CurrenPageTitle: string = "Alerts";
-  constructor(private router: Router) { }
+  CurrenPageTitle: string = "Events";
+  
+  tempData: any = [];
+  public results: any;
+  
+  constructor(private router: Router,
+    private httpService: RestApiService,
+    public dataService: DataService) { }
 
   ngOnInit() {
-    this.generateItems();
+    this.generateItems();    
+    this.tempData = this.dataService.well_list;
+    this.results = [...this.tempData];
+    console.log('temp data 11 -', this.tempData);
   }
   navigateTo(item: any) {
     console.log("navigateTo ---",item)

@@ -22,27 +22,35 @@
       <ion-buttons slot="start">
         <ion-back-button></ion-back-button>
       </ion-buttons>
-      <ion-item color="#06062b">
-        <ion-label style="color: #fff">Telemetry & Control</ion-label>
-        <ion-row style="display: flex; justify-content: end">
-          <!-- <ion-button  color="primary" [routerLink]="['/telemetry-filters']" color="#06062b " style="color: #fff" s
-            >Create Gateway</ion-button
-          > telemetry-filter-->
-
-          <ion-segment-button [routerLink]="['/telemetry-filter']"
+      <ion-item color="#06062b" style="margin-top: 5%">
+        <ion-label
+          style="
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: 'SLBSans';
+          "
+          >Telemetry & Control</ion-label
+        >
+        <ion-row>
+          <ion-button
+            color="dark"
+            shape="round"
             style="
-              color: #fff;
-              box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
-              height: 100%;
+              color: #6ba7ff;
+              font-size: 12px;
+              font-weight: 700;
+              font-family: 'SLBSans';
+              border-radius: 15px;
+              border-style: solid;
+              border-color: '#6BA7FF';
             "
-            value="gateway"
+            >Create Gateway</ion-button
           >
-            <ion-label  style="color: #fff">Create Gateway</ion-label>
-          </ion-segment-button>
           <ion-icon
             color="primary"
             name="chatbox-outline"
-            style="font-size: 25px; margin-top: 5%"
+            style="font-size: 25px; margin-top: 3%"
           ></ion-icon>
         </ion-row>
       </ion-item>
@@ -61,7 +69,7 @@
           >
           <ion-row>
             <ion-icon name="logo-ionic" color="primary"></ion-icon>
-            <ion-label style="color: #fff">Ready To Provision</ion-label>
+            <ion-label style="color: #fff">Operational</ion-label>
           </ion-row>
           <ion-label style="color: #fff">Device</ion-label>
           <ion-row>

@@ -1,39 +1,105 @@
-
 <ion-content [fullscreen]="true">
+  <ion-content>
+    <ion-card
+      style="
+        background: #131629;
+        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+        margin-bottom: 0%;
+      "
+      *ngFor="let item of results; let i = index"
+    >
+      <ion-card-content>
+        <ion-label
+          style="
+            color: #fff;
+            font-size: 18px;
+            font-family: 'SLBSans';
+            font-weight: 700;
+          "
+          >{{ item?.wellName }}</ion-label
+        >
+        <ion-card-subtitle
+          style="
+            color: #adb1c7;
+            font-size: 12px;
+            font-family: 'SLBSans';
+            font-weight: 500;
+          "
+          >{{ item?.dateTime }}</ion-card-subtitle
+        >
+        <ion-label
+          text-wrap
+          class="ion-text-wrap"
+          style="
+            color: #fff;
+            text-overflow: ellipsis;
+            max-lines: 1;
+            font-family: 'SLBSans';
+            font-weight: 500;
+            font-size: 16px;
+          "
+          >Flatlining - Description will be seen here with details content like
+          well looks good some measures
+        </ion-label>
 
-    
-    <ion-content>
-      <ion-card
-        style="
-          background: #131629;
-          box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
-          margin-bottom: 0%;
-        "
-        *ngFor="let item of [1,2,3,4,5]; let index"
-      >
-        <ion-card-content>
-          <ion-label style="color: #fff; font-size: 18px !important"
-            >Wells Name 001</ion-label
-          >
-          <ion-card-subtitle
-            style="color: #ADB1C7; font-size: 10px !important"
-            >2023-07-26 5:31:30</ion-card-subtitle
-          >
+        <!-- <ion-row>
+          <ion-icon name="logo-ionic" color="danger"></ion-icon>
           <ion-label
-            text-wrap
-            class="ion-text-wrap"
-            style="color: #fff; text-overflow: ellipsis; max-lines: 1;"
-            >Flatlining - Description will be seen here with details content like well looks good some measures
-          </ion-label>
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-family: 'SLBSans';
+              font-weight: 700;
+            "
+            >High</ion-label
+          >
+        </ion-row> -->
+        <ion-row style="margin-top: 2%">
+          <div
+            *ngIf="item?.wellStatus == 'Under Pumping'"
+            name="logo-ionic"
+            class="under_pump"
+          ></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Under Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 700;
+              font-family: 'SLBSans';
+            "
+            >Under Pumping</ion-label
+          >
   
-          <ion-row>
-            <ion-icon name="logo-ionic" color="danger"></ion-icon>
-            <ion-label style="color: #ADB1C7; font-size: 12px !important"
-              >High</ion-label
-            >
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
-    </ion-content>
-
+          <!-- <ng-template #message> -->
+          <div
+            *ngIf="item?.wellStatus == 'Optimum Pumping'"
+            class="optimum_pump"
+          ></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Optimum Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 500;
+              font-family: 'SLBSans';
+            "
+            >Optimum Pumping</ion-label
+          >
+  
+          <div *ngIf="item?.wellStatus == 'Over Pumping'" class="over_pump"></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Over Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 500;
+              font-family: 'SLBSans';
+            "
+            >Over Pumping</ion-label
+          >
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
 </ion-content>

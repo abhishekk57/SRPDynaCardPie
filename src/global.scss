@@ -37,6 +37,22 @@
   src: url("./assets/fonts/SLBSans-Regular.ttf");
 }
 
+@font-face {
+  font-family: "SLBSans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("./assets/fonts/SLBSans-Regular.ttf");
+}
+
+// @font-face {
+//   font-family: "SLBSans";
+//   font-weight: bold;
+//   font-style: bold;
+//   src: url("./assets/fonts/SLBSans-Bold.ttf");
+// }
+
+
+
 ion-content {
   background: #fff !important;
   --background: #fff !important;

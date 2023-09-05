@@ -1,34 +1,12 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar class="header">
-    <ion-row slot="start">
-      <ion-icon name="cloud" style="font-size: 25px; margin-top: 5%"></ion-icon>
-      <ion-list>
-        <ion-item class="header">
-          <ion-select aria-label="Favorite Fruit" value="test">
-            <ion-select-option value="test">App1</ion-select-option>
-            <ion-select-option value="banana">App2</ion-select-option>
-            <ion-select-option value="orange">App3</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-
-      <ion-label style="align-self: center">App Name</ion-label>
-    </ion-row>
-
-    <ion-row slot="end" class="header-icon">
-      <ion-icon name="help-circle-outline" style="font-size: 25px"></ion-icon>
-      <ion-icon name="notifications-outline" style="font-size: 25px"></ion-icon>
-    </ion-row>
-  </ion-toolbar>
-</ion-header> -->
-
-
 <app-common-header [title]="CurrenPageTitle"></app-common-header>
 
 <ion-content>
   <ion-header collapse="fill">
     <ion-item class="headerTitle">
-      <ion-label style ="font-size: 16px">Well List</ion-label>
+      <ion-label
+        style="font-size: 16px; font-weight: 500; font-family: 'SLBSans'"
+        >Well List</ion-label
+      >
       <ion-row style="display: flex; justify-content: end">
         <ion-button shape="round">Create Gateway</ion-button>
         <ion-icon
@@ -38,8 +16,9 @@
       </ion-row>
     </ion-item>
 
-    <ion-item class="headerTitle">
-      <ion-select style ="font-size: 16px"
+    <!-- <ion-item class="headerTitle">
+      <ion-select
+        style="font-size: 16px"
         label="Telemetry & Control"
         label-placement="fill"
         placeholder="Telemetry"
@@ -48,7 +27,7 @@
         <ion-select-option value="2">Telemetry 2</ion-select-option>
         <ion-select-option value="3">Telemetry 3</ion-select-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
   </ion-header>
 
   <ion-content>
@@ -57,24 +36,85 @@
         background: #131629;
         box-shadow: 0.2px 0px 1px 2px #8b90ad, 0 1px 0px 0 #8b90ad;
       "
-      *ngFor="let item of [1,2,3,4,5]; let index"
+      *ngFor="let item of results; let i = index"
     >
       <ion-card-content>
-        <ion-card-subtitle style="color: #fff;font-size: 18px"
-          >Chord_SRP_Test7-1H2</ion-card-subtitle
+        <ion-card-subtitle
+          style="
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'SLBSans';
+          "
+          >Chord_SRP_Kelter7-1H2_</ion-card-subtitle
         >
         <!-- <ion-label style="color: #fff; font-size: 18px !important"
             >Chord_SRP_Test7-1H2</ion-label
           > -->
         <ion-label
           [routerLink]="['/telemetry/telemetry-details']"
-          style="color: #fff;font-size: 18px"
-          >Naveen_801</ion-label
+          style="color: #fff; 
+          font-size: 18px;
+          font-weight: 700;
+          font-family: 'SLBSans"
+          >WillistonNDUSA_402</ion-label
         >
-        <ion-row style ="margin-top: 2%;">
+        <!-- <ion-row style="margin-top: 2%">
           <ion-icon name="logo-ionic" color="primary"></ion-icon>
-          <ion-label style="color: #fff; font-size: 12px"
+          <ion-label
+            style="color: #fff; font-size: 12px;
+          font-weight: 500;
+          font-family: 'SLBSans"
             >Operational</ion-label
+          >
+        </ion-row> -->
+
+        <ion-row style="margin-top: 2%">
+          <div
+            *ngIf="item?.wellStatus == 'Under Pumping'"
+            name="logo-ionic"
+            class="under_pump"
+          ></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Under Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 700;
+              font-family: 'SLBSans';
+            "
+            >Under Pumping</ion-label
+          >
+
+          <!-- <ng-template #message> -->
+          <div
+            *ngIf="item?.wellStatus == 'Optimum Pumping'"
+            class="optimum_pump"
+          ></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Optimum Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 500;
+              font-family: 'SLBSans';
+            "
+            >Optimum Pumping</ion-label
+          >
+
+          <div
+            *ngIf="item?.wellStatus == 'Over Pumping'"
+            class="over_pump"
+          ></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Over Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 500;
+              font-family: 'SLBSans';
+            "
+            >Over Pumping</ion-label
           >
         </ion-row>
       </ion-card-content>

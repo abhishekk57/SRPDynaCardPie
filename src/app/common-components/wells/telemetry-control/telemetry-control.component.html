@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-content>
+  <!-- <ion-content>
     <ion-card
       style="
         background: #131629;
@@ -11,10 +11,6 @@
         <ion-card-subtitle style="color: #fff; font-size: 18px"
           >Chord_SRP_Test7-1H2</ion-card-subtitle
         >
-        <!-- <ion-label style="color: #fff; font-size: 18px !important"
-            >Chord_SRP_Test7-1H2</ion-label
-          > 
-          [routerLink]="['/telemetry/telemetry-details']" -->
         <ion-label style="color: #fff; font-size: 18px">Naveen_801</ion-label>
         <ion-row style="margin-top: 2%">
           <ion-icon name="logo-ionic" color="primary"></ion-icon>
@@ -24,5 +20,95 @@
         </ion-row>
       </ion-card-content>
     </ion-card>
+  </ion-content> -->
+
+  
+  <ion-content>
+    <ion-card
+      style="
+        background: #131629;
+        box-shadow: 0.2px 0px 1px 2px #8b90ad, 0 1px 0px 0 #8b90ad;
+      "
+      *ngFor="let item of results; let i = index"
+    >
+      <ion-card-content>
+        <ion-card-subtitle
+          style="
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'SLBSans';
+          "
+          >Chord_SRP_Kelter7-1H2_</ion-card-subtitle
+        >
+        <!-- <ion-label style="color: #fff; font-size: 18px !important"
+            >Chord_SRP_Test7-1H2</ion-label
+          > 
+          [routerLink]="['/telemetry/telemetry-details']" -->
+        <ion-label
+          style="color: #fff; 
+          font-size: 18px;
+          font-weight: 700;
+          font-family: 'SLBSans"
+          >WillistonNDUSA_402</ion-label
+        >
+        <!-- <ion-row style="margin-top: 2%">
+          <ion-icon name="logo-ionic" color="primary"></ion-icon>
+          <ion-label
+            style="color: #fff; font-size: 12px;
+          font-weight: 500;
+          font-family: 'SLBSans"
+            >Operational</ion-label
+          >
+        </ion-row> -->
+        
+        <ion-row style="margin-top: 2%">
+          <div
+            *ngIf="item?.wellStatus == 'Under Pumping'"
+            name="logo-ionic"
+            class="under_pump"
+          ></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Under Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 700;
+              font-family: 'SLBSans';
+            "
+            >Under Pumping</ion-label
+          >
+  
+          <!-- <ng-template #message> -->
+          <div
+            *ngIf="item?.wellStatus == 'Optimum Pumping'"
+            class="optimum_pump"
+          ></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Optimum Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 500;
+              font-family: 'SLBSans';
+            "
+            >Optimum Pumping</ion-label
+          >
+  
+          <div *ngIf="item?.wellStatus == 'Over Pumping'" class="over_pump"></div>
+          <ion-label
+            *ngIf="item?.wellStatus == 'Over Pumping'"
+            style="
+              color: #adb1c7;
+              font-size: 12px;
+              font-weight: 500;
+              font-family: 'SLBSans';
+            "
+            >Over Pumping</ion-label
+          >
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </ion-content>
+  
 </ion-content>
