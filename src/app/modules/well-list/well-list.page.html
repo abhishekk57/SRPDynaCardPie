@@ -28,7 +28,7 @@
   message="Loading..."
   [duration]="3000"
 ></ion-loading>  -->
-
+  <!-- [ngClass]="  i == 0 ? 'expleft_optimum_pump':( i==1 ?'expleft_overpump':'expleft_under_pump ')" -->
   <ion-content>
     <ion-accordion-group [multiple]="true">
       <ion-accordion
@@ -37,7 +37,7 @@
       >
         <ion-item
           slot="header"
-          [ngClass]="  i == 0 ? 'expleft_optimum_pump':( i==1 ?'expleft_overpump':'expleft_under_pump ')"
+          [ngClass]="  item?.wellStatus == 'Optimum Pumping' ? 'expleft_optimum_pump':( item?.wellStatus == 'Over Pumping' ?'expleft_overpump':'expleft_under_pump ')"
         >
           <!-- <div>
           <div style="flex : 1;flex-direction: row; display: flex;">
@@ -143,10 +143,10 @@
       </div>
           </div>
         </div> -->
-
+          <!-- [ngClass]="i == 0 ? 'optimum_pump_label_color':( i==1 ?'over_pump_label_color': themeToggle ?'under_pump_label_color_dark':'under_pump_label_color')" -->
           <div>
             <p
-              [ngClass]="i == 0 ? 'optimum_pump_label_color':( i==1 ?'over_pump_label_color': themeToggle ?'under_pump_label_color_dark':'under_pump_label_color')"
+              [ngClass]="item?.wellStatus == 'Optimum Pumping'? 'optimum_pump_label_color':( item?.wellStatus == 'Over Pumping'?'over_pump_label_color': themeToggle ?'under_pump_label_color_dark':'under_pump_label_color')"
             >
               {{item?.wellName}}
             </p>
@@ -161,17 +161,18 @@
               {{item?.dateTime}}
             </p>
           </div>
-
+          <!-- [ngClass]="i == 0 ? 'optimum_pump':( i==1 ?'over_pump':'under_pump')" -->
           <div style="padding-left: 3%; padding-right: 3%">
             <p
-              [ngClass]="i == 0 ? 'optimum_pump':( i==1 ?'over_pump':'under_pump')"
+              [ngClass]="item?.wellStatus == 'Optimum Pumping' ? 'optimum_pump':( item?.wellStatus == 'Over Pumping' ?'over_pump':'under_pump')"
             ></p>
             <ion-img
-              *ngIf=" i == 1; else wifired "
+              *ngIf=" item?.wellStatus == 'Over Pumping'; else wifired "
               style="width: 20px; height: 20px"
               src="../../../assets/icon/wifi_red.png"
               alt=""
             ></ion-img>
+
             <ng-template #wifired>
               <ion-img
                 *ngIf="themeToggle == true"
@@ -191,30 +192,50 @@
 
           <div>
             <div
-              [ngClass]="i == 0 ? 'optimum_pump_label_status':( i==1 ?'over_pump_label_status':'under_pump_label_status')"
+              [ngClass]="item?.wellStatus == 'Optimum Pumping' ? 'optimum_pump_label_status':( item?.wellStatus == 'Over Pumping' ?'over_pump_label_status':'under_pump_label_status')"
             >
-              <p *ngIf="i == 0">Optimum Pumping(PF 90%)</p>
+              <p *ngIf="item?.wellStatus == 'Optimum Pumping'">
+                Optimum Pumping(PF 90%)
+              </p>
 
-              <p *ngIf="i == 1">Over Pumping (PF 70%)</p>
+              <p *ngIf="item?.wellStatus == 'Over Pumping'">
+                Over Pumping (PF 70%)
+              </p>
 
-              <p *ngIf="i != 1 && i != 0">Under Pumping(PF 30%)</p>
+              <p *ngIf="item?.wellStatus == 'Under Pumping'">
+                Under Pumping(PF 30%)
+              </p>
             </div>
 
             <ion-img
-              *ngIf=" i == 0; "
+              *ngIf="item?.wellStatus == 'Optimum Pumping'"
               style="height: 20px; width: 20px"
               src="../../../assets/icon/well_green.png"
               alt=""
             ></ion-img>
 
             <ion-img
-              *ngIf=" i == 1; else welloverflow "
+              *ngIf="item?.wellStatus == 'Over Pumping'"
               style="height: 20px; width: 20px"
               src="../../../assets/icon/well_red.png"
               alt=""
             ></ion-img>
 
-            <ng-template #welloverflow>
+            <ion-img
+              *ngIf="item?.wellStatus == 'Under Pumping' &&  themeToggle == false"
+              style="height: 20px; width: 20px"
+              src="../../../assets/icon/well_black.png"
+              alt=""
+            ></ion-img>
+
+            <ion-img
+              *ngIf="item?.wellStatus == 'Under Pumping' &&  themeToggle == true"
+              style="height: 20px; width: 20px"
+              src="../../../assets/icon/well.png"
+              alt=""
+            ></ion-img>
+
+            <!-- <ng-template #welloverflow>
               <ion-img
                 *ngIf="i != 0 && themeToggle == true"
                 style="height: 20px; width: 20px"
@@ -227,7 +248,7 @@
                 src="../../../assets/icon/well_black.png"
                 alt=""
               ></ion-img>
-            </ng-template>
+            </ng-template> -->
           </div>
         </ion-item>
         <div slot="content" (click)="navigateTo(item)">
@@ -241,7 +262,8 @@
                 flex: 1;
                 flex-direction: row;
                 border-radius: 10px;
-                margin-left: 5%;
+                margin-left: 1%;
+                margin-right: 1%;
                 margin-top: -2%;
               "
             >
@@ -262,15 +284,14 @@
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 6%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.spm}}
                   </p>
                 </div>
                 <div
@@ -289,15 +310,14 @@
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 6%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.effectiveRuntimePercentage}}%
                   </p>
                 </div>
                 <div
@@ -314,15 +334,14 @@
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 6%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.minMaxloadPercentage}}%
                   </p>
                 </div>
               </div>
@@ -343,15 +362,14 @@
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 5%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.pumpFillage}}
                   </p>
                 </div>
                 <div
@@ -369,15 +387,14 @@
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 5%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.cyclesToday}}
                   </p>
                 </div>
                 <div
@@ -393,15 +410,14 @@
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 5%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.gearBoxLoadPercentage}}%
                   </p>
                 </div>
               </div>
@@ -418,19 +434,18 @@
                   <p
                     [ngClass]=" themeToggle ? 'inferredproduction_dark':'inferredproduction_light' "
                   >
-                    Inferred Production(bpd)
+                    Inferred Production
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 5%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.inferredProduction}}
                   </p>
                 </div>
                 <div
@@ -448,15 +463,14 @@
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 5%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.structuralLoadPercentage}}%
                   </p>
                 </div>
                 <div
@@ -464,7 +478,7 @@
                     display: flex;
                     flex: 1;
                     flex-direction: row;
-                    margin-bottom: -20%;
+                    margin-bottom: -10%;
                   "
                 >
                   <p
@@ -474,15 +488,14 @@
                   </p>
                   <p
                     style="
-                      margin-top: 30%;
+                      padding-top: 5%;
                       color: #7f8590;
                       font-family: 'SLBSans' !important;
                       font-weight: 500;
                       font-size: 14px;
-                      margin-right: 7%;
                     "
                   >
-                    50%
+                    {{item?.rodStressPercentage}}%
                   </p>
                 </div>
               </div>

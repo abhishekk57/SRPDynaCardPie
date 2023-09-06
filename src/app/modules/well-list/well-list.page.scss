@@ -203,7 +203,7 @@ ion-col {
   margin: 1%;
   border-style: solid;
   border-left-color: #ffa220;
-  border-left-width: 5px;
+  border-left-width: 2px;
   // margin-right: 2%;
   border-top-color: transparent !important;
   border-bottom-color: transparent !important;
@@ -216,7 +216,7 @@ ion-col {
   margin: 1%;
   border-style: solid;
   border-left-color: #d11f1f;
-  border-left-width: 5px;
+  border-left-width: 2px;
   // margin-right: 2%; transparent !important #EBECF2
   border-top-color: transparent !important;
   border-bottom-color: transparent !important;
@@ -228,7 +228,7 @@ ion-col {
   margin: 1%;
   border-style: solid;
   border-left-color: #24a159;
-  border-left-width: 5px;
+  border-left-width: 2px;
   // margin-right: 2%;
   border-top-color: transparent !important;
   border-bottom-color: transparent !important;
@@ -263,7 +263,7 @@ ion-col {
   color: #24a159;
   font-size: 14px;
   font-family: "SLBSans";
-  font-weight: 700;  
+  font-weight: 700;
   // padding-top: 10%;
 }
 
@@ -289,14 +289,14 @@ ion-col {
   color: #ffa220;
   font-size: 12px;
   padding-top: 3px;
-  font-family: "SLBSans" ;
+  font-family: "SLBSans";
   font-weight: 700;
 }
 
 .over_pump_label_status {
   color: #d11f1f;
   font-size: 12px;
-  font-family: "SLBSans" ;
+  font-family: "SLBSans";
   font-weight: 700;
 }
 
@@ -388,7 +388,9 @@ ion-col {
   box-shadow: #50546a;
   border-radius: 25px;
   border-style: solid;
-  margin: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
   border-width: 1px;
 }
 
@@ -398,7 +400,9 @@ ion-col {
   box-shadow: #ccced9;
   border-radius: 25px;
   border-style: solid;
-  margin: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
   border-width: 1px;
 }
 .spmLabel_dark {
@@ -482,7 +486,7 @@ ion-col {
   line-height: 1.8em;
   text-overflow: ellipsis;
   height: 50%;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #fff;
   font-family: SLB Sans;
@@ -496,7 +500,7 @@ ion-col {
   line-height: 1.8em;
   text-overflow: ellipsis;
   height: 50%;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #000;
   font-family: SLB Sans;
@@ -509,7 +513,7 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #fff;
   font-family: SLB Sans;
@@ -522,7 +526,7 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #000;
   font-family: SLB Sans;
@@ -535,7 +539,7 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #fff;
   font-family: SLB Sans;
@@ -548,7 +552,7 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
+  // margin-left: 2%;
   font-size: 14px;
   color: #000;
   font-family: SLB Sans;
@@ -561,7 +565,6 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
   font-size: 14px;
   color: #fff;
   font-family: SLB Sans;
@@ -574,7 +577,6 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
   font-size: 14px;
   color: #000;
   font-family: SLB Sans;
@@ -587,7 +589,7 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #fff;
   font-family: SLB Sans;
@@ -600,7 +602,7 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #000;
   font-family: SLB Sans;
@@ -613,7 +615,7 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #fff;
   font-family: SLB Sans;
@@ -626,7 +628,7 @@ ion-col {
   max-height: 3.6em;
   line-height: 1.8em;
   text-overflow: ellipsis;
-  margin-left: 5%;
+  // margin-left: 5%;
   font-size: 14px;
   color: #000;
   font-family: SLB Sans;
