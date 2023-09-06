@@ -230,7 +230,7 @@ export class WellListPage implements OnInit {
 
     if (this.statusValue.length > 0) {
       this.results = this.tempData.filter((item: any) =>
-        item?.wellName?.toLowerCase().includes(this.statusValue)
+        item?.wellStatus?.toLowerCase().includes(this.statusValue)
       );
     } else {
       this.results = this.tempData;

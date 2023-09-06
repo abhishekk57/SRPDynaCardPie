@@ -168,18 +168,21 @@
             ></p>
             <ion-img
               *ngIf=" i == 1; else wifired "
+              style="width: 20px; height: 20px"
               src="../../../assets/icon/wifi_red.png"
               alt=""
             ></ion-img>
             <ng-template #wifired>
               <ion-img
                 *ngIf="themeToggle == true"
+                style="width: 20px; height: 20px"
                 src="../../../assets/icon/wifi.png"
                 alt=""
               ></ion-img>
 
               <ion-img
                 *ngIf="themeToggle == false"
+                style="width: 20px; height: 20px"
                 src="../../../assets/icon/wifi_light.png"
                 alt=""
               ></ion-img>
@@ -227,7 +230,7 @@
             </ng-template>
           </div>
         </ion-item>
-        <div slot="content">
+        <div slot="content" (click)="navigateTo(item)">
           <div
             [ngClass]=" themeToggle ? 'dropdownitem_dark':'dropdownitem_light' "
           >

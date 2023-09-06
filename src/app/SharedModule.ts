@@ -21,6 +21,8 @@ import { CustomButtonComponent } from './common-components/custom-button/custom-
 import { AlertDialogComponent } from './common-components/alert-dialog/alert-dialog.component';
 import { FilterTypeStatusComponent } from './common-components/filter-type-status/filter-type-status.component';
 import { FilterDateComponent } from './common-components/filter-date/filter-date.component';
+import { AlgorithmsMitigationsComponent } from './common-components/algorithms-mitigations/algorithms-mitigations.component';
+
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { FilterDateComponent } from './common-components/filter-date/filter-date
     CustomButtonComponent,
     AlertDialogComponent,
     FilterTypeStatusComponent,
-    FilterDateComponent
+    FilterDateComponent,
+    AlgorithmsMitigationsComponent
   ],
   exports: [
     MenuComponent,
@@ -69,7 +72,8 @@ import { FilterDateComponent } from './common-components/filter-date/filter-date
     CustomButtonComponent,
     AlertDialogComponent,
     FilterTypeStatusComponent,
-    FilterDateComponent
+    FilterDateComponent,
+    AlgorithmsMitigationsComponent
   ],
 })
 export class SharedModule {}

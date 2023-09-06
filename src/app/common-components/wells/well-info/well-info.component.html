@@ -9,16 +9,47 @@
     <ion-card
       style="
         background: #171a2e;
-        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+        box-shadow: 0.2px 0px 1px 2px #8B90ADBF, 0 1px 0px 0 #8B90ADBF;
       "
       *ngFor="let item of [1, 2, 3, 4, 5]; let index"
     >
       <ion-card-content>
-        <ion-label
+        <!-- <ion-label
           text-wrap
           style="color: #fff; text-overflow: ellipsis; max-lines: 1"
           >AVG SPM 2.2spm
-        </ion-label>
+        </ion-label> -->
+        <div
+          style="
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <p
+            style="
+              font-size: 14px;
+              font-family: 'SLBSans';
+              font-weight: 500;
+              color: #6c7191;
+              padding-right: 5%;
+            "
+          >
+            AVG SPM
+          </p>
+          <p
+            style="
+              font-size: 16px;
+              font-family: 'SLBSans';
+              font-weight: 700;
+              color: #ebecf2;
+            "
+          >
+            2.2spm
+          </p>
+        </div>
       </ion-card-content>
     </ion-card>
 
@@ -29,10 +60,11 @@
         margin-bottom: 25%;
       "
     >
-      <ion-card-content style = "height: 500px;">
-        <ion-card-content >
-          
-          <ion-label style = "color: #fff;align-self: flex-start;">Image will be displayed here</ion-label>
+      <ion-card-content style="height: 500px">
+        <ion-card-content>
+          <ion-label style="color: #fff; align-self: flex-start"
+            >Image will be displayed here</ion-label
+          >
           <ion-img
             src="https://docs-demo.ionic.io/assets/madison.jpg"
             alt="Image will be displayed here"

@@ -1,0 +1,409 @@
+<ion-content>
+  <div>
+    <ion-card
+      style="
+        background: #171a2e;
+        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+        margin-bottom: 5%;
+      "
+    >
+      <ion-card-content style="margin-left: 5%">
+        <p class="controller-label">Controllers</p>
+        <select
+          (change)="onControlerChange($event)"
+          style="
+            color: #fff;
+            background-color: #0b0c18;
+            border-color: #0b0c18;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-right: 5%;
+            margin-left: 4%;
+            width: 90%;
+          "
+          name="cars"
+          id="cars"
+        >
+          <option class="controller-option" value="controller">
+            Select controller
+          </option>
+          <option class="controller-option" value="1">controller 1</option>
+          <option class="controller-option" value="2">controller 2</option>
+          <option class="controller-option" value="3">controller 3</option>
+        </select>
+
+        <p
+          style="
+            color: #adb1c7;
+            font-size: 12px;
+            font-family: 'SLBSans';
+            font-weight: 700;
+            margin-top: 5%;
+            margin-bottom: 1%;
+          "
+        >
+          Tag(Total:190/Selected:4)
+        </p>
+        <select
+          (change)="onTagChange($event)"
+          style="
+            color: #fff;
+            background-color: #0b0c18;
+            border-color: #0b0c18;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-right: 5%;
+            margin-left: 4%;
+            width: 90%;
+          "
+          name="cars"
+          id="cars"
+        >
+          <option class="controller-tag-option" value="tag">Select tag</option>
+          <option class="controller-tag-option" value="1">tag 1</option>
+          <option class="controller-tag-option" value="2">tag 2</option>
+          <option class="controller-tag-option" value="3">tag 3</option>
+        </select>
+      </ion-card-content>
+      <ion-button
+        style="
+          margin-left: 70%;
+          font-family: 'SLBSans';
+          font-size: 12px;
+          font-weight: 700;
+          color: #000;
+        "
+        shape="round"
+        size="12"
+        (click)="onApplyClick()"
+        >Apply</ion-button
+      >
+    </ion-card>
+
+    <ion-accordion-group>
+      <ion-accordion
+        style="
+          background-color: #171a2e !important;
+          border: #8b90ad !important;
+          border-color: #8b90ad !important;
+          margin-bottom: 10%;
+          margin-left: 2%;
+          margin-right: 2%;
+          width: 95%;
+          border-radius: 10%;
+          border-width: 10%;
+          border-style: solid;
+        "
+        value="first"
+      >
+        <ion-item
+          slot="header"
+          style="background-color: #171a2e; border: #8b90ad"
+        >
+          <div
+            style="
+              flex: 1;
+              flex-direction: row;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center !important;
+              height: 100%;
+            "
+          >
+            <p
+              (click)="onTagClick()"
+              style="
+                color: #adb1c7;
+                font-size: 16px;
+                font-family: 'SLBSans';
+                font-weight: 700;
+              "
+            >
+              Tags
+            </p>
+            <ion-img
+              (click)="onWifiClick()"
+              style="width: 35px; height: 35px; color: #adb1c7"
+              src="../../../assets/icon/wifi.png"
+              alt=""
+            ></ion-img>
+            <ion-icon
+              (click)="onRefreshClick()"
+              style="width: 35px; height: 35px; color: #adb1c7"
+              name="refresh-outline"
+            ></ion-icon>
+
+            <ion-icon
+              (click)="onSyncClick()"
+              style="width: 35px; height: 35px; color: red"
+              name="sync-circle-outline"
+            ></ion-icon>
+            <ion-button
+              style="
+                color: #080912;
+                font-size: 12px;
+                font-weight: 700;
+                margin-top: 5%;
+                margin-bottom: 1%;
+              "
+              (click)="onSaveClick()"
+              shape="round"
+              >Save</ion-button
+            >
+          </div>
+        </ion-item>
+
+        <div class="ion-padding" slot="content">
+          <div
+            style="
+              background-color: #171a2e;
+              border-color: #8b90adbf;
+              border-radius: 3%;
+              margin-left: 3%;
+              margin-right: 3%;
+              border-style: solid;
+              border-width: 2px;
+              margin-bottom: 5%;
+            "
+            *ngFor="let item of [1, 2, 3]; let index"
+          >
+            <p
+              style="
+                color: #6c7191;
+                padding-left: 5%;
+                font-size: 12px;
+                font-family: 'SLBSans';
+                font-weight: 500;
+              "
+            >
+              Lefty_14302T flatining_mitigation_state
+            </p>
+            <hr
+              style="
+                display: block;
+                height: 1px;
+                border: 0;
+                border-top: 1px solid #8b90adbf;
+              "
+            />
+            <div style="flex: 1; flex-direction: row; display: flex">
+              <p
+                style="
+                  color: #fff;
+                  padding-left: 5%;
+                  font-size: 12px;
+                  font-family: 'SLBSans';
+                  font-weight: 500;
+                "
+              >
+                54 hz
+              </p>
+              <p
+                style="
+                  color: #6c7191;
+                  padding-left: 10%;
+                  font-size: 12px;
+                  font-family: 'SLBSans';
+                  font-weight: 500;
+                "
+              >
+                May 30, 2023 13:14:59 AM CDT
+              </p>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+
+    <ion-card
+      style="
+        background-color: #171a2e;
+        border-color: #8b90adbf;
+        border-radius: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        border-style: solid;
+        border-width: 2px;
+        margin-bottom: 2%;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center !important;
+        "
+      >
+        <ion-segment
+          style="background: #06062b"
+          scrollable="true"
+          value="default"
+        >
+          <ion-segment-button value="raw history">
+            <ion-label>RAW HISTORY</ion-label>
+          </ion-segment-button>
+
+          <ion-segment-button value="decimated">
+            <ion-label>DECIMATED</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+        <hr
+          style="
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #8b90adbf;
+            margin: 1em 0;
+            padding: 0;
+          "
+        />
+      </div>
+      <ion-card-content>
+        <div
+          style="
+            flex: 1;
+            flex-direction: row;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center !important;
+            background-color: #171a2e;
+          "
+        >
+          <ion-img
+            style="width: 30px; height: 30px"
+            src="../../../assets/icon/updown.png"
+            alt=""
+          ></ion-img>
+          <ion-toggle
+            labelPlacement="end"
+            style="font-size: 16px; font-weight: 500; font-family: 'SLBSans'"
+            >Show Legends</ion-toggle
+          >
+
+          <ion-icon
+            style="width: 30px; height: 30px"
+            name="options-outline"
+          ></ion-icon>
+        </div>
+      </ion-card-content>
+      <hr
+        style="
+          display: block;
+          height: 1px;
+          border: 0;
+          border-top: 1px solid #8b90adbf;
+          margin: 1em 0;
+          padding: 0;
+        "
+      />
+      <div style="display: flex; justify-content: center; align-items: center">
+        <p style="font-size: 21px; font-weight: 500; font-family: 'SLBSans'">
+          History Visualization
+        </p>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+        "
+      >
+        <ion-button
+          size="small"
+          shape="round"
+          style="
+            --background: #080912;
+            color: #adb1c7;
+            border-width: 2%;
+            font-size: 12px;
+            font-family: 'SLBSans';
+            font-weight: 700;
+          "
+        >
+          <ion-icon slot="start" name="barbell-outline"></ion-icon>
+          dynacard 1
+        </ion-button>
+        <ion-button
+          size="small"
+          shape="round"
+          style="
+            --background: #080912;
+            color: #adb1c7;
+            font-size: 12px;
+            font-family: 'SLBSans';
+            font-weight: 700;
+          "
+        >
+          <ion-icon slot="start" name="barbell-outline"></ion-icon>
+          dynacard 2
+        </ion-button>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          margin-bottom: 5%;
+        "
+      >
+        <ion-button
+          size="small"
+          shape="round"
+          style="
+            --background: #080912;
+            color: #adb1c7;
+            font-size: 12px;
+            font-family: 'SLBSans';
+            font-weight: 700;
+          "
+        >
+          <ion-icon slot="start" name="barbell-outline"></ion-icon>
+          tagging 1
+        </ion-button>
+        <ion-button
+          size="small"
+          shape="round"
+          style="
+            --background: #080912;
+            color: #adb1c7;
+            font-size: 12px;
+            font-family: 'SLBSans';
+            font-weight: 700;
+          "
+        >
+          <ion-icon slot="start" name="barbell-outline"></ion-icon>
+          tagging 2
+        </ion-button>
+      </div>
+      <ion-card
+        style="
+          background: #171a2e;
+          box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+          margin-bottom: 25%;
+          margin-left: 5%;
+          margin-right: 5%;
+        "
+      >
+        <ion-card-content>
+          <ion-card-content>
+            <ion-label
+              style="
+                color: #fff;
+                align-self: flex-start;
+                font-size: 19px;
+                font-family: 'SLBSans';
+                font-weight: 400;
+              "
+              >Graph will be Displayed here</ion-label
+            >
+            <ion-img
+              src="https://docs-demo.ionic.io/assets/madison.jpg"
+              alt="Image will be displayed here"
+            ></ion-img>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+    </ion-card>
+  </div>
+</ion-content>

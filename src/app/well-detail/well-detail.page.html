@@ -17,16 +17,19 @@
       "
       (change)="onChange($event)"
     >
-      <option style="background-color: #535353; " value="Well Info">
+      <option style="background-color: #535353" value="Well Info">
         Well Info
       </option>
-      <option style="background-color: #535353; max-width: fit-content" value="Dynacard">
+      <option
+        style="background-color: #535353; max-width: fit-content"
+        value="Dynacard"
+      >
         Dynacard
       </option>
       <option
         (click)="dyancard($event)"
         style="background-color: #535353"
-        value="Algorithms"
+        value="Algorithms Mitigations"
       >
         Algorithms & Mitigations
       </option>
@@ -43,20 +46,14 @@
         Telmetry & Control
       </option>
     </select>
-<!-- </div> -->
     <ion-content>
-      <!-- <div class="dropup">
-        <button class="dropbtn">Dropup</button>
-        <div class="dropup-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> -->
 
       <app-well-info *ngIf="selectedOption == 'Well Info'"></app-well-info>
       <app-charting *ngIf="selectedOption == 'Charting'"></app-charting>
       <app-dyna-card *ngIf="selectedOption == 'Dynacard'"></app-dyna-card>
+      <!-- <app-algorithms-mitigations
+        *ngIf="selectedOption == 'Algorithms Mitigations'"
+      ></app-algorithms-mitigations> -->
       <app-pie-chart *ngIf="selectedOption == 'Charting'"></app-pie-chart>
       <app-events-log *ngIf="selectedOption == 'Event'"></app-events-log>
       <app-alerts-info *ngIf="selectedOption == 'Alerts'"></app-alerts-info>
@@ -64,43 +61,7 @@
         *ngIf="selectedOption == 'Telmetry'"
       ></app-telemetry-control>
 
-      <!-- <app-well-info ></app-well-info> -->
-
-      <!-- <app-dyna-card  ></app-dyna-card> 
-      <app-charting  ></app-charting> -->
     </ion-content>
 
-    <!-- <ion-card
-      style="
-        background: #171a2e;
-        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
-      "
-      *ngFor="let item of [1, 2, 3, 4, 5]; let index"
-    >
-      <ion-card-content>
-        <ion-label
-          text-wrap
-          style="color: #fff; text-overflow: ellipsis; max-lines: 1"
-          >AVG SPM 2.2spm
-        </ion-label>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card
-      style="
-        background: #171a2e;
-        box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
-      "
-    >
-      <ion-card-content>
-        <ion-card-content>
-          <ion-label>Graph will be displayed here</ion-label>
-          <ion-img
-            src="https://docs-demo.ionic.io/assets/madison.jpg"
-            alt="The Wisconsin State Capitol building in Madison, WI at night"
-          ></ion-img>
-        </ion-card-content>
-      </ion-card-content>
-    </ion-card> -->
   </ion-content>
 </ion-content>

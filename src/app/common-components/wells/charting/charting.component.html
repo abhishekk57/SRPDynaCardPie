@@ -8,11 +8,42 @@
       *ngFor="let item of [1, 2, 3, 4, 5]; let index"
     >
       <ion-card-content>
-        <ion-label
+        <!-- <ion-label
           text-wrap
           style="color: #fff; text-overflow: ellipsis; max-lines: 1"
           >AVG SPM 2.2spm
-        </ion-label>
+        </ion-label> -->
+        <div
+          style="
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <p
+            style="
+              font-size: 14px;
+              font-family: 'SLBSans';
+              font-weight: 500;
+              color: #6c7191;
+              padding-right: 5%;
+            "
+          >
+            Pump Filage 
+          </p>
+          <p
+            style="
+              font-size: 16px;
+              font-family: 'SLBSans';
+              font-weight: 700;
+              color: #ebecf2;
+            "
+          >
+            99.5%
+          </p>
+        </div>
       </ion-card-content>
     </ion-card>
 
@@ -25,7 +56,7 @@
       <ion-card-content>
         <ion-item color="#171a2e" scrollable="true">
           <ion-toggle></ion-toggle><br /><br />
-          <ion-label style="color: #fff">SLB</ion-label>
+          <ion-label style="color: #fff">Scatter</ion-label>
           <ion-icon style="color: #fff" name="refresh-outline"></ion-icon>
           <ion-icon
             style="color: #fff"
