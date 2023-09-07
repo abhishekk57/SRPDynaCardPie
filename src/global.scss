@@ -24,11 +24,9 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import '@angular/material';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-// @font-face {
-//   font-family: "SLB Sans";
-//   src: url("../assets/fonts/slbFonts/SLBSans-Regular.ttf");
-// }
 
 @font-face {
   font-family: "SLBSans";
@@ -37,19 +35,8 @@
   src: url("./assets/fonts/SLBSans-Regular.ttf");
 }
 
-@font-face {
-  font-family: "SLBSans";
-  font-weight: normal;
-  font-style: normal;
-  src: url("./assets/fonts/SLBSans-Regular.ttf");
-}
 
-// @font-face {
-//   font-family: "SLBSans";
-//   font-weight: bold;
-//   font-style: bold;
-//   src: url("./assets/fonts/SLBSans-Bold.ttf");
-// }
+
 
 
 
@@ -105,4 +92,300 @@ ion-accordion-group {
       
     }
   }
+}
+
+ion-modal {
+  --background: transparent !important;
+}
+.sc-ion-select-popover-md {
+  --background: #8B90AD !important;
+  --background-focused: #8B90AD !important;
+}
+
+.sc-ion-select-popover-md:host {
+  --min-height: 23px !important;
+  height: 23px !important;
+}
+
+.item-radio-checked .item-lines-default .ion-focused {
+  --background: #8B90AD !important;
+}
+
+.sc-ion-select-popover-md-h ion-list.sc-ion-select-popover-md {
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+
+.select-interface-option {
+  --color: #CCCFDE !important;
+  font-size: 14px !important;
+}
+
+ion-label {
+  font-family: 'SLBSans' !important;
+}
+
+ion-content {
+  background: #FFF !important;
+  --background: #FFF !important;
+}
+
+ion-loading.custom-loading {
+  --background: #fff;
+  --spinner-color: #051464;
+  color: #051464;
+}
+
+ion-toolbar {
+  --background: #051464;
+}
+
+//#06062b // dark
+//#2f2f69 // light dark
+//#474776 // light
+//#eb445a over pump
+// #2dd36f 
+// #e0a41c under pump
+ion-tab-bar {
+  --background: #051464;
+  background: #051464;
+  height: 68px;
+
+  ion-tab-button {
+     color: #FFF;
+  }
+
+  ion-icon {
+     color: #FFF;
+  }
+}
+
+ion-toolbar {
+  color: #FFF;
+}
+
+ion-content {
+  --background: #22263D !important;
+  margin-top: 58px !important;
+}
+
+.highcharts-background {
+  fill: #131629 !important;
+}
+
+.highcharts-axis-title {
+  color: #FFF;
+  fill: #FFF;
+}
+
+.mat-typography {
+  .main-container {
+     background-color: #22263D;
+
+     .container-title {
+        width: 100%;
+        background-color: #000;
+        padding: 10px 0 10px 10px;
+        display: flex;
+        align-items: baseline;
+
+        h1 {
+           color: #fff;
+           margin: 0px;
+           padding-left: 10px;
+           font-size: 20px !important;
+           position: relative;
+        }
+     }
+  }
+}
+
+// filter css start
+.button-type-none {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+// filter css end
+.select-filter-section {
+  margin-top: 18px;
+
+  .select-lbl {
+     font-size: 12px;
+     color: #EBECF2;
+     padding: 4px 0;
+  }
+
+  ::ng-deep {
+     .mat-mdc-form-field {
+        display: block;
+
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+           background-color: #080912E5;
+           border-radius: 10px;
+           // border: 1px solid #8B90ADBF;
+           padding: 8px 12px;
+        }
+
+        .mdc-line-ripple::after,
+        .mdc-line-ripple::before {
+           border-bottom-width: 0 !important;
+        }
+
+        .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+           color: #fff !important;
+        }
+
+        .mat-mdc-select-placeholder {
+           color: #ADB1C7;
+        }
+
+        .mat-mdc-select-arrow {
+           color: #fff;
+        }
+
+        .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+           padding-top: 1px;
+           padding-bottom: 1px;
+           padding-left: 2px;
+        }
+
+        .mat-mdc-form-field-infix {
+           min-height: fit-content;
+        }
+     }
+
+     .checkbox-section p {
+        margin: 0 !important;
+     }
+
+     .mat-mdc-checkbox-touch-target {
+        height: 36px;
+        width: 36px;
+     }
+
+     .mdc-checkbox .mdc-checkbox__background {
+        top: calc((var(--mdc-checkbox-state-layer-size) - 23px) / 2);
+        left: calc((var(--mdc-checkbox-state-layer-size) - 23px) / 2);
+     }
+
+     .mdc-checkbox {
+        height: 12px;
+        flex: 0 0 14px;
+     }
+
+     .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+        border-color: #ADB1C7;
+        background-color: #080912;
+     }
+
+     .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+        border-color: #FABB42;
+        background-color: #3A83FF;
+     }
+
+     .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+        color: #080912;
+     }
+  }
+}
+
+.mat-mdc-form-field {
+  display: block;
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+     background-color: #080912E5;
+     border-radius: 10px;
+     padding: 8px 12px;
+  }
+
+  .mdc-line-ripple::after,
+  .mdc-line-ripple::before {
+     border-bottom-width: 0 !important;
+  }
+
+  .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+     color: #fff !important;
+  }
+
+  .mat-mdc-select-placeholder {
+     color: #ADB1C7;
+  }
+
+  .mat-mdc-select-arrow {
+     color: #fff;
+  }
+
+  .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+     padding-top: 1px;
+     padding-bottom: 1px;
+     padding-left: 2px;
+  }
+
+  .mat-mdc-form-field-infix {
+     min-height: fit-content;
+  }
+}
+
+.select-filter-action-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px 0px;
+
+  .action-btn {
+     font-size: 10px;
+     background-color: #080912;
+     border: 1px solid #6BA7FF;
+     color: #fff;
+     padding: 6px 16px;
+     height: 35px;
+     border-radius: 40px;
+     width: 112px;
+  }
+
+  .active {
+     background-color: #6BA7FF;
+     color: #080912;
+  }
+}
+
+.material-icons {
+  font-family: 'Material Icons' !important;
+}
+
+.mat-drawer-content {
+  margin-left: 15em;
+}
+
+::ng-deep .flex-fill {
+  flex: 1 1 auto !important;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.marginL20 {
+  margin-left: 20px;
+}
+
+/* scrollbar start*/
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.searchbar-search-icon.sc-ion-searchbar-md {
+  color: #FFF !important;
+}
+
+.select-text {
+  margin-left: 15px;
+}
+
+.select-icon {
+  opacity: 0;
 }

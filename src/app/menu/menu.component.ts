@@ -11,15 +11,15 @@ import { IonTabs, Platform } from '@ionic/angular';
 export class MenuComponent implements OnInit {
   @ViewChild('myTabs') tabs!: IonTabs;
   activeTabName: any = 'home';
-  constructor(private faio: FingerprintAIO,private platform:Platform,
+  constructor(private faio: FingerprintAIO, private platform: Platform,
     private router: Router,) { }
 
-  ngOnInit() { 
-   
+  ngOnInit() {
+
     this.platform.ready()
-    .then(()=>{
-      // this.showFingerprintAuthDlg();
-    })
+      .then(() => {
+        // this.showFingerprintAuthDlg();
+      })
   }
 
   navigateTo() {
@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
   }
 
 
-  getSelectedTab(event:any): void {
+  getSelectedTab(event: any): void {
     this.activeTabName = event;
   }
 

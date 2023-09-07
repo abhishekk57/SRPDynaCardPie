@@ -29,151 +29,87 @@ export class WellListPage implements OnInit {
   WMining: any = WMining;
   ADown: any = ADown;
 
-  themeToggle = true;
-  titleData: any = 'Well List';
-  data: any = [];
-  CurrenPageTitle: string = 'Wells';
+  OnClickSearch() {
+    this.isSearch = !this.isSearch;
+  }
+
+  titleData: any = "Well List";
+  data: any = []
+  mWellList: any = []
+  CurrenPageTitle: string = "Wells";
   datetime = 'assets/svg/datetime.svg';
-  displayElement_1 = false;
-  displayElement_2 = false;
-  displayElement_3 = false;
-
-  displayElement_4 = false;
-
-  isItemAvailable = false;
-  itemss: string[] = [];
-
-  @Input() itemsList: string[] = [];
-  serviceTest: any;
-  searchText: any;
-  tempData: any = [];
-  public results: any;
-  typeValue = "";
-  statusValue = "";
+  isSearch: boolean = false;
+  inputValue: string = "";
+  constructor(private router: Router) { }
 
 
-  constructor(
-    private router: Router,
-    private httpService: RestApiService,
-    public dataService: DataService, public pluginService: PluginsService
-  ) { }
-
-  ngOnInit() {
-    // this.httpService.callGet().subscribe(
-    //   (response) => {
-    //     this.data = response;
-    //     console.log('well list response data --------', response);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
-
-    // console.log("well list ",this.pluginService.setPrefStorage('name',"naveeen jenukal"));
-    // console.log("get well list ",this.pluginService.getPrefStorage('name'));
-    // console.log("well list battery status ---",this.pluginService.getBatteryStatus());
-    // console.log("well list network status ---",this.pluginService.getNetworkStatus());
-    // console.log("well list device info status ---",this.pluginService.getDeviceInfo());
-
-    this.generateItems();
-    console.log('data length --', this.data.length, this.data[0].well_name);
-    console.log('temp data -', this.dataService.well_list);
-    this.tempData = this.dataService.well_list;
-    this.results = [...this.tempData];
-    console.log('temp data 11 -', this.tempData);
-    // getInputValue();
-
-
-
-    // Use matchMedia to check the user preference
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-
-    // Initialize the dark theme based on the initial
-    // value of the prefers-color-scheme media query
-    this.initializeDarkTheme(prefersDark.matches);
-
-    // Listen for changes to the prefers-color-scheme media query
-    prefersDark.addEventListener('change', (mediaQuery) => this.initializeDarkTheme(mediaQuery.matches));
-
-
-  }
-  navigateTo(item: any) {
-    console.log(' wells page---', item);
-    this.router.navigateByUrl('/wells/well-detail', {
-      state: item,
-    });
-  }
-
-  getColorStatus(index: any) {
-    if (index === 0) {
-      this.displayElement_1 = true;
-      return '#eb445a';
-    } else if (index === 1) {
-      this.displayElement_2 = true;
-      return '#135d54';
-    } else if (index === 2) {
-      this.displayElement_3 = true;
-      return '#e0a41c';
+  // data which is coming from child compo.
+  getInputValue(event: any) {
+    if (event.length > 0) {
+      this.mWellList = this.data.filter((item: any) => item?.well_name.toLowerCase().includes(event));
     } else {
-      this.displayElement_4 = true;
-      return '#eb445a';
+      this.mWellList = this.data;
     }
   }
 
+
+  ngOnInit() {
+    this.generateItems();
+    // this.showLoading();
+  }
+  async showLoading() {
+    // const loading = await this.loadingCtrl.create({
+    //   message: 'Loading...',
+    //   duration: 3000,
+    //   cssClass: 'custom-loading'
+    // });
+
+    // loading.present();
+    // loading.onDidDismiss()
+    //   .then(() => {
+    //     this.generateItems();
+    //   })
+  }
+  navigateTo(item: any) {
+    this.router.navigateByUrl('/wells/well-detail', {
+      state: item
+    });
+  }
+
+
   private generateItems() {
-    // for (let i = 0; i < 15; i++) {
-    //   let obj = {
-    //     well_name: 'Well Name  ' + i,
-    //     desc: 'Description will be seen here. Description will be seen here.',
-    //     status: 'Status1',
-    //     time: '2023:04:12 07:33:56 AM',
-    //   };
-    //   this.data.push(obj);
-    // }
-    let record: any = [];
     for (let i = 0; i < 3; i++) {
       let obj = {
-        well_name: "Well Name 00" + i + 0,
+        well_name: "Well" + i + 0,
         desc: "Description will be seen here. Description will be seen here.",
         status: 'Over Pumping',
         time: "2023:04:12 07:33:56 AM",
         isDetail: false,
-        pumping: 50
+        pumping:50
       }
       let obj1 = {
-        well_name: "Well Name 00" + i + 1,
+        well_name: "Well" + i + 1,
         desc: "Description will be seen here. Description will be seen here.",
         status: 'Optimum Pumping',
         time: "2023:03:12 06:20:46 AM",
         isDetail: false,
-        pumping: 60
+        pumping:60
       }
       let obj2 = {
-        well_name: "Well Name 00" + i + 2,
+        well_name: "Well" + i + 2,
         desc: "Description will be seen here. Description will be seen here.",
         status: 'Under Pumping',
         time: "2023:07:12 04:19:09 AM",
         isDetail: false,
-        pumping: 70
+        pumping:70
       }
-      record.push(obj);
-      record.push(obj1);
-      record.push(obj2);
-      if (record.length > 0) {
-        this.results = record;
+      this.data.push(obj);
+      this.data.push(obj1);
+      this.data.push(obj2);
+      if (this.data.length > 0) {
+        this.mWellList = this.data;
       }
     }
-  }
-  openDetail(i: any) {
-    const data = this.results.map((it: any, index: any) => {
-      if (i === index) {
-        it.isDetail = !it.isDetail;
-      } else {
-        it.isDetail = false;
-      }
-      return it;
-    });
-    this.results = data;
   }
   onIonInfinite(event: any) {
     this.generateItems();
@@ -182,116 +118,15 @@ export class WellListPage implements OnInit {
     }, 500);
   }
 
-  // getItems(ev: { searchValue: string }) {
-  //   // Reset items back to all of the items
-  //   console.log('getItems');
-  //   debugger;
-  //   this.generateItems();
-  //   // this.initializeItems();
-
-  //   // set val to the value of the searchbar
-
-  //   const val = ev.searchValue;
-  //   // const val = ev.target.val;
-  //   console.log('get child value in', val);
-  //   // if the value is an empty string don't filter the items
-  //   if (val && val.trim() !== '') {
-  //     this.isItemAvailable = true;
-  //     this.itemsList = this.itemsList.filter((item) => {
-  //       return item.toLowerCase().indexOf(val.toLowerCase()) > -1;
-  //     });
-  //   } else {
-  //     this.isItemAvailable = false;
-  //   }
-  // }
-
-  handleInput(event: any) {
-    // debugger;
-    console.log('handleInput =======');
-    const query = event.target.value;
-    this.results = this.tempData.filter(
-      (d: any) => d.toLowerCase().indexOf(query) > -1
-    );
+  openDetail(i: any) {
+    const data = this.mWellList.map((it: any, index: any) => {
+      if (i === index) {
+        it.isDetail = !it.isDetail;
+      } else {
+        it.isDetail = false;
+      }
+      return it;
+    });
+    this.mWellList = data;
   }
-
-  getInputValue(event: any) {
-    console.log('getInputValue --------');
-    // debugger;
-
-    // const query = event.target.value.toLowerCase();
-    // if(query.length > 0)
-    // this.results = this.tempData.filter((d:any) => d.toLowerCase().indexOf(query) > -1);
-
-    if (event.length > 0) {
-      // debugger;
-      this.results = this.tempData.filter((item: any) =>
-        item?.wellName?.toLowerCase().includes(event)
-      );
-    } else {
-      // debugger;
-      this.results = this.tempData;
-      console.log('filter length else --- ', this.results.length);
-    }
-  }
-
-  // Check/uncheck the toggle and update the theme based on isDark
-  initializeDarkTheme(isDark: any) {
-    this.themeToggle = isDark;
-    this.toggleDarkTheme(isDark);
-  }
-
-  // Listen for the toggle check/uncheck to toggle the dark theme
-  toggleChange(ev: any) {
-    this.toggleDarkTheme(ev.detail.checked);
-  }
-
-  // Add or remove the "dark" class on the document body
-  toggleDarkTheme(shouldAdd: any) {
-    document.body.classList.toggle('dark', shouldAdd);
-  }
-
-
-  getTypeValue(event: any) {
-    this.typeValue = event
-    console.log('getTypeValue --------', this.typeValue);
-    // if (event.length > 0) {
-    //   this.results = this.tempData.filter((item: any) =>
-    //     item?.wellName?.toLowerCase().includes(event)
-    //   );
-    // } else {
-    //   this.results = this.tempData;
-    //   console.log('filter length else --- ', this.results.length);
-    // }
-
-
-  }
-
-  getStatusValue(event: any) {
-    this.statusValue = event
-    console.log('getStatusValue --------', event);
-
-    // if (event.length > 0) {
-    //   this.results = this.tempData.filter((item: any) =>
-    //     item?.wellName?.toLowerCase().includes(event)
-    //   );
-    // } else {
-    //   this.results = this.tempData;
-    //   console.log('filter length else --- ', this.results.length);
-    // }
-  }
-
-  getFilteredValue(ev: any) {
-    console.log('getFilteredValue --------', ev);
-
-    if (this.statusValue.length > 0) {
-      this.results = this.tempData.filter((item: any) =>
-        item?.wellName?.toLowerCase().includes(this.statusValue)
-      );
-    } else {
-      this.results = this.tempData;
-      console.log('filter length else --- ', this.results.length);
-    }
-  }
-
-  // Optimum Pumping
 }

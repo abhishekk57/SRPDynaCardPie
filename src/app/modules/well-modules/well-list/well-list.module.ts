@@ -1,13 +1,10 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { WellListPageRoutingModule } from './well-list-routing.module';
-
 import { WellListPage } from './well-list.page';
-import { SharedModule } from 'src/app/SharedModule';
+import { CommonModules } from 'src/app/common-module';
 
 @NgModule({
   imports: [
@@ -15,10 +12,10 @@ import { SharedModule } from 'src/app/SharedModule';
     FormsModule,
     IonicModule,
     WellListPageRoutingModule,
-    SharedModule
+    CommonModules
   ],
   declarations: [WellListPage],
   
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA]
 })
 export class WellListPageModule {}

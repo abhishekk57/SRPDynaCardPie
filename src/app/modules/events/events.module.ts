@@ -8,6 +8,7 @@ import { EventsPageRoutingModule } from './events-routing.module';
 
 import { EventsPage } from './events.page';
 import { SharedModule } from "../../SharedModule";
+import { CommonModules } from "../../common-module";
 
 @NgModule({
     declarations: [EventsPage],
@@ -16,7 +17,8 @@ import { SharedModule } from "../../SharedModule";
         FormsModule,
         IonicModule,
         EventsPageRoutingModule,
-        SharedModule
+        SharedModule,
+        CommonModules
     ]
 })
 export class EventsPageModule {}

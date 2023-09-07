@@ -30,7 +30,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('./modules/well-modules/well-list/well-list.module').then( m => m.WellListPageModule)
+            loadChildren: () => import('./modules/well-modules/well-list/well-list.module').then(m => m.WellListPageModule)
           },
           {
             path: 'well-detail',
@@ -40,7 +40,7 @@ const routes: Routes = [
               ),
           },
         ],
-      },  
+      },
       {
         path: 'alerts',
         loadChildren: () =>
@@ -79,9 +79,9 @@ const routes: Routes = [
       {
         path: 'events',
         // loadChildren: () => import('./modules/customer-admin/customer-admin.module').then( m => m.CustomerAdminPageModule)
-        loadChildren: () => import('./modules/events/events.module').then( m => m.EventsPageModule)
+        loadChildren: () => import('./modules/events/events.module').then(m => m.EventsPageModule)
       },
-      
+
       {
         path: 'more',
         loadChildren: () =>
@@ -89,34 +89,27 @@ const routes: Routes = [
       },
       {
         path: 'customer-admin',
-        loadChildren: () => import('./modules/customer-admin/customer-admin.module').then( m => m.CustomerAdminPageModule)
+        loadChildren: () => import('./modules/customer-admin/customer-admin.module').then(m => m.CustomerAdminPageModule)
       },
     ],
   },
-  // {
-  //   path: 'customer-admin',
-  //   loadChildren: () => import('./modules/customer-admin/customer-admin.module').then( m => m.CustomerAdminPageModule)
-  // },
   {
     path: 'telemetry-filter',
-    loadChildren: () => import('./modules/telemetry-filter/telemetry-filter.module').then( m => m.TelemetryFilterPageModule)
+    loadChildren: () => import('./modules/telemetry-filter/telemetry-filter.module').then(m => m.TelemetryFilterPageModule)
   },
   {
     path: 'well-list',
-    loadChildren: () => import('./modules/well-modules/well-list/well-list.module').then( m => m.WellListPageModule)
+    loadChildren: () => import('./modules/well-modules/well-list/well-list.module').then(m => m.WellListPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./modules/auth-modules/login/login.module').then( m => m.LoginPageModule)
-  },
-
-
-
+    loadChildren: () => import('./modules/auth-modules/login/login.module').then(m => m.LoginPageModule)
+  }
 ];
 
 @NgModule({
-  imports: [SharedModule, IonicModule.forRoot(), RouterModule.forRoot(routes)],
+  imports: [IonicModule.forRoot(), RouterModule.forRoot(routes)],
   exports: [IonicModule, RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

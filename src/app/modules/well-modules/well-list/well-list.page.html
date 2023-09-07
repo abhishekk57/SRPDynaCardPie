@@ -1,12 +1,13 @@
 <app-common-header [title]="CurrenPageTitle"></app-common-header>
 <ion-content [fullscreen]="true">
+
   <div class="header">
-    <app-sub-header [textTitle]="titleData" [arrayList]="data" (searchText)="getInputValue($event) "
-      (type)="getTypeValue($event) " (status)="getStatusValue($event) "
-      (filterButton)="getFilteredValue($event)"></app-sub-header>
+    <app-sub-header (valueChange)="getInputValue($event)" (OnClickSearch)="OnClickSearch()" [isSearch]="isSearch"
+      [textTitle]="titleData"></app-sub-header>
   </div>
+
   <ion-list no-padding no-margin>
-    <ion-item *ngFor="let item of results; let i= index" slot="header" class="con1">
+    <ion-item *ngFor="let item of mWellList; let i= index" slot="header" class="con1">
       <ion-column class="sitem">
 
         <ion-row [ngClass]="item?.isDetail ? 'checked-radius':''" class="innercon">

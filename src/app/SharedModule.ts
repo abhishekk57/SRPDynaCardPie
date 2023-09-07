@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CommonHeaderComponent } from './common-components/common-header/common-header.component';
 import { MenuComponent } from './menu/menu.component';
-import { SubHeaderComponent } from './common-components/sub-header/sub-header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { WellInfoComponent } from './common-components/wells/well-info/well-info.component';
@@ -35,7 +34,6 @@ import { FilterDateComponent } from './common-components/filter-date/filter-date
   declarations: [
     MenuComponent,
     CommonHeaderComponent,
-    SubHeaderComponent,
     WellInfoComponent,
     ChartingComponent,
     DynaCardComponent,
@@ -55,7 +53,6 @@ import { FilterDateComponent } from './common-components/filter-date/filter-date
     MenuComponent,
     FormsModule,
     CommonHeaderComponent,
-    SubHeaderComponent,
     WellInfoComponent,
     ChartingComponent,
     DynaCardComponent,

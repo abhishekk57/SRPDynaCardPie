@@ -12,11 +12,13 @@ import { FingerprintAIO } from '@awesome-cordova-plugins/fingerprint-aio/ngx';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { HighchartsChartModule } from 'highcharts-angular';
 
-import { HttpClientModule } from  '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModules } from './common-module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SharedModule,HighchartsChartModule,HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SharedModule, HighchartsChartModule, HttpClientModule,
+    CommonModules],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, StatusBar, FingerprintAIO,
     SplashScreen],
   bootstrap: [AppComponent],

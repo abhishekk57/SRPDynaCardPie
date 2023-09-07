@@ -8,6 +8,7 @@ import { AlertsPageRoutingModule } from './alerts-routing.module';
 
 import { AlertsPage } from './alerts.page';
 import { SharedModule } from "../../SharedModule";
+import { CommonModules } from "../../common-module";
 
 @NgModule({
     declarations: [AlertsPage],
@@ -16,7 +17,8 @@ import { SharedModule } from "../../SharedModule";
         FormsModule,
         IonicModule,
         AlertsPageRoutingModule,
-        SharedModule
+        SharedModule,
+        CommonModules
     ]
 })
 export class AlertsPageModule {}
