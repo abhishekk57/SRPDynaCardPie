@@ -7,7 +7,7 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { DataService } from 'src/app/api/data.service';
 import { RestApiService } from 'src/app/api/restApi.service';
 import { PluginsService } from 'src/app/pluginServices/plugins.service';
-import { Wswatch, Rswatch, Yswatch, Gswatch, ArrowUp, Mining, WifiOffline, WWifiOffline, WMining, ADown,ArrowDown } from '../../../assets/index';
+import { Wswatch, Rswatch, Yswatch, Gswatch, ArrowUp, Mining, WifiOffline, WWifiOffline, WMining, ADown,ArrowDown } from '../../../../assets/index';
 
 @Component({
   selector: 'app-well-list',
