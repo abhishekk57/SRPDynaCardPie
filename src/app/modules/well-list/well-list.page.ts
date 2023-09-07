@@ -7,16 +7,28 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { DataService } from 'src/app/api/data.service';
 import { RestApiService } from 'src/app/api/restApi.service';
 import { PluginsService } from 'src/app/pluginServices/plugins.service';
-
+import { Wswatch, Rswatch, Yswatch, Gswatch, ArrowUp, Mining, WifiOffline, WWifiOffline, WMining, ADown,ArrowDown } from '../../../assets/index';
 
 @Component({
-    selector: 'app-well-list',
-    templateUrl: './well-list.page.html',
-    styleUrls: ['./well-list.page.scss'], 
-  })
+  selector: 'app-well-list',
+  templateUrl: './well-list.page.html',
+  styleUrls: ['./well-list.page.scss'],
+})
 
 export class WellListPage implements OnInit {
-  
+
+  Wswatch: any = Wswatch;
+  Rswatch: any = Rswatch;
+  Yswatch: any = Yswatch;
+  Gswatch: any = Gswatch;
+  ArrowUp: any = ArrowUp;
+  ArrowDown: any = ArrowDown;
+  Mining = Mining;
+  WifiOffline: any = WifiOffline;
+  WWifiOffline: any = WWifiOffline;
+  WMining: any = WMining;
+  ADown: any = ADown;
+
   themeToggle = true;
   titleData: any = 'Well List';
   data: any = [];
@@ -43,8 +55,8 @@ export class WellListPage implements OnInit {
   constructor(
     private router: Router,
     private httpService: RestApiService,
-    public dataService: DataService,public pluginService:PluginsService
-  ) {}
+    public dataService: DataService, public pluginService: PluginsService
+  ) { }
 
   ngOnInit() {
     // this.httpService.callGet().subscribe(
@@ -57,11 +69,11 @@ export class WellListPage implements OnInit {
     //   }
     // );
 
-// console.log("well list ",this.pluginService.setPrefStorage('name',"naveeen jenukal"));
-// console.log("get well list ",this.pluginService.getPrefStorage('name'));
-// console.log("well list battery status ---",this.pluginService.getBatteryStatus());
-// console.log("well list network status ---",this.pluginService.getNetworkStatus());
-// console.log("well list device info status ---",this.pluginService.getDeviceInfo());
+    // console.log("well list ",this.pluginService.setPrefStorage('name',"naveeen jenukal"));
+    // console.log("get well list ",this.pluginService.getPrefStorage('name'));
+    // console.log("well list battery status ---",this.pluginService.getBatteryStatus());
+    // console.log("well list network status ---",this.pluginService.getNetworkStatus());
+    // console.log("well list device info status ---",this.pluginService.getDeviceInfo());
 
     this.generateItems();
     console.log('data length --', this.data.length, this.data[0].well_name);
@@ -71,8 +83,8 @@ export class WellListPage implements OnInit {
     console.log('temp data 11 -', this.tempData);
     // getInputValue();
 
-    
-    
+
+
     // Use matchMedia to check the user preference
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -82,8 +94,8 @@ export class WellListPage implements OnInit {
 
     // Listen for changes to the prefers-color-scheme media query
     prefersDark.addEventListener('change', (mediaQuery) => this.initializeDarkTheme(mediaQuery.matches));
-  
-  
+
+
   }
   navigateTo(item: any) {
     console.log(' wells page---', item);
@@ -109,17 +121,60 @@ export class WellListPage implements OnInit {
   }
 
   private generateItems() {
-    for (let i = 0; i < 15; i++) {
+    // for (let i = 0; i < 15; i++) {
+    //   let obj = {
+    //     well_name: 'Well Name  ' + i,
+    //     desc: 'Description will be seen here. Description will be seen here.',
+    //     status: 'Status1',
+    //     time: '2023:04:12 07:33:56 AM',
+    //   };
+    //   this.data.push(obj);
+    // }
+    let record: any = [];
+    for (let i = 0; i < 3; i++) {
       let obj = {
-        well_name: 'Well Name  ' + i,
-        desc: 'Description will be seen here. Description will be seen here.',
-        status: 'Status1',
-        time: '2023:04:12 07:33:56 AM',
-      };
-      this.data.push(obj);
+        well_name: "Well Name 00" + i + 0,
+        desc: "Description will be seen here. Description will be seen here.",
+        status: 'Over Pumping',
+        time: "2023:04:12 07:33:56 AM",
+        isDetail: false,
+        pumping: 50
+      }
+      let obj1 = {
+        well_name: "Well Name 00" + i + 1,
+        desc: "Description will be seen here. Description will be seen here.",
+        status: 'Optimum Pumping',
+        time: "2023:03:12 06:20:46 AM",
+        isDetail: false,
+        pumping: 60
+      }
+      let obj2 = {
+        well_name: "Well Name 00" + i + 2,
+        desc: "Description will be seen here. Description will be seen here.",
+        status: 'Under Pumping',
+        time: "2023:07:12 04:19:09 AM",
+        isDetail: false,
+        pumping: 70
+      }
+      record.push(obj);
+      record.push(obj1);
+      record.push(obj2);
+      if (record.length > 0) {
+        this.results = record;
+      }
     }
   }
-
+  openDetail(i: any) {
+    const data = this.results.map((it: any, index: any) => {
+      if (i === index) {
+        it.isDetail = !it.isDetail;
+      } else {
+        it.isDetail = false;
+      }
+      return it;
+    });
+    this.results = data;
+  }
   onIonInfinite(event: any) {
     this.generateItems();
     setTimeout(() => {
@@ -178,27 +233,27 @@ export class WellListPage implements OnInit {
       console.log('filter length else --- ', this.results.length);
     }
   }
-  
+
   // Check/uncheck the toggle and update the theme based on isDark
-  initializeDarkTheme(isDark:any) {
+  initializeDarkTheme(isDark: any) {
     this.themeToggle = isDark;
     this.toggleDarkTheme(isDark);
   }
 
   // Listen for the toggle check/uncheck to toggle the dark theme
-  toggleChange(ev:any) {
+  toggleChange(ev: any) {
     this.toggleDarkTheme(ev.detail.checked);
   }
 
   // Add or remove the "dark" class on the document body
-  toggleDarkTheme(shouldAdd:any) {
+  toggleDarkTheme(shouldAdd: any) {
     document.body.classList.toggle('dark', shouldAdd);
   }
 
 
   getTypeValue(event: any) {
-    this.typeValue = event    
-    console.log('getTypeValue --------',this.typeValue);
+    this.typeValue = event
+    console.log('getTypeValue --------', this.typeValue);
     // if (event.length > 0) {
     //   this.results = this.tempData.filter((item: any) =>
     //     item?.wellName?.toLowerCase().includes(event)
@@ -212,9 +267,9 @@ export class WellListPage implements OnInit {
   }
 
   getStatusValue(event: any) {
-    this.statusValue = event    
-    console.log('getStatusValue --------',event);
-    
+    this.statusValue = event
+    console.log('getStatusValue --------', event);
+
     // if (event.length > 0) {
     //   this.results = this.tempData.filter((item: any) =>
     //     item?.wellName?.toLowerCase().includes(event)
@@ -225,8 +280,8 @@ export class WellListPage implements OnInit {
     // }
   }
 
-  getFilteredValue(ev:any) {
-    console.log('getFilteredValue --------',ev);
+  getFilteredValue(ev: any) {
+    console.log('getFilteredValue --------', ev);
 
     if (this.statusValue.length > 0) {
       this.results = this.tempData.filter((item: any) =>

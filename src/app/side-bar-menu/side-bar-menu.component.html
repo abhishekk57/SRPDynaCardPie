@@ -1,11 +1,12 @@
 <ion-menu contentId="main-content">
   <ion-content>
     <ion-row class="menu-content-item" size="12">
-      <ion-label (click)="navigateToHome()">DashBoard</ion-label>
-    </ion-row>
-    <ion-row class="menu-content-item" size="12">
       <ion-label (click)="navigateToWells()">Well List</ion-label>
     </ion-row>
+    <ion-row class="menu-content-item" size="12">
+      <ion-label (click)="navigateToHome()">DashBoard</ion-label>
+    </ion-row>
+   
     <ion-row class="menu-content-item" size="12">
       <ion-label (click)="navigateToAlerts()">Alerts</ion-label>
     </ion-row>
@@ -104,14 +105,7 @@
   <!-- <ion-content class="ion-padding"> DashBoard Wells Charts </ion-content> -->
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button (click)="getSelectedTab('home')" tab="home">
-        <div *ngIf="activeTabName == 'home'" class="topbar"></div>
-        <ion-img
-          class="dashboard-icon"
-          src="../../assets/icon/dashboardtab.png"
-          alt=""
-        ></ion-img>
-      </ion-tab-button>
+
       <ion-tab-button (click)="getSelectedTab('wells')" tab="wells">
         <div *ngIf="activeTabName == 'wells'" class="topbar"></div>
         <ion-img
@@ -120,6 +114,16 @@
           alt=""
         ></ion-img>
       </ion-tab-button>
+      
+      <ion-tab-button (click)="getSelectedTab('home')" tab="home">
+        <div *ngIf="activeTabName == 'home'" class="topbar"></div>
+        <ion-img
+          class="dashboard-icon"
+          src="../../assets/icon/dashboardtab.png"
+          alt=""
+        ></ion-img>
+      </ion-tab-button>
+   
       <ion-tab-button (click)="getSelectedTab('alerts')" tab="alerts">
         <div *ngIf="activeTabName == 'alerts'" class="topbar"></div>
         <ion-img

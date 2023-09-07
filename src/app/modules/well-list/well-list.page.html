@@ -1,492 +1,100 @@
 <app-common-header [title]="CurrenPageTitle"></app-common-header>
-
 <ion-content [fullscreen]="true">
   <div class="header">
-    <app-sub-header
-      [textTitle]="titleData"
-      [arrayList]="data"
-      (searchText)="getInputValue($event) "
-      (type)="getTypeValue($event) "
-      (status)="getStatusValue($event) "
-      (filterButton)="getFilteredValue($event)"
-    ></app-sub-header>
+    <app-sub-header [textTitle]="titleData" [arrayList]="data" (searchText)="getInputValue($event) "
+      (type)="getTypeValue($event) " (status)="getStatusValue($event) "
+      (filterButton)="getFilteredValue($event)"></app-sub-header>
   </div>
-  <ion-toggle
-    [(ngModel)]="themeToggle"
-    (ionChange)="toggleChange($event)"
-    justify="space-between"
-    >Dark Mode</ion-toggle
-  >
+  <ion-list no-padding no-margin>
+    <ion-item *ngFor="let item of results; let i= index" slot="header" class="con1">
+      <ion-column class="sitem">
 
-  <!-- <app-text-input></app-text-input> -->
-  <!-- <app-loader></app-loader> -->
+        <ion-row [ngClass]="item?.isDetail ? 'checked-radius':''" class="innercon">
+          <ion-column *ngIf="!item?.isDetail" class="container1"
+            [ngClass]="item?.status =='Over Pumping' ? 'ritem-checked':( item?.status == 'Optimum Pumping' ?'gitem-checked':'yitem-checked')">
+            <ion-row class="c1">
+              <p class="ptitle"
+                [ngClass]="item?.status =='Over Pumping' ? 'pred':( item?.status == 'Optimum Pumping' ?'pgreen':'pyellow')">
+                {{item?.well_name}}</p>
+              <ion-icon *ngIf="item?.status =='Over Pumping'" [src]="Rswatch"></ion-icon>
+              <ion-icon *ngIf="item?.status =='Under Pumping'" [src]="Yswatch"></ion-icon>
+              <ion-icon *ngIf="item?.status =='Optimum Pumping'" [src]="Gswatch"></ion-icon>
+              <span class="sptitle"
+                [ngClass]="item?.status =='Over Pumping' ? 'pred':( item?.status == 'Optimum Pumping' ?'pgreen':'pyellow')">{{item?.status}}
+                (PF 90%)</span>
+            </ion-row>
+            <ion-row class="c2">
+              <p class="p1">{{item?.time}}</p>
+              <ion-icon *ngIf="item?.status =='Over Pumping'" [src]="WifiOffline"></ion-icon>
+              <ion-icon *ngIf="item?.status !='Over Pumping'" [src]="WWifiOffline"></ion-icon>
+              <ion-icon *ngIf="item?.status =='Over Pumping'" [src]="Mining"></ion-icon>
+              <ion-icon *ngIf="item?.status !='Over Pumping'" [src]="WMining"></ion-icon>
+            </ion-row>
+          </ion-column>
+          <ion-column *ngIf="item?.isDetail" class="container1 checked-item">
+            <ion-row class="c1">
+              <p class="ptitle" style="color: #FFF !important;">{{item?.well_name}}</p>
+              <ion-icon [src]="Wswatch"></ion-icon>
+              <span class="sptitle" style="color: #FFF !important;">{{item?.status}} (PF 90%)</span>
+            </ion-row>
+            <ion-row class="c2">
+              <p class="p1">{{item?.time}}</p>
+              <ion-icon [src]="WWifiOffline"></ion-icon>
+              <ion-icon style="margin-left: 10px;" [src]="WMining"></ion-icon>
+            </ion-row>
+          </ion-column>
+          <ion-icon *ngIf="!item?.isDetail" (click)="openDetail(i)" [src]="ArrowUp"></ion-icon>
+          <ion-icon *ngIf="item?.isDetail" (click)="openDetail(i)" [src]="ADown"></ion-icon>
+        </ion-row>
 
-  <!-- <ion-button id="open-loading">Show Loading</ion-button>
-  <ion-loading
-  class="custom-loading"
-  trigger="open-loading"
-  message="Loading..."
-  [duration]="3000"
-></ion-loading>  -->
-
-  <ion-content>
-    <ion-accordion-group [multiple]="true">
-      <ion-accordion
-        [ngClass]=" themeToggle ? 'item-background-color_dark':'item-background-color_light' "
-        *ngFor="let item of results; let i= index"
-      >
-        <ion-item
-          slot="header"
-          [ngClass]="  i == 0 ? 'expleft_optimum_pump':( i==1 ?'expleft_overpump':'expleft_under_pump ')"
-        >
-          <!-- <div>
-          <div style="flex : 1;flex-direction: row; display: flex;">
-            <p>well name</p>
-            <p>dot</p>
-            <p>status</p>
-          </div>
-          <div style="flex : 1;flex-direction: row;  display: flex;">
-            <p>date</p>
-            <p>wifi</p>
-            <p>well img</p>
-          </div>
-        </div> -->
-
-          <!-- <div>
-          <div style="flex : 1;flex-direction: row; display: flex;">
-            <div style ="width: 40%;">
-            <p
-              [ngClass]="i == 0 ? 'optimum_pump_label_color':( i==1 ?'over_pump_label_color': themeToggle ?'under_pump_label_color_dark':'under_pump_label_color')"
-            >
-              {{item?.wellName}}
-            </p>
-          </div>
-          <div style ="width: 5%;">
-            <p
-            [ngClass]="i == 0 ? 'optimum_pump':( i==1 ?'over_pump':'under_pump')"
-          ></p>
-          </div>
-
-          <div
-          [ngClass]="i == 0 ? 'optimum_pump_label_status':( i==1 ?'over_pump_label_status':'under_pump_label_status')"
-        >
-          <p *ngIf="i == 0">Optimum Pumping(PF 90%)</p>
-
-          <p *ngIf="i == 1">Over Pumping (PF 70%)</p>
-
-          <p *ngIf="i != 1 && i != 0">Under Pumping(PF 30%)</p>
-        </div>
-          </div>
-          
-
-          <div style="flex : 1;flex-direction: row;  display: flex;">
-            <p
-            style="
-              color: #7f8590;
-              font-size: 12px;
-              font-weight: 500;
-              font-family: 'SLBSans' !important;
-            "
-          >
-            {{item?.dateTime}}
-          </p>
-          <div style="padding-left: 3%; padding-right: 3%">
-           
-            <ion-img
-              *ngIf=" i == 1; else wifired "
-              src="../../../assets/icon/wifi_red.png"
-              alt=""
-            ></ion-img>
-            <ng-template #wifired>
-              <ion-img
-                *ngIf="themeToggle == true"
-                src="../../../assets/icon/wifi.png"
-                alt=""
-              ></ion-img>
-
-              <ion-img
-                *ngIf="themeToggle == false"
-                src="../../../assets/icon/wifi_light.png"
-                alt=""
-              ></ion-img>
-            </ng-template>
-          </div>
-          <div>
-          <ion-img
-          *ngIf=" i == 0; "
-          style="height: 20px; width: 20px"
-          src="../../../assets/icon/well_green.png"
-          alt=""
-        ></ion-img>
-
-        <ion-img
-          *ngIf=" i == 1; else welloverflow "
-          style="height: 20px; width: 20px"
-          src="../../../assets/icon/well_red.png"
-          alt=""
-        ></ion-img>
-
-        <ng-template #welloverflow>
-          <ion-img
-            *ngIf="i != 0 && themeToggle == true"
-            style="height: 20px; width: 20px"
-            src="../../../assets/icon/well.png"
-            alt=""
-          ></ion-img>
-          <ion-img
-            *ngIf=" i != 0 &&  themeToggle == false"
-            style="height: 20px; width: 20px"
-            src="../../../assets/icon/well_black.png"
-            alt=""
-          ></ion-img>
-        </ng-template>
-      </div>
-          </div>
-        </div> -->
-
-          <div>
-            <p
-              [ngClass]="i == 0 ? 'optimum_pump_label_color':( i==1 ?'over_pump_label_color': themeToggle ?'under_pump_label_color_dark':'under_pump_label_color')"
-            >
-              {{item?.wellName}}
-            </p>
-            <p
-              style="
-                color: #7f8590;
-                font-size: 11px;
-                font-weight: 500;
-                font-family: 'SLBSans' !important;
-              "
-            >
-              {{item?.dateTime}}
-            </p>
-          </div>
-
-          <div style="padding-left: 3%; padding-right: 3%">
-            <p
-              [ngClass]="i == 0 ? 'optimum_pump':( i==1 ?'over_pump':'under_pump')"
-            ></p>
-            <ion-img
-              *ngIf=" i == 1; else wifired "
-              src="../../../assets/icon/wifi_red.png"
-              alt=""
-            ></ion-img>
-            <ng-template #wifired>
-              <ion-img
-                *ngIf="themeToggle == true"
-                src="../../../assets/icon/wifi.png"
-                alt=""
-              ></ion-img>
-
-              <ion-img
-                *ngIf="themeToggle == false"
-                src="../../../assets/icon/wifi_light.png"
-                alt=""
-              ></ion-img>
-            </ng-template>
-          </div>
-
-          <div>
-            <div
-              [ngClass]="i == 0 ? 'optimum_pump_label_status':( i==1 ?'over_pump_label_status':'under_pump_label_status')"
-            >
-              <p *ngIf="i == 0">Optimum Pumping(PF 90%)</p>
-
-              <p *ngIf="i == 1">Over Pumping (PF 70%)</p>
-
-              <p *ngIf="i != 1 && i != 0">Under Pumping(PF 30%)</p>
-            </div>
-
-            <ion-img
-              *ngIf=" i == 0; "
-              style="height: 20px; width: 20px"
-              src="../../../assets/icon/well_green.png"
-              alt=""
-            ></ion-img>
-
-            <ion-img
-              *ngIf=" i == 1; else welloverflow "
-              style="height: 20px; width: 20px"
-              src="../../../assets/icon/well_red.png"
-              alt=""
-            ></ion-img>
-
-            <ng-template #welloverflow>
-              <ion-img
-                *ngIf="i != 0 && themeToggle == true"
-                style="height: 20px; width: 20px"
-                src="../../../assets/icon/well.png"
-                alt=""
-              ></ion-img>
-              <ion-img
-                *ngIf=" i != 0 &&  themeToggle == false"
-                style="height: 20px; width: 20px"
-                src="../../../assets/icon/well_black.png"
-                alt=""
-              ></ion-img>
-            </ng-template>
-          </div>
+        <ion-item *ngIf="item?.isDetail" class="checked-container">
+          <ion-row class="c1">
+            <ion-column class="c11">
+              <ion-row class="c21">
+                <p>SPM </p>
+                <span>50</span>
+              </ion-row>
+              <ion-row class="c21">
+                <p>Effective Runtime (%)</p>
+                <span>20%</span>
+              </ion-row>
+              <ion-row class="c21">
+                <p>Min/Max Load (%)</p>
+                <span>23.5%</span>
+              </ion-row>
+            </ion-column>
+            <ion-column class="c12">
+              <ion-row class="c22">
+                <p>Pump Fillage</p>
+                <span>50%</span>
+              </ion-row>
+              <ion-row class="c22">
+                <p>Cycles Today</p>
+                <span>20%</span>
+              </ion-row>
+              <ion-row class="c22">
+                <p>Gearbox Load (%)</p>
+                <span>23.8%</span>
+              </ion-row>
+            </ion-column>
+            <ion-column class="c13">
+              <ion-row class="c33">
+                <p>Inferred Production (bpd) </p>
+                <span>50</span>
+              </ion-row>
+              <ion-row class="c33">
+                <p>Structural Load</p>
+                <span>50</span>
+              </ion-row>
+              <ion-row class="c33">
+                <p>Rod Stress (%)</p>
+                <span>50</span>
+              </ion-row>
+            </ion-column>
+          </ion-row>
         </ion-item>
-        <div slot="content">
-          <div
-            [ngClass]=" themeToggle ? 'dropdownitem_dark':'dropdownitem_light' "
-          >
-            <div
-              style="
-                width: 100%;
-                display: inline-flex;
-                flex: 1;
-                flex-direction: row;
-                border-radius: 10px;
-                margin-left: 5%;
-                margin-top: -2%;
-              "
-            >
-              <div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    height: auto;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p
-                    [ngClass]=" themeToggle ? 'spmLabel_dark':'spmLabel_light' "
-                  >
-                    SPM
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    height: auto;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p
-                    [ngClass]=" themeToggle ? 'effectiveRunTime_dark':'effectiveRunTime_light' "
-                  >
-                    Effective Runtime(%)
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    height: auto;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p [ngClass]=" themeToggle ? 'minMax_dark':'minMax_light' ">
-                    Min/Max load(%)
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-              </div>
 
-              <div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p
-                    [ngClass]=" themeToggle ? 'pumpfilling_dark':'pumpfilling_light' "
-                  >
-                    Pumping Fillage
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p
-                    [ngClass]=" themeToggle ? 'cyclesToday_dark':'cyclesToday_light' "
-                  >
-                    Cycles Today
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p [ngClass]=" themeToggle ? 'gearbox_dark':'gearbox_light' ">
-                    Gearbox Load(%)
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p
-                    [ngClass]=" themeToggle ? 'inferredproduction_dark':'inferredproduction_light' "
-                  >
-                    Inferred Production(bpd)
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p
-                    [ngClass]=" themeToggle ? 'structuralLoad_dark':'structuralLoad_light' "
-                  >
-                    Structural Load
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-                <div
-                  style="
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    margin-bottom: -20%;
-                  "
-                >
-                  <p
-                    [ngClass]=" themeToggle ? 'rodStress_dark':'rodStress_light' "
-                  >
-                    Rod Stress(%)
-                  </p>
-                  <p
-                    style="
-                      margin-top: 30%;
-                      color: #7f8590;
-                      font-family: 'SLBSans' !important;
-                      font-weight: 500;
-                      font-size: 14px;
-                      margin-right: 7%;
-                    "
-                  >
-                    50%
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ion-accordion>
-    </ion-accordion-group>
-  </ion-content>
+      </ion-column>
+    </ion-item>
+  </ion-list>
 </ion-content>

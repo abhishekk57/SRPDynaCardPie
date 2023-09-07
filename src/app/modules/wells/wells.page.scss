@@ -16,6 +16,12 @@ ion-col {
   background: #2f2f69;
   height: 100%;
 
+  .itemcontainer {
+    background: #131629;
+    box-shadow: 0.2px 0px 1px 2px #989aa2, 0 1px 0px 0 #989aa2;
+    margin-bottom: 0%;
+  }
+
   .content_cont {
     height: 100%;
     width: 100%;
@@ -71,6 +77,7 @@ ion-col {
                 align-items: flex-end;
                 justify-content: space-around;
                 word-spacing: 5px;
+
                 .font-size-16 {
                   font-size: 16px;
                 }
